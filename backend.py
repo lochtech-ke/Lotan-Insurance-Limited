@@ -123,6 +123,8 @@ class APRequestHandler(http.server.SimpleHTTPRequestHandler):
 
 if __name__ == '__main__':
     init_db()
-    with socketserver.TCPServer(("", PORT), APRequestHandler) as httpd:
+    class ReusableTCPServer(socketserver.TCPServer):
+        allow_reuse_address = True
+    with ReusableTCPServer(("", PORT), APRequestHandler) as httpd:
         print(f"Robust Backend Serving at http://localhost:{PORT}")
         httpd.serve_forever()
