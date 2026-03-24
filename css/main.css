@@ -92,6 +92,7 @@ nav {
   letter-spacing: -0.5px;
   background: linear-gradient(90deg, #fff, var(--text-muted));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: flex;
   align-items: center;
@@ -186,6 +187,7 @@ section {
   margin-bottom: 2rem;
   background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 600;
   letter-spacing: -0.5px;
@@ -618,17 +620,73 @@ tbody tr:hover {
   text-align: center;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* --- ADVANCED ANIMATIONS --- */
+.reveal {
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
+  will-change: transform, opacity;
+}
+.reveal.active {
+  opacity: 1;
 }
 
-.animate {
-  animation: fadeIn 0.8s ease forwards;
+.reveal-up { transform: translateY(40px); }
+.reveal-up.active { transform: translateY(0); }
+
+.reveal-down { transform: translateY(-40px); }
+.reveal-down.active { transform: translateY(0); }
+
+.reveal-left { transform: translateX(-50px); }
+.reveal-left.active { transform: translateX(0); }
+
+.reveal-right { transform: translateX(50px); }
+.reveal-right.active { transform: translateX(0); }
+
+.delay-1 { transition-delay: 0.15s; }
+.delay-2 { transition-delay: 0.3s; }
+.delay-3 { transition-delay: 0.45s; }
+.delay-4 { transition-delay: 0.6s; }
+.delay-5 { transition-delay: 0.75s; }
+
+/* Hover states for interactive elements */
+.glass-panel, .stat-box, .pillar-card, .cred-card, .feature-card, .product-card, .scenario-card {
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-/* Responsive */
+.glass-panel:hover, .product-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 15px rgba(212,175,55,0.1);
+}
+
+.stat-box:hover, .pillar-card:hover, .cred-card:hover, .feature-card:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+/* Button & Icon Micro-animations */
+@keyframes pulse-gold {
+  0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+}
+
+.btn-primary:hover {
+  animation: pulse-gold 2s infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Responsive Overrides */
 @media (max-width: 1024px) {
   .hero-title { font-size: 4rem; }
   .contact-container { grid-template-columns: 1fr; }
@@ -642,4 +700,5 @@ tbody tr:hover {
   .form-row { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .hero-title { font-size: 3rem; }
+  .reveal { transition: all 0.6s ease; } /* Faster on mobile */
 }

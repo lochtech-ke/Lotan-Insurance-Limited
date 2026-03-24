@@ -74,7 +74,24 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Admin Portal Logic
+    // 4. Scroll Animation Observer
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+                // Optional: revealObserver.unobserve(entry.target); // Uncomment to animate only once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // 5. Admin Portal Logic
     const adminTableBody = document.getElementById("admin-table-body");
     if (adminTableBody) {
         loadLeads();
