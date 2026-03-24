@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products - Lotan Insurance</title>
-    <meta name="description" content="Explore Lotan Insurance's four core capital unlocking instruments.">
+    <meta name="description" content="Explore Lotan Insurance's capital unlocking instruments and technical policy frameworks.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,30 +15,54 @@
             background: linear-gradient(180deg, rgba(3,7,18,0.9) 0%, rgba(3,7,18,0) 100%);
         }
         .page-title {
-            font-size: 4rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
             background: linear-gradient(180deg, #d4af37 0%, #a68b20 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .content-section {
             padding: 2rem 5% 6rem;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); gap: 3rem; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        
         .product-card {
             border-top: 3px solid var(--primary);
             padding: 3rem;
+            background: rgba(3,7,18,0.7);
+            border-radius: 12px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
         }
         .policy-section {
             background: rgba(3,7,18,0.8);
             border: 1px solid var(--border-color);
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: 16px;
-            margin-top: 3rem;
+            margin-top: 5rem;
         }
         ul.custom-list { list-style: none; padding-left: 0; }
-        ul.custom-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.75rem; color: var(--text-muted); }
+        ul.custom-list li { position: relative; padding-left: 2rem; margin-bottom: 1rem; color: var(--text-muted); line-height: 1.6; }
         ul.custom-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
+        
+        .scenario-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+        }
+        h3.product-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .text-prime { color: var(--primary); }
+        .badge { display: inline-block; padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; background: rgba(212, 175, 55, 0.1); color: var(--primary); margin-bottom: 1rem; border: 1px solid var(--primary); }
     </style>
 </head>
 <body>
@@ -59,125 +83,181 @@
 
     <header class="page-header">
         <h1 class="page-title animate">Capital Unlocking Instruments</h1>
-        <p class="hero-desc animate" style="margin: 0 auto; animation-delay: 0.2s;">Transforming Risk into Institutional-Grade Assets</p>
+        <p class="hero-desc animate" style="margin: 0 auto; animation-delay: 0.2s; max-width: 800px;">Financial Solutions for Growth. By addressing underlying risk profiles that impede growth, we act as financial architects who help you unlock lending capacity, reduce capital costs, and optimize balance sheet efficiency.</p>
     </header>
 
     <section class="content-section">
-        
-        <!-- Reinsurance -->
-        <div class="glass-panel" style="padding: 4rem; text-align: center; margin-bottom: 5rem;">
-            <h2 style="color: #fff; margin-bottom: 1.5rem; font-size: 2.5rem;">The Reinsurance Engine</h2>
-            <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">Reinsurance serves as the critical mechanism that empowers us to underwrite substantially larger risks, unlocking significant capital that drives growth and development across East Africa.</p>
-            <div class="grid-2" style="text-align: left; margin-top: 3rem;">
-                <div class="glass-panel" style="padding: 2.5rem; border-top: 3px solid var(--primary);">
-                    <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-earth-americas" style="color: var(--primary);"></i> Tier-1 Global Reinsurers</h3>
-                    <p style="color: var(--text-muted);">Lloyd's of London syndicates, Munich Re, Swiss Re, Berkshire Hathaway Re. Provides unlimited capacity for most risks and access to the world's largest capital pools.</p>
+
+        <!-- Reinsurance Engine -->
+        <div class="glass-panel" style="padding: 4rem; margin-bottom: 5rem; border-top: 4px solid var(--primary);">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <span class="badge">Global Capital Connectors</span>
+                <h2 style="color: #fff; font-size: 2.5rem; margin-bottom: 1rem;">The Reinsurance Engine</h2>
+                <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; font-size: 1.1rem;">Reinsurance serves as the critical mechanism that empowers us to underwrite substantially larger risks, unlocking significant capital for East Africa. We bridge the gap between regional potential and global trillions.</p>
+            </div>
+            
+            <div class="grid-3" style="margin-bottom: 3rem;">
+                <div class="scenario-card">
+                    <h4 class="text-prime" style="margin-bottom: 1rem;"><i class="fa-solid fa-earth-americas"></i> Tier-1 Global Capacity</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Relationships with Lloyd's of London syndicates, Munich Re, Swiss Re, and Berkshire Hathaway Re allow unlimited capacity and access to the world's largest capital pools.</p>
                 </div>
-                <div class="glass-panel" style="padding: 2.5rem; border-top: 3px solid var(--accent);">
-                    <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i> Dedicated Specializations</h3>
-                    <p style="color: var(--text-muted);">African regional reinsurers and specialized underwriters backing project finance, trade credit risk, and political risk structures tailored to regional realities.</p>
+                <div class="scenario-card">
+                    <h4 class="text-prime" style="margin-bottom: 1rem;"><i class="fa-solid fa-scale-balanced"></i> Market Standards</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Our solutions are backed by internationally-recognized reinsurers, ensuring projects meet rigorous World Bank, IFC, and global commercial bank benchmarks.</p>
+                </div>
+                <div class="scenario-card">
+                    <h4 class="text-prime" style="margin-bottom: 1rem;"><i class="fa-solid fa-chart-line"></i> Competitive Pricing</h4>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Access to global markets creates competitive tension across our panel of underwriters, ensuring optimal pricing and capital efficiency.</p>
+                </div>
+            </div>
+
+            <h3 style="color: #fff; margin-bottom: 1.5rem; text-align: center;">Real-World Capital Unlocking Scenarios</h3>
+            <div class="grid-2">
+                <div class="scenario-card" style="border-left: 3px solid #8b5cf6;">
+                    <h5 style="color: #fff; margin-bottom: 0.5rem;">Large Infrastructure Project</h5>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;"><strong>Challenge:</strong> Local insurer capacity insufficient for a $50M project bond.<br><strong>Lotan Solution:</strong> Reinsurance access enables a full $50M performance bond, unlocking project capital and meeting international standards.</p>
+                </div>
+                <div class="scenario-card" style="border-left: 3px solid #ef4444;">
+                    <h5 style="color: #fff; margin-bottom: 0.5rem;">Multinational Bank Expansion</h5>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;"><strong>Challenge:</strong> High capital reserves preventing lending to higher-risk segments.<br><strong>Lotan Solution:</strong> Credit protection backed by international reinsurers reduces capital reserves, allowing the bank to lend 40% more without proportional capital increase.</p>
                 </div>
             </div>
         </div>
 
-        <div class="section-header">
-            <h2>Our Four Core Products</h2>
-            <p>Engineered to solve specific capital constraints and structural challenges.</p>
+        <!-- 4 Core Instruments -->
+        <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 style="font-size: 2.5rem; color: #fff;">Our Core Capital Unlocking Instruments</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">Engineered to pass rigorous credit due diligence and satisfy international lender covenants.</p>
         </div>
 
         <div class="grid-2">
             <!-- Product 1 -->
-            <div class="glass-panel product-card">
-                <h3 style="color: var(--primary); font-size: 1.8rem; margin-bottom: 1rem;">1. Credit Protection Policy</h3>
-                <h4 style="color: #fff; margin-bottom: 1.5rem;">Loan Enablement & Capital Unlocking Instrument</h4>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Unlocks lending capacity and reduces capital costs by providing high-integrity credit protection. It ensures an outstanding loan is fully repaid in the event of the borrower's death, permanent disability, or involuntary job loss.</p>
+            <div class="product-card">
+                <span class="badge">Loan Enablement Instrument</span>
+                <h3 class="product-title">1. Credit Protection Policy</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Unlocks lending capacity and reduces capital costs by providing high-integrity credit protection that aligns with international lending standards.</p>
+                <div style="background: rgba(0,0,0,0.3); padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                    <h5 style="color: var(--primary); margin-bottom: 0.5rem;">Lotan vs Bancassurance</h5>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Banks use insurance as a profit center (30-50% commissions). Lotan engineers insurance purely as a capital unlocking instrument. We deliver flexible solutions, lower rates, and transparent underwriting that empowers borrowers to unlock 20-40% more capital.</p>
+                </div>
                 <ul class="custom-list">
-                    <li><strong>For Lenders:</strong> Mitigates credit risk, reduces NPLs, enables confident lending.</li>
-                    <li><strong>For Borrowers:</strong> Protects assets, avoids debt burden on families.</li>
+                    <li><strong>For Lenders:</strong> Reduces capital reserves required under Basel standards, optimizes Return on Capital (ROC), and expands lending reach.</li>
+                    <li><strong>For Borrowers:</strong> Provides security to access previously unavailable credit, protects collateral, and ensures business continuity.</li>
+                    <li><strong>Capital Efficiency Cost:</strong> Standard rate of 1.8% lump sum in advance, tailored for liquidity optimization.</li>
                 </ul>
             </div>
             
             <!-- Product 2 -->
-            <div class="glass-panel product-card" style="border-top-color: var(--accent);">
-                <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 1rem;">2. Performance Security Bonds</h3>
-                <h4 style="color: #fff; margin-bottom: 1.5rem;">Project Financing & Capital Unlocking</h4>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Minimizes cash-trapped collateral, freeing up working capital for reinvestment into project delivery. Provides critical financial security assuring employers that the contractor will fulfill all contract terms.</p>
-                <ul class="custom-list">
-                    <li>Protects project owners from catastrophic financial loss.</li>
-                    <li>Differentiates contractors by demonstrating true institutional stability.</li>
+            <div class="product-card" style="border-top-color: var(--accent);">
+                <span class="badge" style="color: var(--accent); border-color: var(--accent); background: rgba(0, 191, 255, 0.1);">Project Financing Enabler</span>
+                <h3 class="product-title">2. Performance Security Bonds</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Transforms compliance requirements into powerful capital unlocking instruments. By providing essential security, these bonds convert your track record into immediate financial capacity.</p>
+                <ul class="custom-list" style="--primary: var(--accent);">
+                    <li><strong>Working Capital Optimization:</strong> Minimizes cash-trapped collateral, freeing up funds for project delivery, equipment, and scaling.</li>
+                    <li><strong>Improved Financing Terms:</strong> Reduces lender risk exposure, facilitating more favorable terms and lower capital costs.</li>
+                    <li><strong>Unlocking Growth:</strong> Differentiates your bids, ensuring institutional-grade reliability that protects project owners.</li>
                 </ul>
             </div>
             
             <!-- Product 3 -->
-            <div class="glass-panel product-card" style="border-top-color: #8b5cf6;">
-                <h3 style="color: #8b5cf6; font-size: 1.8rem; margin-bottom: 1rem;">3. Advance Payment Guarantees</h3>
-                <h4 style="color: #fff; margin-bottom: 1.5rem;">Mobilization Capital Enablement</h4>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Transforms standard requirements into mobilization capital engines, ensuring immediate liquidity for rapid start-ups without exposing project owners to upfront cash risk.</p>
-                <ul class="custom-list">
-                    <li>Eliminates risk associated with releasing large sums of money upfront.</li>
-                    <li>Enables contractors to secure working capital for equipment and materials.</li>
+            <div class="product-card" style="border-top-color: #8b5cf6;">
+                <span class="badge" style="color: #8b5cf6; border-color: #8b5cf6; background: rgba(139, 92, 246, 0.1);">Mobilization Capital</span>
+                <h3 class="product-title">3. Advance Payment Guarantees</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Transforms standard requirements into mobilization capital engines, unlocking vital working capital for project startup without standard upfront cash risk.</p>
+                <ul class="custom-list" style="--primary: #8b5cf6;">
+                    <li><strong>Upfront Liquidity:</strong> Access advance payment capital without depleting existing cash flow.</li>
+                    <li><strong>Rapid Mobilization:</strong> Enables immediate deployment of personnel and materials.</li>
+                    <li><strong>Risk-Mitigated Participation:</strong> Allows employers to release payments confidently, knowing the commitment is fully secured.</li>
                 </ul>
             </div>
             
             <!-- Product 4 -->
-            <div class="glass-panel product-card" style="border-top-color: #ef4444;">
-                <h3 style="color: #ef4444; font-size: 1.8rem; margin-bottom: 1rem;">4. Bid Bonds</h3>
-                <h4 style="color: #fff; margin-bottom: 1.5rem;">Competitive Bidding Capital</h4>
-                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Allows contractors to demonstrate financial credibility and participate in competitive, capital-intensive opportunities—without jeopardizing internal liquidity reserves.</p>
-                <ul class="custom-list">
-                    <li>Assures the project owner that the bidder is financially capable.</li>
-                    <li>Reduces procurement risk and prevents costly re-tendering scenarios.</li>
+            <div class="product-card" style="border-top-color: #ef4444;">
+                <span class="badge" style="color: #ef4444; border-color: #ef4444; background: rgba(239, 68, 68, 0.1);">Competitive Financing Tool</span>
+                <h3 class="product-title">4. Bid Bonds</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Reduces barriers to competitive bidding, allowing contractors to demonstrate financial credibility and operational readiness for capital-intensive opportunities.</p>
+                <ul class="custom-list" style="--primary: #ef4444;">
+                    <li><strong>Unlocking Access:</strong> Unlocks access to large-scale infrastructure, PPPs, and government tenders.</li>
+                    <li><strong>Optimal Capital Deployment:</strong> Preserves vital cash reserves for project execution instead of tender deposits.</li>
+                    <li><strong>Procurement Integrity:</strong> Protects project timelines by filtering out unbalanced or uncommitted bidders for owners.</li>
                 </ul>
             </div>
         </div>
 
+        <div style="margin-top: 3rem; text-align: center;">
+            <p style="color: var(--text-muted);">Beyond these, we facilitate access to <strong>Life & Health Protection, Asset & Mobility Insurance, and comprehensive Marine & Logistics Risk Mitigation.</strong></p>
+        </div>
+
+        <!-- Huge Policy Document -->
         <div class="policy-section">
-            <h2 style="font-size: 2rem; margin-bottom: 1rem; color: #fff;">Credit Protection Insurance Policy Technical Summary</h2>
-            <p style="color: var(--text-muted); margin-bottom: 3rem;">Sentinel Insure (the “Company”) undertakes to assume and absorb the credit risk under the Insured Loan, paying the benefits set out in the schedule subject to the terms and exclusions below.</p>
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: #fff; text-align: center;">Credit Protection Insurance Policy</h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">Master Policy Document by Sentinel Insure. Features, benefits, and technical scope of cover designed to assume credit risk under the Insured Loan.</p>
             
             <div class="grid-2">
                 <div>
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">1. Keyman Death Cover</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Pays the amount advanced or outstanding balance. Claims advising required within 60 days. Required docs: Death Cert, Loan Statement, Schedule of Repayments, Police Report (if accidental).</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">1. Keyman Death Cover</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Pays the amount advanced or outstanding loan balance at the time of claim. The Company must be advised within 60 days. Requires Death Certificate, Loan Statement showing balance, Schedule of Repayments, Loan Acceptance Letter, and a Police Report (if accidental).</p>
                     
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">2. Total Permanent Disability (TPD)</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Lump sum payment of outstanding loan if Keyman is permanently unable to work. 3-month waiting period (waived for accidents). Requires recognized medical certification within 30 days of assessment.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">2. Total Permanent Disability (TPD)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Lump sum payment of outstanding loan if the Keyman is permanently unable to work. 3-month waiting/deferred period (waived for accidents). Requires certification by a Sentinel Insure recognized medical practitioner. Must be advised within 30 days of assessment.</p>
                     
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">3. Total Temporary Disability (TTD)</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Covers a maximum of 6 monthly installments. Minimum 30 days off work constraint. Automatic 6-month reinstatement applied post-claim.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">3. Total Temporary Disability (TTD)</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Covers up to six (6) monthly loan repayment installments if unfit to work for a minimum of 30 days. After payout, the insured is temporarily off TTD cover for 6 months, reinstating automatically thereafter.</p>
 
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">4. Fidelity Guarantee & 5. Cybercrime</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Fidelity protects from losses caused by employee embezzlement or theft. Cybercrime secures against network extortion, ransomware, network security liability, and data breach responses.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">4. Fidelity Guarantee</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Protects businesses from financial losses caused by dishonest acts of employees, including loss of money, embezzlement, theft, forgery, and misappropriation of company funds.</p>
+
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">5. Cybercrime</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Protects against digital threats. Covers Data Breach Responses (notification, PR), Ransomware/Extortion expenses, Cyber-related Business Interruption, Forensic Investigations, and Network Security Liability to third parties.</p>
+                    
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">6. Business Interruption</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Covers Lost Net Income, Fixed Costs (rent, payroll), Extra Expenses (temporary space), Civil Authority access denial, and Contingent loss from supplier chain disruptions. Includes Extended Period of Indemnity.</p>
                 </div>
                 <div>
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">6. Business Interruption</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Protects missing net income and covers fixed costs (payroll, rent) and extra expenses when operations are disrupted by physical loss, contingent supply chain blocks, or civil authority actions.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">7. Cash-in-Transit & Cash-on-Hand</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Reimburses for loss of cash via On-Premises Theft, Off-Premises Transit loss (armored/employee transit), Safe/Vault Burglary, Robbery & Hold-Up, and optional Employee Dishonesty Extension.</p>
 
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">7. Cash-in-Transit</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">On-premises theft, vault burglary, transit cash losses, or hold-up loss reimbursement.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">8. General Conditions & Exclusions</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">No payment resulting from:</p>
+                    <ul class="custom-list" style="font-size: 0.85rem; margin-bottom: 1.5rem;">
+                        <li>Intentional self-injury/suicide in first 2 years.</li>
+                        <li>Acts of war, terrorism, riot.</li>
+                        <li>Pre-existing physical infirmity known prior to entry (applies first 6 months).</li>
+                        <li>Alcoholic intemperance and unprescribed drugs.</li>
+                        <li>Mountaineering, power racing, fighting (unless self defense).</li>
+                        <li>Aviation other than fare-paying scheduled passenger.</li>
+                    </ul>
+
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">9. Premium Payment & Refund</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Current rate is 1.8% of total loan amount, paid in a lump sum in advance. Pro-rata refund available on early settlement (less administrative costs). This is a true risk premium generating no surrender value.</p>
                     
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">8. General Conditions & Exclusions</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Exclusions apply for intentional self-injury in the first 2 years, acts of war, pre-existing physical infirmity knowledge, alcoholic intemperance, extreme power sports, and non-scheduled aviation.</p>
-
-                    <h4 style="color: var(--primary); margin-bottom: 0.5rem;">9. Premium Payment & Refund</h4>
-                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Calculated per unit rate (1.8% standard) paid in lump sum in advance. Pro-rata premium refund guarantees available on early settlement, sans administrative/tax deductions. This is a true risk premium, carrying zero surrender value at maturity.</p>
+                    <h4 class="text-prime" style="margin-bottom: 0.5rem;">10. Legal, Termination & Force Majeure</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">Governed by Republic of South Africa laws. Irrevocable Cession of rights to financier as security. 60 days cancellation notice required by either party. Force Majeure applies to epidemics, strikes, or acts of God continuing &gt;30 days.</p>
                 </div>
             </div>
-            <p style="color: var(--text-muted); font-size: 0.8rem; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;"><strong>Jurisdiction:</strong> Governed by the laws of the Republic of South Africa. Subject to Cession conditions (irrevocable ceding to financier as security).</p>
-        </div>
-
-        <!-- Additional Marine / Logistics -->
-        <div style="margin-top: 5rem; text-align: center;">
-            <p style="color: var(--text-muted);">We also provide comprehensive <strong>Marine, Transit, and Domestic Insurance</strong> tailored to East African trade realities. Speak with our team to explore optimized supply chain logistics coverage.</p>
+            
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h5 style="color: #fff; margin-bottom: 1rem;">Policy Schedule Overview</h5>
+                    <table style="width: 100%; color: var(--text-muted); font-size: 0.85rem; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 0.5rem 0;"><strong>Risk Premium Rate</strong></td><td style="padding: 0.5rem 0; text-align: right;">1.8%</td></tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 0.5rem 0;"><strong>Last Expense Benefit</strong></td><td style="padding: 0.5rem 0; text-align: right;">USD 100,000</td></tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);"><td style="padding: 0.5rem 0;"><strong>Waiting Period (General)</strong></td><td style="padding: 0.5rem 0; text-align: right;">3 Months</td></tr>
+                        <tr><td style="padding: 0.5rem 0;"><strong>Termination Date</strong></td><td style="padding: 0.5rem 0; text-align: right;">Loan Completion</td></tr>
+                    </table>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <p style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6;"><strong>Cessions:</strong> The Keyman undertakes to irrevocably cede all of his/her rights, interests and title under the policy to the financier as security for the loan facility or any balance thereof.<br><br>Cover is compulsory and restricted to persons granted a credit facility by the Financier for a Loan Denominated in USD.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="footer-bottom" style="text-align: center; padding: 2rem 5%;">
-            <div>&copy; 2026 Lotan Insurance Limited. All rights reserved. Your Financial Architecture Partner.</div>
+            <div>&copy; 2026 Lotan Insurance Limited. All rights reserved. IRA/05/26054/2026.</div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
 </body>
 </html>
