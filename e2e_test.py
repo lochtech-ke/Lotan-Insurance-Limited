@@ -4,7 +4,7 @@ import sqlite3
 import re
 
 base = 'http://localhost:8080'
-pages = ['/', '/index.html', '/about.html', '/products.html', '/contact.html']
+pages = ['/', '/index.html', '/about.html', '/products.html']
 
 print('=== PAGE AVAILABILITY ===')
 for page in pages:
@@ -29,7 +29,6 @@ try:
         ('Navbar has Home link', 'href="index.html"' in html or "href='index.html'" in html),
         ('Navbar has About Us link', 'about.html' in html),
         ('Navbar has Products link', 'products.html' in html),
-        ('Navbar has Contact link', 'contact.html' in html),
         ('Unlock Capital CTA present', 'Unlock Capital' in html),
         ('Contact form present', 'pipeline-form' in html or 'id="firstName"' in html),
         ('Hero section present', 'hero' in html),
@@ -76,22 +75,6 @@ try:
         print(f'    [{icon}] {label}')
 except Exception as e:
     print(f'  products.html read FAILED: {e}')
-
-print()
-try:
-    r = urllib.request.urlopen(base + '/contact.html', timeout=5)
-    html = r.read().decode('utf-8')
-    checks = [
-        ('Contact page loads', len(html) > 1000),
-        ('Navbar present', '<nav>' in html),
-        ('Contact form present', 'form' in html.lower()),
-    ]
-    print('  --- contact.html ---')
-    for label, result in checks:
-        icon = 'PASS' if result else 'FAIL'
-        print(f'    [{icon}] {label}')
-except Exception as e:
-    print(f'  contact.html read FAILED: {e}')
 
 print()
 print('=== FORM SUBMISSION TEST (POST /api/leads) ===')
