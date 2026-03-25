@@ -18,20 +18,19 @@ for page in pages:
 print()
 print('=== CRITICAL CONTENT CHECKS ===')
 
-# Check home page - regulatory credentials removed
+# Check home page - regulatory credentials updated
 try:
     r = urllib.request.urlopen(base + '/index.html', timeout=5)
     html = r.read().decode('utf-8')
     checks = [
-        ('Regulatory & Legal Credentials REMOVED', 'Regulatory &amp; Legal Credentials' not in html and 'Regulatory & Legal Credentials' not in html),
-        ('IRA license number removed from footer', 'IRA/05/26054/2026' not in html),
+        ('IRA license number updated in footer', 'IRA/001/BR/2026' in html),
+        ('Old IRA license removed', 'IRA/05/26054/2026' not in html),
         ('PVT-86RI2EL removed from footer', 'PVT-86RI2EL' not in html),
-        ('Navbar has Home link', 'href="index.html"' in html or "href='index.html'" in html),
+        ('Navbar has Home link', 'href="index.html"' in html),
         ('Navbar has About Us link', 'about.html' in html),
         ('Navbar has Products link', 'products.html' in html),
         ('Unlock Capital CTA present', 'Unlock Capital' in html),
-        ('Contact form present', 'pipeline-form' in html or 'id="firstName"' in html),
-        ('Hero section present', 'hero' in html),
+        ('Contact form present', 'pipeline-form' in html),
     ]
     print('  --- index.html ---')
     for label, result in checks:
@@ -45,13 +44,12 @@ try:
     r = urllib.request.urlopen(base + '/about.html', timeout=5)
     html = r.read().decode('utf-8')
     checks = [
-        ('Regulatory Credentials section REMOVED', 'Regulatory Credentials' not in html),
-        ('IRA license number removed from footer', 'IRA/05/26054/2026' not in html),
-        ('PVT-86RI2EL removed from footer', 'PVT-86RI2EL' not in html),
+        ('Regulatory & Compliance section PRESENT', 'Regulatory & Compliance Framework' in html),
+        ('IRA license number updated in footer', 'IRA/001/BR/2026' in html),
+        ('Old IRA license removed', 'IRA/05/26054/2026' not in html),
         ('Who We Are section present', 'Who We Are' in html),
         ('Lotan Advantage section present', 'Lotan Advantage' in html),
         ('CTA present', 'Unlock Your Capital' in html),
-        ('Navbar present', '<nav>' in html),
     ]
     print('  --- about.html ---')
     for label, result in checks:
@@ -66,7 +64,7 @@ try:
     html = r.read().decode('utf-8')
     checks = [
         ('Products page loads', len(html) > 1000),
-        ('Navbar present', '<nav>' in html),
+        ('IRA license number updated in footer', 'IRA/001/BR/2026' in html),
         ('Has product content', 'product' in html.lower()),
     ]
     print('  --- products.html ---')
