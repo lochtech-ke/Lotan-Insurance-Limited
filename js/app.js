@@ -1,20 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Navbar Scroll Effect
-    const nav = document.querySelector("nav");
+    // 1. Navbar Scroll Effect (class-based, cleaner than inline styles)
+    const nav = document.getElementById("main-nav");
     if (nav) {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 100) {
-                nav.style.width = "95%";
-                nav.style.background = "rgba(255, 255, 255, 0.98)";
-                nav.style.boxShadow = "0 20px 50px rgba(6, 78, 65, 0.15)";
-                nav.style.top = "1rem";
+        const onScroll = () => {
+            if (window.scrollY > 60) {
+                nav.classList.add("scrolled");
             } else {
-                nav.style.width = "90%";
-                nav.style.background = "rgba(255, 255, 255, 0.85)";
-                nav.style.boxShadow = "0 15px 40px rgba(6, 78, 65, 0.08)";
-                nav.style.top = "1.5rem";
+                nav.classList.remove("scrolled");
             }
-        });
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll(); // run once on load
     }
 
     // 2. Smooth Scrolling for Anchor Links
