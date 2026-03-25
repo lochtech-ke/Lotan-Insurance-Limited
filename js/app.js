@@ -3,12 +3,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const nav = document.querySelector("nav");
     if (nav) {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 50) {
-                nav.style.background = "rgba(3, 7, 18, 0.95)";
-                nav.style.boxShadow = "0 4px 30px rgba(0, 0, 0, 0.5)";
+            if (window.scrollY > 100) {
+                nav.style.width = "95%";
+                nav.style.background = "rgba(255, 255, 255, 0.98)";
+                nav.style.boxShadow = "0 20px 50px rgba(6, 78, 65, 0.15)";
+                nav.style.top = "1rem";
             } else {
-                nav.style.background = "rgba(3, 7, 18, 0.8)";
-                nav.style.boxShadow = "none";
+                nav.style.width = "90%";
+                nav.style.background = "rgba(255, 255, 255, 0.85)";
+                nav.style.boxShadow = "0 15px 40px rgba(6, 78, 65, 0.08)";
+                nav.style.top = "1.5rem";
             }
         });
     }

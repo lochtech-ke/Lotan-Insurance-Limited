@@ -13,49 +13,41 @@
     <!-- Navbar -->
     <nav>
         <div class="nav-brand">
-            <img src="img/lotan_logo_transparent.png" alt="Lotan Logo" style="height: 50px; width: auto; vertical-align: middle; filter: brightness(1.1);">
-            <span style="font-size: 1.2rem; margin-left: 0.5rem;">LOTAN</span>
+            <img src="img/lotan_logo_transparent.png" alt="Lotan" style="height: 50px; filter: brightness(1.2); transition: var(--transition);">
+            <span style="font-family: var(--font-heading); color: var(--primary); font-weight: 700; margin-left: 0.8rem; letter-spacing: 0.05em;">LOTAN</span>
         </div>
         <div class="nav-links">
-            <a href="index.html" style="color: var(--primary);">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="products.html">Instruments</a>
             <a href="#get-started" class="btn-primary">Unlock Capital</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" style="background: url('img/futuristic_capital_hero_1774341085203.png') center/cover no-repeat; position: relative; padding: 15rem 0 10rem;">
-        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(90deg, #030712 0%, rgba(3,7,18,0.85) 50%, transparent 100%); z-index: 0;"></div>
+    <!-- Cinematic Hero Section -->
+    <header style="height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #000;">
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('C:/Users/lenovo/.gemini/antigravity/brain/d214a380-a927-4e38-97fb-da523721ac56/lotan_hero_v3_1774427067872.png') center/cover no-repeat; transform: scale(1.05); filter: brightness(0.75);"></div>
+        <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to right, rgba(6, 78, 65, 0.9) 0%, rgba(6, 78, 65, 0.4) 50%, transparent 100%);"></div>
         
-        <div class="container" style="position: relative; z-index: 1;">
-            <div class="hero-subtitle">
-                <i class="fa-solid fa-globe"></i> Your Financial Architecture Partner
-            </div>
-            <h1 class="reveal reveal-up active" style="font-size: 5rem; margin-bottom: 2rem; letter-spacing: -2px;">Unlocking Capital.<br>Enabling Growth.</h1>
-            <p class="reveal reveal-up active delay-1" style="max-width: 800px; font-size: 1.3rem; margin-bottom: 3rem; line-height: 1.8;">
-                Lotan Insurance Limited operates at the intersection of risk management and capital optimization. We view insurance not as a commodity, but as a sophisticated financial instrument designed to release dormant reserves.
-            </p>
-            <div style="margin-bottom: 5rem;">
-                <a href="#architecture" class="btn-primary reveal reveal-up active delay-2" style="font-size: 1.1rem; padding: 1.2rem 3rem;">Discover Financial Architecture &rarr;</a>
-            </div>
-            
-            <div class="hero-stats reveal reveal-up active delay-3" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                <div class="glass-panel stat-card p-2" style="text-align: center;">
-                    <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 0.5rem;">Capital Market</h3>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Fortune 500-ready efficiency</p>
-                </div>
-                <div class="glass-panel stat-card p-2" style="text-align: center;">
-                    <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 0.5rem;">Credit Access</h3>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Unlock previously unreachable lines</p>
-                </div>
-                <div class="glass-panel stat-card p-2" style="text-align: center;">
-                    <h3 style="color: var(--accent); font-size: 1.8rem; margin-bottom: 0.5rem;">Optimization</h3>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Convert dormant reserves</p>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div style="max-width: 950px; text-align: left; padding-top: 5rem;">
+                <span class="badge" style="margin-bottom: 2.5rem; border-color: rgba(255,255,255,0.3); color: #fff; background: rgba(255,255,255,0.1);">Institutional Financial Architecture</span>
+                <h1 class="hero-title reveal reveal-up active" style="color: #fff; margin-bottom: 2.5rem;">Unlocking Global Capital <br>For Your Enterprise</h1>
+                <p class="hero-desc reveal reveal-up active delay-1" style="color: rgba(255,255,255,0.85); margin-bottom: 4rem;">
+                    Lotan Insurance Limited operates at the intersection of risk management and capital optimization. 
+                    We view insurance not as a commodity, but as a sophisticated financial instrument designed to release dormant reserves.
+                </p>
+                <div class="reveal reveal-up active delay-2" style="display: flex; gap: 2rem;">
+                    <a href="#architecture" class="btn-primary" style="background: var(--accent); color: var(--primary); font-weight: 700;">Discover Architecture &rarr;</a>
+                    <a href="about.html" class="btn-secondary" style="border-color: #fff; color: #fff;">Review Credentials</a>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <div style="position: absolute; bottom: 4rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite;">
+            <i class="fa-solid fa-chevron-down" style="color: #fff; font-size: 1.5rem; opacity: 0.4;"></i>
+        </div>
+    </header>
 
     <!-- Executive Summary / Who We Are -->
     <section id="architecture">
