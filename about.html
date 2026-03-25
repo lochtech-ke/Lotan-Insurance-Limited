@@ -55,69 +55,6 @@
 
         .value-card p { font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65; }
 
-        /* Mission cards */
-        .mission-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--ivory-3); border: var(--border); }
-
-        .mission-card {
-            background: var(--white);
-            padding: var(--space-6) var(--space-5);
-            display: flex;
-            flex-direction: column;
-            gap: var(--space-3);
-        }
-
-        .mission-card .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border: var(--border);
-            color: var(--emerald);
-            font-size: 1.125rem;
-            flex-shrink: 0;
-        }
-
-        .mission-card h4 { font-family: var(--font-serif); font-size: 1.375rem; font-weight: 400; color: var(--emerald); }
-        .mission-card p  { color: var(--ink-muted); font-size: 0.9375rem; line-height: 1.7; }
-
-        @media (max-width: 900px) {
-            .mission-cards { grid-template-columns: 1fr; }
-        }
-
-        /* Comparison table overrides */
-        .vs-table td:first-child { font-weight: 500; color: var(--ink); }
-
-        /* Expertise rows */
-        .expertise-row {
-            display: grid;
-            grid-template-columns: 1.5fr 2fr;
-            gap: 0;
-            border: var(--border);
-            background: var(--ivory-3);
-            margin-bottom: var(--space-2);
-        }
-
-        .expertise-label {
-            padding: var(--space-5);
-            background: var(--ivory-2);
-            border-right: var(--border);
-        }
-
-        .expertise-label h5 { color: var(--emerald); margin-bottom: 0.5rem; }
-        .expertise-label p  { font-size: 0.9rem; color: var(--ink-muted); }
-
-        .expertise-content {
-            padding: var(--space-5);
-            background: var(--white);
-        }
-
-        .expertise-content ul { display: flex; flex-direction: column; gap: 0.625rem; }
-        .expertise-content li { font-size: 0.9375rem; color: var(--ink-muted); padding-left: 1.125rem; position: relative; }
-        .expertise-content li::before { content: '—'; position: absolute; left: 0; color: var(--gold); opacity: 0.6; font-size: 0.8rem; top: 0.15rem; }
-
-        @media (max-width: 768px) { .expertise-row { grid-template-columns: 1fr; } }
-
         /* Credentials panel */
         .credential-badge {
             display: inline-flex;
@@ -183,31 +120,74 @@
     <!-- WHO WE ARE -->
     <section>
         <div class="container">
-            <div class="grid-2" style="align-items: start; gap: var(--space-8);">
+            <div class="grid-2" style="align-items: center; gap: var(--space-8);">
                 <div class="reveal reveal-left">
                     <div class="eyebrow">Our Identity</div>
                     <h2>The Lotan Legacy</h2>
                     <div class="section-divider"></div>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 1.75rem;">Lotan Insurance Limited is a financial architecture firm that leverages insurance as a strategic instrument to unlock dormant capital and optimise financial structures. We don't place insurance policies — we engineer bespoke financial solutions that turn risk management into a growth catalyst.</p>
+                    <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 1.75rem;">Lotan Insurance Limited is a financial architecture firm that leverages insurance as a strategic instrument to unlock dormant capital and optimise financial structures. We don't place insurance policies &mdash; we engineer bespoke financial solutions that turn risk management into a growth catalyst.</p>
                     <p style="font-size: 1.0625rem; color: var(--ink-muted);">We serve as independent financial facilitators for multinational corporations, international financial institutions, and regional enterprises, structuring risk to meet global standards while unlocking value within local market realities.</p>
                 </div>
-                <div class="mission-cards reveal reveal-right">
-                    <div class="mission-card">
-                        <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
-                        <h4>Our Purpose</h4>
-                        <p>To redefine insurance as a strategic financial instrument, enabling enterprises to unlock trapped liquidity and maximise capital deployment through sophisticated risk engineering.</p>
+                <div class="reveal reveal-right" style="display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--ivory-3); border: var(--border);">
+                    <div style="background: var(--white); padding: var(--space-5);">
+                        <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.75rem;">Our Clients</div>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7;">Multinational banks, development finance institutions, infrastructure contractors, regional enterprises, and government agencies across East Africa and global markets.</p>
                     </div>
-                    <div class="mission-card">
-                        <div class="icon"><i class="fa-solid fa-bullseye"></i></div>
-                        <h4>Our Mission</h4>
-                        <p>To bridge the gap between risk and capital by providing world-class financial architecture that ensures institutional resilience and facilitates global growth.</p>
+                    <div style="background: var(--white); padding: var(--space-5); border-top: 1px solid var(--ivory-3);">
+                        <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.75rem;">Our Differentiator</div>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7;">Independent intermediaries with no product bias &mdash; designing structures around your balance sheet, not a carrier's sales quota.</p>
                     </div>
-                    <div class="mission-card">
-                        <div class="icon"><i class="fa-solid fa-mountain-sun"></i></div>
-                        <h4>Our Vision</h4>
-                        <p>To be the global benchmark for independent risk-based financial strategy — transforming risk management from a standard cost into a powerful engine for growth.</p>
+                    <div style="background: var(--white); padding: var(--space-5); border-top: 1px solid var(--ivory-3);">
+                        <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.75rem;">Our Reinsurance Backbone</div>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7;">Direct access to Lloyd's, Munich Re, Swiss Re, and Berkshire Hathaway Re &mdash; enabling unlimited capacity and internationally bankable documentation.</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PURPOSE, MISSION & VISION -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="section-header centered reveal reveal-up">
+                <div class="eyebrow">Our Foundation</div>
+                <h2>Purpose, Mission &amp; Vision</h2>
+                <div class="section-divider centered"></div>
+                <p>The principles that guide every structure we engineer and every client relationship we build.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);" class="reveal reveal-up">
+
+                <!-- Purpose -->
+                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: var(--border); color: var(--emerald); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
+                        <i class="fa-solid fa-lightbulb"></i>
+                    </div>
+                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Purpose</div>
+                    <h3 style="font-size: 1.75rem; color: var(--emerald); margin-bottom: var(--space-4); line-height: 1.2;">Redefining Insurance as Capital</h3>
+                    <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.8; flex-grow: 1;">To redefine insurance as a strategic financial instrument, enabling enterprises to unlock trapped liquidity and maximise capital deployment through sophisticated risk engineering that serves balance sheets &mdash; not product quotas.</p>
+                </div>
+
+                <!-- Mission -->
+                <div style="background: var(--emerald-3); border: var(--border); border-top: 3px solid var(--gold); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: 1px solid rgba(248,246,241,0.2); color: var(--ivory); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Mission</div>
+                    <h3 style="font-size: 1.75rem; color: var(--ivory); margin-bottom: var(--space-4); line-height: 1.2;">Bridging Risk &amp; Capital</h3>
+                    <p style="font-size: 1rem; color: rgba(248,246,241,0.7); line-height: 1.8; flex-grow: 1;">To bridge the gap between risk and capital by providing world-class financial architecture that ensures institutional resilience, satisfies global lender standards, and facilitates enterprise growth across borders.</p>
+                </div>
+
+                <!-- Vision -->
+                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
+                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: var(--border); color: var(--emerald); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
+                        <i class="fa-solid fa-mountain-sun"></i>
+                    </div>
+                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Vision</div>
+                    <h3 style="font-size: 1.75rem; color: var(--emerald); margin-bottom: var(--space-4); line-height: 1.2;">The Global Benchmark</h3>
+                    <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.8; flex-grow: 1;">To be the global benchmark for independent risk-based financial strategy &mdash; recognised for transforming insurance from a standard corporate cost into a powerful, precision engine for institutional and enterprise growth.</p>
+                </div>
+
             </div>
         </div>
     </section>
