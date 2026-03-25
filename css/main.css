@@ -161,19 +161,20 @@ nav {
   margin: 0 auto;
 }
 
-/* Sections & Content Balancing */
-section {
-  padding: 10rem 10%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* --- WORLD CLASS LAYOUT SYSTEM --- */
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
-/* Constrain content to a professional institutional width */
-section > * {
+section {
+  padding: 10rem 0;
   width: 100%;
-  max-width: 1200px; /* Aligned with standard executive dashboard widths */
+}
+
+@media (max-width: 768px) {
+  section { padding: 6rem 0; }
 }
 
 .section-darker {
@@ -184,7 +185,7 @@ section > * {
 
 .section-header {
   text-align: center;
-  margin-bottom: 6rem;
+  margin-bottom: 7rem;
 }
 
 .section-header h2 {
