@@ -325,57 +325,142 @@
     <!-- TECHNICAL EXPERTISE -->
     <section>
         <div class="container">
-            <div class="section-header reveal reveal-up">
-                <div class="eyebrow">Technical Depth</div>
-                <h2>Our Expertise</h2>
-                <div class="section-divider"></div>
+
+            <!-- Section header + intro strip -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: end; margin-bottom: var(--space-8);" class="reveal reveal-up">
+                <div>
+                    <div class="eyebrow">Technical Depth</div>
+                    <h2>Our Expertise</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div>
+                    <p style="font-size: 1.0625rem; color: var(--ink-muted); line-height: 1.75;">We move beyond standard brokerage into the realm of high-stakes financial engineering — combining structural design, global market intelligence, and balance sheet architecture to create capital outcomes no off-the-shelf product can match.</p>
+                </div>
             </div>
 
-            <div class="reveal reveal-up">
-                <div class="expertise-row">
-                    <div class="expertise-label">
-                        <h5>Risk Engineering</h5>
-                        <p>Structure-first design for capital outcomes</p>
+            <!-- 3 expertise panels -->
+            <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: var(--border);" class="reveal reveal-up">
+
+                <!-- 01 · Risk Engineering -->
+                <div style="border-right: var(--border); display: flex; flex-direction: column;">
+                    <!-- Top accent + number -->
+                    <div style="background: var(--emerald); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
+                                <i class="fa-solid fa-compass-drafting"></i>
+                            </div>
+                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.12); letter-spacing:-0.04em; margin-top:-0.5rem;">01</span>
+                        </div>
                     </div>
-                    <div class="expertise-content">
-                        <ul>
-                            <li>Capital-first risk design to satisfy international lender covenants</li>
-                            <li>Structural optimisation to align risk transfer with balance sheet needs</li>
-                            <li>Translating regional risk into bankable instruments for global credit committees</li>
-                            <li>Cross-border compliance frameworks for multi-jurisdictional financing</li>
+                    <!-- Body -->
+                    <div style="background: var(--white); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
+                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Risk Engineering</h3>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Structure-first design that converts risk architecture into a measurable capital advantage for your balance sheet.</p>
+                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Capital-first risk design satisfying international lender covenants
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Structural optimisation aligning risk transfer with balance sheet needs
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Translating regional risk into bankable instruments for global credit committees
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Cross-border compliance frameworks for multi-jurisdictional financing
+                            </li>
                         </ul>
+                    </div>
+                    <!-- Stat footer -->
+                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
+                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">30%</span>
+                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Average capital cost reduction delivered</span>
                     </div>
                 </div>
 
-                <div class="expertise-row">
-                    <div class="expertise-label">
-                        <h5>Market Intelligence</h5>
-                        <p>Real-time capital market connectivity</p>
+                <!-- 02 · Market Intelligence -->
+                <div style="border-right: var(--border); display: flex; flex-direction: column;">
+                    <div style="background: var(--emerald-3); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
+                                <i class="fa-solid fa-chart-line"></i>
+                            </div>
+                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.1); letter-spacing:-0.04em; margin-top:-0.5rem;">02</span>
+                        </div>
                     </div>
-                    <div class="expertise-content">
-                        <ul>
-                            <li>Real-time mapping of global underwriting capacity and liquidity trends</li>
-                            <li>Deep expertise in DFI and multinational bank lending standards</li>
-                            <li>Positioning client risk profiles for optimal international capacity matching</li>
-                            <li>Dynamic trend analysis to anticipate shifts affecting project bankability</li>
+                    <div style="background: var(--ivory-2); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
+                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Market Intelligence</h3>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Real-time global capital market connectivity — positioning client risk profiles where international capacity is deepest and pricing most competitive.</p>
+                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Real-time mapping of global underwriting capacity and liquidity trends
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Deep expertise in DFI and multinational bank lending standards
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Positioning client risk profiles for optimal international capacity matching
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Dynamic trend analysis to anticipate shifts affecting project bankability
+                            </li>
                         </ul>
+                    </div>
+                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
+                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">Tier 1</span>
+                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Global reinsurer panel access</span>
                     </div>
                 </div>
 
-                <div class="expertise-row">
-                    <div class="expertise-label">
-                        <h5>Financial Architecture</h5>
-                        <p>Creating measurable capital advantages</p>
+                <!-- 03 · Financial Architecture -->
+                <div style="display: flex; flex-direction: column;">
+                    <div style="background: var(--emerald); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.12); letter-spacing:-0.04em; margin-top:-0.5rem;">03</span>
+                        </div>
                     </div>
-                    <div class="expertise-content">
-                        <ul>
-                            <li>Unlocking trapped liquidity using insurance as a strategic release tool</li>
-                            <li>Total cost of capital optimisation through superior structuring</li>
-                            <li>Covenant-ready documentation to pass rigorous credit due diligence</li>
-                            <li>Growth enablement — turning high-potential projects into viable, funded ventures</li>
+                    <div style="background: var(--white); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
+                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
+                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Financial Architecture</h3>
+                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Engineering bankable structures that satisfy the most rigorous credit committees globally and turn insurance from a cost into a strategic asset.</p>
+                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Unlocking trapped liquidity using insurance as a strategic release tool
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Total cost of capital optimisation through superior structuring
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Covenant-ready documentation passing rigorous credit due diligence
+                            </li>
+                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
+                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">→</span>
+                                Growth enablement — turning high-potential projects into funded ventures
+                            </li>
                         </ul>
                     </div>
+                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
+                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">$40B+</span>
+                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Capital unlocked through our structures</span>
+                    </div>
                 </div>
+
             </div>
         </div>
     </section>
