@@ -1,7 +1,7 @@
 /* ============================================================
    LOTAN INSURANCE LIMITED — FORTUNE 500 DESIGN SYSTEM
    Inspired by: BlackRock, J.P. Morgan PB, Goldman Sachs, Lazard
-   Palette: Ivory · Imperial Emerald · Champagne Gold
+   Palette: Ivory · Luminous Logo Green · Champagne Gold
    Type: Playfair Display (headings) + DM Sans (body)
    ============================================================ */
 
@@ -10,15 +10,15 @@
 /* ============================================================ DESIGN TOKENS */
 :root {
   /* Palette */
-  --ivory:       #F8F6F1;          /* Off-white ivory — page background */
-  --ivory-2:     #F0EDE5;          /* Slightly deeper ivory — alt sections */
-  --ivory-3:     #E8E3D8;          /* Card borders / strokes */
-  --ink:         #0C1E1B;          /* Near-black emerald ink — body text */
-  --ink-muted:   #526059;          /* Secondary text */
-  --ink-light:   #8EA09A;          /* Tertiary / captions */
-  --emerald:     #013D2E;          /* Primary brand — Imperial Emerald */
-  --emerald-2:   #025E46;          /* Hover states */
-  --emerald-3:   #038460;          /* Accent emerald — icons */
+  --ivory:       #F7FAF7;          /* Very light green-tinted ivory — page background */
+  --ivory-2:     #EDF5EC;          /* Soft green-ivory — alt sections */
+  --ivory-3:     #D6EAD4;          /* Card borders / strokes — light green-grey */
+  --ink:         #0E1D0D;          /* Near-black green ink — body text */
+  --ink-muted:   #4A6347;          /* Secondary text — muted forest */
+  --ink-light:   #7E9E7B;          /* Tertiary / captions */
+  --emerald:     #2D9F26;          /* PRIMARY — Luminous Logo Green (umbrella/leaf) */
+  --emerald-2:   #248C1D;          /* Hover — slightly deeper luminous green */
+  --emerald-3:   #1D6E18;          /* Depth — logo's shadow/crescent dark green */
   --gold:        #C09A52;          /* Champagne Gold — accent lines */
   --gold-light:  rgba(192,154,82,0.15);
   --white:       #FFFFFF;
@@ -121,7 +121,7 @@ section {
 }
 
 .section-dark {
-  background: var(--emerald);
+  background: var(--emerald-3);
   color: var(--ivory);
 }
 
@@ -648,7 +648,7 @@ textarea.form-control {
 
 /* ============================================================ FOOTER */
 footer {
-  background: var(--emerald);
+  background: var(--emerald-3);
   color: var(--ivory);
   padding: var(--space-8) var(--container-pad) var(--space-6);
 }
@@ -671,7 +671,6 @@ footer {
   .footer-grid { grid-template-columns: 1fr; gap: var(--space-5); }
 }
 
-.footer-brand { }
 .footer-brand h2 { font-size: 1.25rem; color: var(--ivory); letter-spacing: 0.04em; margin-bottom: 1.25rem; }
 .footer-brand p { color: rgba(248,246,241,0.6); font-size: 0.9375rem; line-height: 1.7; max-width: 340px; }
 
