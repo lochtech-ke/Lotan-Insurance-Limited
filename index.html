@@ -778,6 +778,77 @@
         </div>
     </footer>
 
+    <!-- ≡≡≡≡≡≡≡≡≡≡≡ AI CHATBOT WIDGET ≡≡≡≡≡≡≡≡≡≡≡ -->
+    <div id="ai-chat-widget">
+        <div id="ai-chat-header" onclick="toggleChat()">
+            <span><i class="fa-solid fa-robot"></i> Ask AI Assistant</span>
+            <i class="fa-solid fa-chevron-up" id="ai-chat-icon"></i>
+        </div>
+        <div id="ai-chat-body">
+            <div id="ai-chat-messages">
+                <div class="chat-msg ai">Hello! I'm Lotan's AI Assistant. You can ask me anything about our policies, instruments, and operations. How can I help?</div>
+            </div>
+            <div id="ai-chat-input-area">
+                <input type="text" id="ai-chat-input" placeholder="Ask a question..." onkeypress="handleChatKeyPress(event)">
+                <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
     <script src="js/app.js"></script>
+    <script>
+        // AI Chatbot Logic
+        function toggleChat() {
+            const widget = document.getElementById('ai-chat-widget');
+            const icon = document.getElementById('ai-chat-icon');
+            widget.classList.toggle('open');
+            if (widget.classList.contains('open')) {
+                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
+            } else {
+                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        }
+
+        async function sendChatMessage() {
+            const input = document.getElementById('ai-chat-input');
+            const msg = input.value.trim();
+            if (!msg) return;
+            
+            appendMessage('user', msg);
+            input.value = '';
+            
+            // Disable input while fetching
+            input.disabled = true;
+            
+            try {
+                // Send to backend
+                const response = await fetch('http://localhost:8080/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: msg })
+                });
+                const data = await response.json();
+                appendMessage('ai', data.response);
+            } catch (e) {
+                appendMessage('ai', 'Connection error. Please try again later.');
+            }
+            
+            input.disabled = false;
+            input.focus();
+        }
+
+        function appendMessage(sender, text) {
+            const messages = document.getElementById('ai-chat-messages');
+            const div = document.createElement('div');
+            div.className = `chat-msg ${sender}`;
+            div.textContent = text;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function handleChatKeyPress(event) {
+            if (event.key === 'Enter') sendChatMessage();
+        }
+    </script>
 </body>
 </html>

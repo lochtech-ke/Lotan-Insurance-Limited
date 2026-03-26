@@ -3,7 +3,9 @@ import socketserver
 import json
 import sqlite3
 import os
+import os
 import secrets
+import chatbot
 
 PORT = 8080
 DB_FILE = 'lotan_data.db'
@@ -63,6 +65,20 @@ class APRequestHandler(http.server.SimpleHTTPRequestHandler):
             else:
                 self.send_response(401)
                 self.end_headers()
+                
+        elif self.path == '/api/chat':
+            content_length = int(self.headers['Content-Length'])
+            post_data = self.rfile.read(content_length)
+            data = json.loads(post_data.decode('utf-8'))
+            
+            user_query = data.get('query', '')
+            bot_response = chatbot.generate_response(user_query)
+            
+            self.send_response(200)
+            self.send_header('Content-Type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({'response': bot_response}).encode('utf-8'))
+            
                 
         elif self.path == '/api/leads':
             content_length = int(self.headers['Content-Length'])
