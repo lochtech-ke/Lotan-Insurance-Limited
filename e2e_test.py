@@ -29,7 +29,7 @@ try:
         ('Navbar has Home link', 'href="index.html"' in html),
         ('Navbar has About Us link', 'about.html' in html),
         ('Navbar has Products link', 'products.html' in html),
-        ('Unlock Capital CTA present', 'Unlock Capital' in html),
+        ('Unlock Capital CTA present', 'Start the Conversation' in html),
         ('Contact form present', 'pipeline-form' in html),
     ]
     print('  --- index.html ---')
@@ -47,8 +47,8 @@ try:
         ('Regulatory & Compliance section PRESENT', 'Regulatory & Compliance Framework' in html),
         ('IRA license number updated in footer', 'IRA/001/BR/2026' in html),
         ('Old IRA license removed', 'IRA/05/26054/2026' not in html),
-        ('Who We Are section present', 'Who We Are' in html),
-        ('Lotan Advantage section present', 'Lotan Advantage' in html),
+        ('Who We Are section present', 'Our Identity' in html),
+        ('Lotan Advantage section present', 'Competitive Architecture' in html),
         ('CTA present', 'Unlock Your Capital' in html),
     ]
     print('  --- about.html ---')

@@ -7,238 +7,7 @@
     <meta name="description" content="Lotan Insurance Limited's four capital unlocking instruments: Credit Protection Policy, Performance Security Bonds, Advance Payment Guarantees, and Bid Bonds — backed by Tier-1 global reinsurers.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .products-header {
-            background: var(--emerald-3);
-            color: var(--ivory);
-            padding-top: 9rem;
-            padding-bottom: var(--space-8);
-            border-bottom: var(--border);
-        }
-
-        .products-header .eyebrow { color: var(--gold); }
-        .products-header h1 { color: var(--ivory); font-size: clamp(2.75rem, 5vw, 5rem); }
-        .products-header p  { color: rgba(248,246,241,0.65); font-size: 1.125rem; max-width: 60ch; margin-top: var(--space-3); }
-
-        /* Instrument section layout */
-        .instrument-section {
-            padding-block: var(--space-9);
-            border-bottom: var(--border);
-        }
-
-        .instrument-section:last-of-type { border-bottom: none; }
-
-        .instrument-section.alt { background: var(--ivory-2); }
-
-        .instrument-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.4fr;
-            gap: var(--space-8);
-            align-items: start;
-        }
-
-        .instrument-layout.reversed { grid-template-columns: 1.4fr 1fr; }
-        .instrument-layout.reversed .instrument-content-panel { order: 2; }
-        .instrument-layout.reversed .instrument-detail-panel { order: 1; }
-
-        @media (max-width: 900px) {
-            .instrument-layout,
-            .instrument-layout.reversed { grid-template-columns: 1fr; }
-            .instrument-layout.reversed .instrument-content-panel,
-            .instrument-layout.reversed .instrument-detail-panel { order: unset; }
-        }
-
-        .instrument-number {
-            font-family: var(--font-serif);
-            font-size: 6rem;
-            line-height: 1;
-            color: var(--ivory-3);
-            margin-bottom: -1.5rem;
-            letter-spacing: -0.04em;
-            display: block;
-        }
-
-        .instrument-content-panel h2 {
-            font-size: clamp(1.75rem, 3vw, 2.75rem);
-            margin-bottom: var(--space-3);
-        }
-
-        .instrument-content-panel p {
-            color: var(--ink-muted);
-            margin-bottom: 1.75rem;
-            font-size: 1.0625rem;
-            line-height: 1.75;
-        }
-
-        .instrument-detail-panel {
-            background: var(--white);
-            border: var(--border);
-        }
-
-        .detail-row {
-            padding: 1.5rem 2rem;
-            border-bottom: var(--border);
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 1rem;
-        }
-
-        .detail-row:last-child { border-bottom: none; }
-
-        .detail-label {
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--ink-light);
-            padding-top: 0.2rem;
-        }
-
-        .detail-value {
-            font-size: 0.9375rem;
-            color: var(--ink);
-            line-height: 1.6;
-        }
-
-        .detail-value strong { color: var(--emerald); font-weight: 500; }
-
-        .detail-header {
-            padding: 1.75rem 2rem;
-            background: var(--ivory-2);
-            border-bottom: var(--border);
-        }
-
-        .detail-header h5 {
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--ink-muted);
-        }
-
-        /* Benefits checklist */
-        .benefits-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.875rem;
-            margin-bottom: var(--space-5);
-        }
-
-        .benefits-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.875rem;
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.6;
-        }
-
-        .benefits-list li::before {
-            content: '';
-            display: inline-block;
-            width: 18px;
-            height: 18px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Crect width='18' height='18' fill='%232D9F26' rx='1'/%3E%3Cpath d='M4.5 9l3 3 6-6' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E") center/contain no-repeat;
-            flex-shrink: 0;
-            margin-top: 0.15rem;
-        }
-
-        /* Reinsurance strip */
-        .reinsurance-strip {
-            background: var(--emerald-3);
-            color: var(--ivory);
-            padding: var(--space-7) 0;
-        }
-
-        .reinsurer-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1px;
-            background: rgba(248,246,241,0.08);
-            border: 1px solid rgba(248,246,241,0.08);
-            margin-top: var(--space-6);
-        }
-
-        @media (max-width: 768px) {
-            .reinsurer-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        .reinsurer-cell {
-            padding: var(--space-5);
-            background: rgba(29,110,24,0.6);
-            text-align: center;
-        }
-
-        .reinsurer-name {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--ivory);
-            margin-bottom: 0.5rem;
-        }
-
-        .reinsurer-type {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: rgba(248,246,241,0.5);
-        }
-
-        /* Comparison table */
-        .vs-wrapper {
-            overflow-x: auto;
-            border: var(--border);
-        }
-
-        /* Scenario cards */
-        .scenario-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--ivory-3);
-            border: var(--border);
-        }
-
-        @media (max-width: 768px) { .scenario-grid { grid-template-columns: 1fr; } }
-
-        .scenario-cell {
-            background: var(--white);
-            padding: var(--space-5);
-        }
-
-        .scenario-tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-            margin-bottom: 0.875rem;
-            display: block;
-        }
-
-        .scenario-cell h5 {
-            font-family: var(--font-serif);
-            font-size: 1.125rem;
-            font-weight: 400;
-            color: var(--emerald);
-            margin-bottom: 0.875rem;
-        }
-
-        .scenario-cell p {
-            font-size: 0.9125rem;
-            color: var(--ink-muted);
-            line-height: 1.65;
-        }
-
-        .scenario-result {
-            display: inline-block;
-            margin-top: 1rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--emerald);
-        }
-    </style>
+    <!-- Styles moved to css/main.css -->
 </head>
 <body>
 
@@ -249,18 +18,18 @@
             <span class="nav-brand-name">Lotan Insurance Limited</span>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/products">Our Products</a>
             <a href="index.html#get-started" class="btn btn-dark">Talk To Us</a>
         </div>
     </nav>
 
     <!-- PAGE HEADER -->
-    <header class="products-header">
+    <header class="page-header-dark">
         <div class="container">
             <div class="eyebrow">Our Products</div>
-            <h1>Engineering Capital.<br>Four Products.</h1>
+            <h1 class="text-gradient-gold">Engineering Capital.<br>Four Products.</h1>
             <p>Each instrument is precisely engineered to transform a structural capital constraint into a measurable financial advantage — backed by the world's leading Tier-1 reinsurers.</p>
         </div>
     </header>
@@ -682,9 +451,9 @@
                 <div class="footer-links">
                     <h4>The Firm</h4>
                     <ul>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="about.html">Core Values</a></li>
-                        <li><a href="about.html">Regulatory Framework</a></li>
+                        <li><a href="/about">Our Story</a></li>
+                        <li><a href="/about">Core Values</a></li>
+                        <li><a href="/about">Regulatory Framework</a></li>
                         <li><a href="index.html#get-started">Talk To Us</a></li>
                     </ul>
                 </div>

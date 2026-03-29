@@ -48,11 +48,9 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
-                const response = await fetch("http://localhost:8080/api/leads", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(newLead)
-                });
+                // Mock Backend for Vercel Deployment
+                console.log("Static Mock: Sending lead to backend ->", newLead);
+                const response = { ok: true };
                 
                 if (response.ok) {
                     const alertBox = document.getElementById("form-alert");
@@ -89,9 +87,29 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+    document.querySelectorAll(".reveal, .reveal-zoom").forEach(el => revealObserver.observe(el));
 
-    // 5. Admin Portal Logic
+    // 5. Glass Panel Premium Tilt Effect
+    const glassPanels = document.querySelectorAll(".glass-panel-premium, .value-card");
+    glassPanels.forEach(panel => {
+        panel.addEventListener("mousemove", (e) => {
+            const rect = panel.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -3;
+            const rotateY = ((x - centerX) / centerX) * 3;
+            panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+            panel.style.transition = "none";
+        });
+        panel.addEventListener("mouseleave", () => {
+            panel.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+            panel.style.transition = "transform 0.5s var(--ease)";
+        });
+    });
+
+    // 6. Admin Portal Logic
     const adminTableBody = document.getElementById("admin-table-body");
     if (adminTableBody) {
         loadLeads();

@@ -7,294 +7,7 @@
     <meta name="description" content="Lotan Insurance Limited is an independent financial architecture firm that leverages insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Page-specific overrides */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            background: var(--emerald-3);
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('C:/Users/lenovo/.gemini/antigravity/brain/d214a380-a927-4e38-97fb-da523721ac56/lotan_hero_v3_1774427067872.png');
-            background-size: cover;
-            background-position: center 20%;
-            opacity: 0.28;
-            transform: scale(1.02);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(29, 110, 24, 0.45) 0%,
-                rgba(29, 110, 24, 0.80) 60%,
-                rgba(29, 110, 24, 0.97) 100%
-            );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            padding-bottom: 8rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gold);
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge::before {
-            content: '';
-            display: inline-block;
-            width: 32px;
-            height: 1px;
-            background: var(--gold);
-            vertical-align: middle;
-            margin-right: 0.875rem;
-            opacity: 0.7;
-        }
-
-        .hero .hero-title {
-            color: var(--ivory);
-            max-width: 14ch;
-            margin-bottom: 2rem;
-        }
-
-        .hero .hero-desc {
-            color: rgba(248,246,241,0.7);
-            font-weight: 300;
-            margin-bottom: 3rem;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            animation: bounce 2.5s ease-in-out infinite;
-            color: rgba(248,246,241,0.35);
-            font-size: 1.25rem;
-        }
-
-        /* Stats strip */
-        .kpi-strip {
-            background: var(--white);
-            border-bottom: var(--border);
-        }
-
-        .kpi-strip .stats-strip {
-            border: none;
-            border-top: var(--border);
-            background: var(--ivory-2);
-        }
-
-        .kpi-strip .stats-strip-item {
-            border-right: var(--border);
-            border-bottom: none;
-        }
-
-        /* Instrument cards */
-        .instrument-card {
-            background: var(--white);
-            border: var(--border);
-            border-top: 3px solid var(--emerald);
-            padding: var(--space-6) var(--space-5);
-            transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-        }
-
-        .instrument-card:nth-child(2) { border-top-color: var(--gold); }
-        .instrument-card:nth-child(3) { border-top-color: var(--emerald); }
-        .instrument-card:nth-child(4) { border-top-color: var(--gold); }
-
-        .instrument-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-4px);
-        }
-
-        .instrument-card h4 {
-            color: var(--emerald);
-            font-family: var(--font-serif);
-            font-size: 1.375rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .instrument-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .instrument-tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            background: var(--emerald-3);
-            color: var(--ivory);
-            padding: var(--space-8) 0;
-        }
-
-        .cta-banner-inner {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: var(--space-6);
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .cta-banner-inner { grid-template-columns: 1fr; }
-        }
-
-        .cta-banner h2 { color: var(--ivory); margin-bottom: 1rem; }
-        .cta-banner p  { color: rgba(248,246,241,0.65); font-size: 1.0625rem; }
-
-        /* Reinsurance section */
-        .reinsurance-panel {
-            background: var(--white);
-            border: var(--border);
-            padding: var(--space-7) var(--space-7);
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--space-7);
-            align-items: start;
-        }
-
-        @media (max-width: 900px) {
-            .reinsurance-panel { grid-template-columns: 1fr; padding: var(--space-6); }
-        }
-
-        .reinsurance-metric {
-            padding: var(--space-4);
-            border-left: 2px solid var(--gold);
-            margin-bottom: var(--space-4);
-        }
-
-        .reinsurance-metric .num {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            color: var(--emerald);
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
-
-        .reinsurance-metric p {
-            font-size: 0.875rem;
-            color: var(--ink-muted);
-            margin-top: 0.375rem;
-        }
-
-        /* Advantage cards */
-        .advantage-card {
-            padding: var(--space-5);
-            border: var(--border);
-            background: var(--white);
-            transition: all var(--transition);
-        }
-
-        .advantage-card:hover {
-            border-color: rgba(192,154,82,0.4);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-3px);
-        }
-
-        .advantage-card .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border: 1px solid var(--ivory-3);
-            color: var(--emerald);
-            font-size: 1.125rem;
-            margin-bottom: var(--space-4);
-        }
-
-        .advantage-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--emerald);
-            margin-bottom: 0.875rem;
-        }
-
-        .advantage-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.7;
-        }
-
-        /* Client types */
-        .client-card {
-            padding: var(--space-5);
-            border: var(--border);
-            border-top: 2px solid var(--emerald);
-            background: var(--white);
-        }
-
-        .client-card:nth-child(2) { border-top-color: var(--gold); }
-        .client-card:nth-child(3) { border-top-color: var(--emerald); }
-        .client-card:nth-child(4) { border-top-color: var(--gold); }
-
-        .client-card h4 {
-            font-family: var(--font-sans);
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.875rem;
-            color: var(--emerald);
-        }
-
-        .client-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.65;
-        }
-
-        /* Form panel */
-        #get-started .form-panel {
-            background: var(--white);
-            border: var(--border);
-            padding: var(--space-6);
-        }
-
-        #get-started .form-panel h3 {
-            font-size: 1.75rem;
-            margin-bottom: var(--space-5);
-            color: var(--emerald);
-        }
-
-        select.form-control option { background: #fff; color: var(--ink); }
-    </style>
+    <!-- Styles moved to css/main.css -->
 </head>
 <body>
 
@@ -305,9 +18,9 @@
             <span class="nav-brand-name">Lotan Insurance Limited</span>
         </div>
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/products">Our Products</a>
             <a href="#get-started" class="btn btn-dark">Talk To Us</a>
         </div>
     </nav>
@@ -328,7 +41,7 @@
                     <a href="#instruments" class="btn btn-dark" style="background: var(--gold); border-color: var(--gold); color: var(--emerald); font-weight: 600;">
                         Explore Instruments &nbsp; &rarr;
                     </a>
-                    <a href="about.html" class="btn btn-outline-light">Our Credentials</a>
+                    <a href="/about" class="btn btn-outline-light">Our Credentials</a>
                 </div>
             </div>
         </div>
@@ -391,7 +104,7 @@
                     <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 2.5rem;">
                         As independent intermediaries, we are not bound by carrier product limitations. This objective positioning allows us to engineer structures that serve your balance sheet — not an underwriter's portfolio.
                     </p>
-                    <a href="about.html" class="btn btn-outline-dark">Learn Our Story &nbsp; &rarr;</a>
+                    <a href="/about" class="btn btn-outline-dark">Learn Our Story &nbsp; &rarr;</a>
                 </div>
 
                 <div class="reveal reveal-right" style="display: flex; flex-direction: column; gap: 1px; border: var(--border);">
@@ -417,35 +130,35 @@
         <div class="container">
             <div class="section-header centered reveal reveal-up">
                 <div class="eyebrow">Capital Instruments</div>
-                <h2>Four Instruments. One Architecture.</h2>
+                <h2 class="text-gradient-emerald">Four Instruments. One Architecture.</h2>
                 <div class="section-divider centered"></div>
-                <p>Each instrument is engineered to transform a specific structural constraint into a measurable capital advantage.</p>
+                <p>Each instrument is engineered to transform a specific structural constraint into a measurable capital advantage, bridging the gap between project risk and global capital requirements.</p>
             </div>
 
-            <div class="grid-4 reveal reveal-up">
-                <div class="instrument-card">
-                    <div class="instrument-tag">Loan Enablement</div>
+            <div class="grid-4">
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-1">
+                    <div class="instrument-tag text-gradient-gold">Loan Enablement</div>
                     <h4>Credit Protection Policy</h4>
-                    <p>Reduces lender capital reserve requirements, enabling banks and DFIs to extend credit at lower cost or in higher volumes to previously constrained borrowers.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Reduces lender capital reserve requirements, unlocking lending capacity and minimizing capital costs by aligning with international lending standards.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Project Finance</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-2">
+                    <div class="instrument-tag text-gradient-gold">Project Finance</div>
                     <h4>Performance Security Bonds</h4>
-                    <p>Replaces cash-collateralized contract guarantees with insurance-backed instruments — freeing working capital and enabling bids on larger projects.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Replaces cash-collateralized contract guarantees with insurance-backed instruments—freeing working capital and optimizing project economics.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Mobilization Capital</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-3">
+                    <div class="instrument-tag text-gradient-gold">Mobilization Capital</div>
                     <h4>Advance Payment Guarantees</h4>
-                    <p>Transforms advance payment obligations into structured instruments, providing immediate project mobilization liquidity without depleting operating reserves.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Provides early-stage liquidity by transforming advance payment obligations into secured instruments, enabling rapid project mobilization.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Tender Access</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-4">
+                    <div class="instrument-tag text-gradient-gold">Competitive Financing</div>
                     <h4>Bid Bonds</h4>
-                    <p>Shifts tender security burden from cash reserves to flexible leverage instruments, enabling unlimited participation in large government and PPP procurement.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Shifts the tender security burden from cash reserves to strategic leverage, enabling participation in capital-intensive PPP and government procurements.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
             </div>
         </div>
@@ -481,23 +194,23 @@
 
                     <h5 style="margin-bottom: 1.5rem;">Capital Unlocking Scenarios</h5>
 
-                    <div style="display: flex; flex-direction: column; gap: 1px; border: var(--border);">
-                        <div style="padding: 1.75rem; background: var(--white); border-bottom: var(--border);">
+                    <div style="display: flex; flex-direction: column; gap: 1rem; border: none;">
+                        <div class="glass-panel-premium reveal-zoom" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
                             <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Infrastructure Finance</p>
                             <p style="font-size: 0.9375rem; color: var(--ink-muted);">Local insurer capacity insufficient for $50M project bond. Lotan's reinsurance access covers the full amount — unlocking $50M in project capital.</p>
                         </div>
-                        <div style="padding: 1.75rem; background: var(--white); border-bottom: var(--border);">
+                        <div class="glass-panel-premium reveal-zoom delay-1" style="padding: 1.75rem; border-left: 4px solid var(--gold);">
                             <p style="font-size: 0.875rem; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Bank Lending Expansion</p>
                             <p style="font-size: 0.9375rem; color: var(--ink-muted);">Credit protection backed by international reinsurers reduces capital reserve requirements — allowing a bank to expand lending volume by 40% without proportional capital injection.</p>
                         </div>
-                        <div style="padding: 1.75rem; background: var(--white);">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Contractor Scale-Up</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Reinsurance-backed bid and performance bonds enable a mid-size contractor to bid for $100M+ government tenders — achieving 10× revenue scale potential.</p>
+                        <div class="glass-panel-premium reveal-zoom delay-2" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
+                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Cross-Border Trade</p>
+                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Trade credit risk too high for local market. Reinsurance-backed trade credit matches international standards, expanding an exporter's global supply chain access.</p>
                         </div>
                     </div>
 
                     <div style="margin-top: 2rem;">
-                        <a href="products.html" class="btn btn-dark">Full Technical Documentation →</a>
+                        <a href="/products" class="btn btn-dark">Full Technical Documentation →</a>
                     </div>
                 </div>
             </div>
@@ -747,21 +460,21 @@
                 <div class="footer-links">
                     <h4>Our Products</h4>
                     <ul>
-                        <li><a href="products.html">Credit Protection Policy</a></li>
-                        <li><a href="products.html">Performance Security Bonds</a></li>
-                        <li><a href="products.html">Advance Payment Guarantees</a></li>
-                        <li><a href="products.html">Bid Bonds</a></li>
-                        <li><a href="products.html">The Reinsurance Engine</a></li>
+                        <li><a href="/products">Credit Protection Policy</a></li>
+                        <li><a href="/products">Performance Security Bonds</a></li>
+                        <li><a href="/products">Advance Payment Guarantees</a></li>
+                        <li><a href="/products">Bid Bonds</a></li>
+                        <li><a href="/products">The Reinsurance Engine</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>The Firm</h4>
                     <ul>
-                        <li><a href="about.html">Executive Summary</a></li>
-                        <li><a href="about.html">Purpose &amp; Mission</a></li>
-                        <li><a href="about.html">The Lotan Advantage</a></li>
-                        <li><a href="about.html">Regulatory &amp; Compliance</a></li>
+                        <li><a href="/about">Executive Summary</a></li>
+                        <li><a href="/about">Purpose &amp; Mission</a></li>
+                        <li><a href="/about">The Lotan Advantage</a></li>
+                        <li><a href="/about">Regulatory &amp; Compliance</a></li>
                         <li><a href="#get-started">Talk To Us</a></li>
                     </ul>
                 </div>
@@ -821,14 +534,10 @@
             input.disabled = true;
             
             try {
-                // Send to backend
-                const response = await fetch('http://localhost:8080/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query: msg })
-                });
-                const data = await response.json();
-                appendMessage('ai', data.response);
+                // Static deployment mock
+                setTimeout(() => {
+                    appendMessage('ai', 'Thank you for your message. Our AI integration is currently undergoing maintenance. Please reach out via the Talk To Us form.');
+                }, 800);
             } catch (e) {
                 appendMessage('ai', 'Connection error. Please try again later.');
             }
