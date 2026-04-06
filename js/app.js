@@ -72,7 +72,52 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 4. Scroll Animation Observer
+    // 4. Mobile Menu Toggle
+    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    let savedScrollY = 0;
+
+    function openMobileMenu() {
+        savedScrollY = window.scrollY;
+        mobileMenuToggle.classList.add("active");
+        navLinks.classList.add("open");
+        document.body.classList.add("menu-open");
+        document.body.style.top = `-${savedScrollY}px`;
+    }
+
+    function closeMobileMenu() {
+        mobileMenuToggle.classList.remove("active");
+        navLinks.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        document.body.style.top = "";
+        window.scrollTo(0, savedScrollY);
+    }
+
+    if (mobileMenuToggle && navLinks) {
+        mobileMenuToggle.addEventListener("click", () => {
+            if (navLinks.classList.contains("open")) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu when a link is clicked
+        navLinks.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Close menu on Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && navLinks.classList.contains("open")) {
+                closeMobileMenu();
+            }
+        });
+    }
+
+    // 5. Scroll Animation Observer
     const observerOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -82,34 +127,36 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("active");
-                // Optional: revealObserver.unobserve(entry.target); // Uncomment to animate only once
             }
         });
     }, observerOptions);
 
     document.querySelectorAll(".reveal, .reveal-zoom").forEach(el => revealObserver.observe(el));
 
-    // 5. Glass Panel Premium Tilt Effect
-    const glassPanels = document.querySelectorAll(".glass-panel-premium, .value-card");
-    glassPanels.forEach(panel => {
-        panel.addEventListener("mousemove", (e) => {
-            const rect = panel.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -3;
-            const rotateY = ((x - centerX) / centerX) * 3;
-            panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-            panel.style.transition = "none";
+    // 6. Glass Panel Premium Tilt Effect (desktop only — disabled on touch devices)
+    const hasHover = window.matchMedia("(hover: hover)").matches;
+    if (hasHover) {
+        const glassPanels = document.querySelectorAll(".glass-panel-premium, .value-card");
+        glassPanels.forEach(panel => {
+            panel.addEventListener("mousemove", (e) => {
+                const rect = panel.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -3;
+                const rotateY = ((x - centerX) / centerX) * 3;
+                panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+                panel.style.transition = "none";
+            });
+            panel.addEventListener("mouseleave", () => {
+                panel.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
+                panel.style.transition = "transform 0.5s var(--ease)";
+            });
         });
-        panel.addEventListener("mouseleave", () => {
-            panel.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
-            panel.style.transition = "transform 0.5s var(--ease)";
-        });
-    });
+    }
 
-    // 6. Admin Portal Logic
+    // 7. Admin Portal Logic
     const adminTableBody = document.getElementById("admin-table-body");
     if (adminTableBody) {
         loadLeads();
