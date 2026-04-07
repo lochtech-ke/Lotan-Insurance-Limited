@@ -7,70 +7,7 @@
     <meta name="description" content="Lotan Insurance Limited is an independent financial architecture firm that engineers insurance as a strategic instrument to unlock capital and enable enterprise growth in East Africa and global markets.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Page header dark */
-        .about-header {
-            background: var(--emerald-3);
-            color: var(--ivory);
-            padding-top: 9rem;
-            padding-bottom: var(--space-8);
-            border-bottom: var(--border);
-        }
-
-        .about-header .eyebrow { color: var(--gold); }
-        .about-header h1 { color: var(--ivory); font-size: clamp(2.75rem, 5vw, 5rem); max-width: 18ch; }
-        .about-header p  { color: rgba(248,246,241,0.65); font-size: 1.125rem; max-width: 55ch; margin-top: var(--space-3); }
-
-        /* Stats row */
-        .stat-item {
-            padding: var(--space-6) var(--space-5);
-            border-right: var(--border);
-        }
-
-        .stat-item:last-child { border-right: none; }
-
-        /* Values cards */
-        .value-card {
-            padding: var(--space-5);
-            border: var(--border);
-            border-top: 3px solid var(--emerald);
-            background: var(--white);
-            transition: all var(--transition);
-        }
-
-        .value-card:nth-child(even) { border-top-color: var(--gold); }
-
-        .value-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-3px);
-        }
-
-        .value-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--emerald);
-            margin-bottom: 0.875rem;
-        }
-
-        .value-card p { font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65; }
-
-        /* Credentials panel */
-        .credential-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.625rem;
-            padding: 0.5rem 1rem;
-            border: var(--border);
-            background: var(--ivory);
-            font-size: 0.8125rem;
-            font-weight: 500;
-            color: var(--emerald);
-            margin-top: var(--space-4);
-        }
-
-        .credential-badge .dot { width: 7px; height: 7px; background: var(--emerald-3); border-radius: 50%; }
-    </style>
+    <!-- Styles moved to css/main.css -->
 </head>
 <body>
 
@@ -80,19 +17,24 @@
             <img src="img/lotan_logo_transparent.png" alt="Lotan Insurance Limited">
             <span class="nav-brand-name">Lotan Insurance Limited</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
+        <div class="nav-links" id="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/products">Our Products</a>
             <a href="index.html#get-started" class="btn btn-dark">Talk To Us</a>
         </div>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <!-- PAGE HEADER -->
-    <header class="about-header">
+    <header class="page-header-dark">
         <div class="container">
             <div class="eyebrow">The Firm</div>
-            <h1>Your Financial Architecture Partner</h1>
+            <h1 class="text-gradient-gold">Your Financial Architecture Partner</h1>
             <p>Engineering insurance as a strategic instrument to unlock dormant capital and optimise financial structures for enterprises across East Africa and global markets.</p>
         </div>
     </header>
@@ -581,18 +523,18 @@
                 <div class="footer-links">
                     <h4>Our Products</h4>
                     <ul>
-                        <li><a href="products.html">Credit Protection Policy</a></li>
-                        <li><a href="products.html">Performance Security Bonds</a></li>
-                        <li><a href="products.html">Advance Payment Guarantees</a></li>
-                        <li><a href="products.html">Bid Bonds</a></li>
+                        <li><a href="/products">Credit Protection Policy</a></li>
+                        <li><a href="/products">Performance Security Bonds</a></li>
+                        <li><a href="/products">Advance Payment Guarantees</a></li>
+                        <li><a href="/products">Bid Bonds</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>The Firm</h4>
                     <ul>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="about.html">Core Values</a></li>
-                        <li><a href="about.html">Regulatory Framework</a></li>
+                        <li><a href="/about">Our Story</a></li>
+                        <li><a href="/about">Core Values</a></li>
+                        <li><a href="/about">Regulatory Framework</a></li>
                         <li><a href="index.html#get-started">Talk To Us</a></li>
                     </ul>
                 </div>

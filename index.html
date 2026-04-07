@@ -7,6 +7,7 @@
     <meta name="description" content="Lotan Insurance Limited is an independent financial architecture firm that leverages insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Styles consolidated from both branches -->
     <style>
         /* Page-specific overrides */
         .hero {
@@ -304,12 +305,17 @@
             <img src="img/lotan_logo_transparent.png" alt="Lotan Insurance Limited">
             <span class="nav-brand-name">Lotan Insurance Limited</span>
         </div>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
+        <div class="nav-links" id="nav-links">
+            <a href="/">Home</a>
+            <a href="/about">About Us</a>
+            <a href="/products">Our Products</a>
             <a href="#get-started" class="btn btn-dark">Talk To Us</a>
         </div>
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <!-- ≡≡≡≡≡≡≡≡≡≡≡  HERO  ≡≡≡≡≡≡≡≡≡≡≡ -->
@@ -328,7 +334,7 @@
                     <a href="#instruments" class="btn btn-dark" style="background: var(--gold); border-color: var(--gold); color: var(--emerald); font-weight: 600;">
                         Explore Instruments &nbsp; &rarr;
                     </a>
-                    <a href="about.html" class="btn btn-outline-light">Our Credentials</a>
+                    <a href="/about" class="btn btn-outline-light">Our Credentials</a>
                 </div>
             </div>
         </div>
@@ -405,7 +411,7 @@
                             <div style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); margin-top: 0.25rem;">Capital Unlocked</div>
                         </div>
                     </div>
-                    <a href="about.html" class="btn btn-outline-dark">Learn Our Story &nbsp; &rarr;</a>
+                    <a href="/about" class="btn btn-outline-dark">Learn Our Story &nbsp; &rarr;</a>
                 </div>
 
                 <div class="reveal reveal-right" style="position: relative; overflow: hidden; border: var(--border);">
@@ -426,35 +432,35 @@
         <div class="container">
             <div class="section-header centered reveal reveal-up">
                 <div class="eyebrow">Capital Instruments</div>
-                <h2>Four Instruments. One Architecture.</h2>
+                <h2 class="text-gradient-emerald">Four Instruments. One Architecture.</h2>
                 <div class="section-divider centered"></div>
-                <p>Each instrument is engineered to transform a specific structural constraint into a measurable capital advantage.</p>
+                <p>Each instrument is engineered to transform a specific structural constraint into a measurable capital advantage, bridging the gap between project risk and global capital requirements.</p>
             </div>
 
-            <div class="grid-4 reveal reveal-up">
-                <div class="instrument-card">
-                    <div class="instrument-tag">Loan Enablement</div>
+            <div class="grid-4">
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-1">
+                    <div class="instrument-tag text-gradient-gold">Loan Enablement</div>
                     <h4>Credit Protection Policy</h4>
-                    <p>Reduces lender capital reserve requirements, enabling banks and DFIs to extend credit at lower cost or in higher volumes to previously constrained borrowers.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Reduces lender capital reserve requirements, unlocking lending capacity and minimizing capital costs by aligning with international lending standards.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Project Finance</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-2">
+                    <div class="instrument-tag text-gradient-gold">Project Finance</div>
                     <h4>Performance Security Bonds</h4>
-                    <p>Replaces cash-collateralized contract guarantees with insurance-backed instruments — freeing working capital and enabling bids on larger projects.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Replaces cash-collateralized contract guarantees with insurance-backed instruments—freeing working capital and optimizing project economics.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Mobilization Capital</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-3">
+                    <div class="instrument-tag text-gradient-gold">Mobilization Capital</div>
                     <h4>Advance Payment Guarantees</h4>
-                    <p>Transforms advance payment obligations into structured instruments, providing immediate project mobilization liquidity without depleting operating reserves.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Provides early-stage liquidity by transforming advance payment obligations into secured instruments, enabling rapid project mobilization.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
-                <div class="instrument-card">
-                    <div class="instrument-tag">Tender Access</div>
+                <div class="instrument-card glass-panel-premium reveal reveal-up delay-4">
+                    <div class="instrument-tag text-gradient-gold">Competitive Financing</div>
                     <h4>Bid Bonds</h4>
-                    <p>Shifts tender security burden from cash reserves to flexible leverage instruments, enabling unlimited participation in large government and PPP procurement.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 500; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
+                    <p>Shifts the tender security burden from cash reserves to strategic leverage, enabling participation in capital-intensive PPP and government procurements.</p>
+                    <a href="/products" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details →</a>
                 </div>
             </div>
         </div>
@@ -490,23 +496,23 @@
 
                     <h5 style="margin-bottom: 1.5rem;">Capital Unlocking Scenarios</h5>
 
-                    <div style="display: flex; flex-direction: column; gap: 1px; border: var(--border);">
-                        <div style="padding: 1.75rem; background: var(--white); border-bottom: var(--border);">
+                    <div style="display: flex; flex-direction: column; gap: 1rem; border: none;">
+                        <div class="glass-panel-premium reveal-zoom" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
                             <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Infrastructure Finance</p>
                             <p style="font-size: 0.9375rem; color: var(--ink-muted);">Local insurer capacity insufficient for $50M project bond. Lotan's reinsurance access covers the full amount — unlocking $50M in project capital.</p>
                         </div>
-                        <div style="padding: 1.75rem; background: var(--white); border-bottom: var(--border);">
+                        <div class="glass-panel-premium reveal-zoom delay-1" style="padding: 1.75rem; border-left: 4px solid var(--gold);">
                             <p style="font-size: 0.875rem; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Bank Lending Expansion</p>
                             <p style="font-size: 0.9375rem; color: var(--ink-muted);">Credit protection backed by international reinsurers reduces capital reserve requirements — allowing a bank to expand lending volume by 40% without proportional capital injection.</p>
                         </div>
-                        <div style="padding: 1.75rem; background: var(--white);">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Contractor Scale-Up</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Reinsurance-backed bid and performance bonds enable a mid-size contractor to bid for $100M+ government tenders — achieving 10× revenue scale potential.</p>
+                        <div class="glass-panel-premium reveal-zoom delay-2" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
+                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Cross-Border Trade</p>
+                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Trade credit risk too high for local market. Reinsurance-backed trade credit matches international standards, expanding an exporter's global supply chain access.</p>
                         </div>
                     </div>
 
                     <div style="margin-top: 2rem;">
-                        <a href="products.html" class="btn btn-dark">Full Technical Documentation →</a>
+                        <a href="/products" class="btn btn-dark">Full Technical Documentation →</a>
                     </div>
                 </div>
             </div>
@@ -756,21 +762,21 @@
                 <div class="footer-links">
                     <h4>Our Products</h4>
                     <ul>
-                        <li><a href="products.html">Credit Protection Policy</a></li>
-                        <li><a href="products.html">Performance Security Bonds</a></li>
-                        <li><a href="products.html">Advance Payment Guarantees</a></li>
-                        <li><a href="products.html">Bid Bonds</a></li>
-                        <li><a href="products.html">The Reinsurance Engine</a></li>
+                        <li><a href="/products">Credit Protection Policy</a></li>
+                        <li><a href="/products">Performance Security Bonds</a></li>
+                        <li><a href="/products">Advance Payment Guarantees</a></li>
+                        <li><a href="/products">Bid Bonds</a></li>
+                        <li><a href="/products">The Reinsurance Engine</a></li>
                     </ul>
                 </div>
 
                 <div class="footer-links">
                     <h4>The Firm</h4>
                     <ul>
-                        <li><a href="about.html">Executive Summary</a></li>
-                        <li><a href="about.html">Purpose &amp; Mission</a></li>
-                        <li><a href="about.html">The Lotan Advantage</a></li>
-                        <li><a href="about.html">Regulatory &amp; Compliance</a></li>
+                        <li><a href="/about">Executive Summary</a></li>
+                        <li><a href="/about">Purpose &amp; Mission</a></li>
+                        <li><a href="/about">The Lotan Advantage</a></li>
+                        <li><a href="/about">Regulatory &amp; Compliance</a></li>
                         <li><a href="#get-started">Talk To Us</a></li>
                     </ul>
                 </div>
@@ -830,14 +836,10 @@
             input.disabled = true;
             
             try {
-                // Send to backend
-                const response = await fetch('http://localhost:8080/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query: msg })
-                });
-                const data = await response.json();
-                appendMessage('ai', data.response);
+                // Static deployment mock
+                setTimeout(() => {
+                    appendMessage('ai', 'Thank you for your message. Our AI integration is currently undergoing maintenance. Please reach out via the Talk To Us form.');
+                }, 800);
             } catch (e) {
                 appendMessage('ai', 'Connection error. Please try again later.');
             }
