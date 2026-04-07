@@ -836,10 +836,19 @@
             input.disabled = true;
             
             try {
-                // Static deployment mock
-                setTimeout(() => {
-                    appendMessage('ai', 'Thank you for your message. Our AI integration is currently undergoing maintenance. Please reach out via the Talk To Us form.');
-                }, 800);
+                // Fetch from Python backend
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: msg })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    appendMessage('ai', data.response || "I'm sorry, I couldn't process your request.");
+                } else {
+                    appendMessage('ai', 'Error connecting to the intelligence engine.');
+                }
             } catch (e) {
                 appendMessage('ai', 'Connection error. Please try again later.');
             }
