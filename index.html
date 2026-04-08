@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -777,12 +777,15 @@
     <!-- =========== AI CHATBOT WIDGET =========== -->
     <div id="ai-chat-widget">
         <div id="ai-chat-header" onclick="toggleChat()">
-            <span><i class="fa-solid fa-robot"></i> Ask AI Assistant</span>
+            <span style="flex-grow: 1;"><i class="fa-solid fa-robot"></i> Ask AI Assistant</span>
+            <a href="https://wa.me/254781545075" target="_blank" onclick="event.stopPropagation();" style="color: #25D366; margin-right: 15px; font-size: 1.25rem;" title="Chat on WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
             <i class="fa-solid fa-chevron-up" id="ai-chat-icon"></i>
         </div>
         <div id="ai-chat-body">
             <div id="ai-chat-messages">
-                <div class="chat-msg ai">Hello! I'm Lotan's AI Assistant. You can ask me anything about our policies, instruments, and operations. How can I help?</div>
+                <div class="chat-msg ai">Hello! I'm Lotan's AI Assistant. You can ask me anything. If you'd prefer to speak to a human, you can <a href="https://wa.me/254781545075" target="_blank" style="color: var(--emerald-3); font-weight: 600; text-decoration: underline;">contact our advisors on WhatsApp</a>. How can I help?</div>
             </div>
             <div id="ai-chat-input-area">
                 <input type="text" id="ai-chat-input" placeholder="Ask a question..." onkeypress="handleChatKeyPress(event)">
@@ -841,7 +844,8 @@
         function appendMessage(sender, text) {
             const messages = document.getElementById('ai-chat-messages');
             const div = document.createElement('div');
-            div.className = `chat-msg USD {sender}`;
+            div.className = `chat-msg ${sender}`;
+            // If the response contains markdown-like links, or just to keep it safe from XSS while basic text is assumed.
             div.textContent = text;
             messages.appendChild(div);
             messages.scrollTop = messages.scrollHeight;
