@@ -1,510 +1,239 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products | Lotan Insurance Limited</title>
-    <meta name="description" content="Lotan Insurance Limited's four capital unlocking instruments: Credit Protection Policy, Performance Security Bonds, Advance Payment Guarantees, and Bid Bonds - backed by Tier-1 global reinsurers.">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles moved to css/main.css -->
+    <meta name="description" content="LIA Insurance Agency - Our comprehensive insurance products.">
+    <title>Products | LIA Insurance Agency</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#081B33',
+                        royal: '#0057FF',
+                        emerald: '#00B894',
+                        platinum: '#F8FAFC',
+                        gold: '#D4AF37',
+                        charcoal: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(8, 27, 51, 0.05)',
+                        'hover': '0 20px 40px -10px rgba(0, 87, 255, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body>
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-royal selection:text-white">
 
-    <!-- NAVIGATION -->
-    <nav id="main-nav">
-        <div class="nav-brand">
-            <img src="img/lotan_logo_transparent.png" alt="Lotan Insurance Limited">
-            <span class="nav-brand-name">Lotan Insurance Limited</span>
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-lg bg-royal text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-navy transition-colors">
+                    LIA
+                </div>
+                <span class="font-heading font-semibold text-lg text-navy tracking-tight">Insurance Agency</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="/index.html#solutions" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Solutions</a>
+                <a href="/index.html#why-us" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Why Us</a>
+                <a href="/index.html#claims" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Claims</a>
+                <a href="/about.html" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">About</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="/index.html#quote" class="bg-navy hover:bg-royal text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg hover:shadow-hover">
+                    Get a Quote
+                </a>
+            </div>
+
+            <button class="lg:hidden text-navy focus:outline-none" id="mobile-menu-btn">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
-            <a href="index.html#get-started" class="btn btn-dark">Talk To Us</a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </nav>
 
-    <!-- PAGE HEADER -->
-    <header class="page-header-dark">
-        <div class="container">
-            <div class="eyebrow">Our Products</div>
-            <h1 class="text-gradient-gold">Engineering Capital.<br>Four Products.</h1>
-            <p>Each instrument is precisely engineered to transform a structural capital constraint into a measurable financial advantage - backed by the world's leading Tier-1 reinsurers.</p>
-        </div>
-    </header>
-
-    <!-- ===  INSTRUMENT 1: CREDIT PROTECTION POLICY  === -->
-    <div class="instrument-section" id="credit-protection">
-        <div class="container">
-            <div class="instrument-layout">
-                <div class="instrument-content-panel">
-                    <span class="instrument-number">01</span>
-                    <div class="eyebrow">Loan Enablement</div>
-                    <h2>Credit Protection Policy</h2>
-                    <div class="section-divider"></div>
-                    <p>Designed for financial institutions seeking to expand lending capacity without proportional increases in regulatory capital. Our Credit Protection Policy transfers the credit risk of a loan portfolio - or specific high-value exposures - to internationally-rated reinsurers, directly reducing the capital reserves a lender must hold against those positions.</p>
-                    <p>The result: lenders unlock the capacity to extend credit to previously constrained borrowers at lower cost, while maintaining full regulatory compliance.</p>
-
-                    <h5 style="margin-bottom: 1.25rem;">Capital Unlocking Benefits</h5>
-                    <ul class="benefits-list">
-                        <li>Reduces regulatory capital reserve requirements against protected loan portfolios</li>
-                        <li>Enables expansion of lending to higher-risk or previously excluded borrower segments</li>
-                        <li>Lowers the effective cost of credit - making borrowing more accessible</li>
-                        <li>Protects lender balance sheets against systemic default events</li>
-                        <li>Satisfies leading commercial bank and regional DFI credit covenants</li>
-                    </ul>
-
-                    <a href="index.html#get-started" class="btn btn-dark">Enquire About This Instrument</a>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 0;">
-                    <!-- Product image -->
-                    <div style="position: relative; overflow: hidden; border: var(--border); border-bottom: none;">
-                        <img src="img/lotan_credit_protection.png" alt="Credit Protection Policy - financial shield protecting loan portfolios" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-                        <div style="position: absolute; top: var(--space-3); left: var(--space-3);">
-                            <span style="background: var(--emerald); color: var(--ivory); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem;">Loan Enablement</span>
-                        </div>
-                    </div>
-                    <!-- Technical detail panel -->
-                    <div class="instrument-detail-panel" style="border-top: none;">
-                        <div class="detail-header">
-                            <h5>Technical Specification</h5>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Primary Beneficiary</div>
-                            <div class="detail-value">Banks, DFIs, MFIs, Credit Funds</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Core Mechanism</div>
-                            <div class="detail-value">Credit risk transfer to internationally-rated reinsurers</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capital Impact</div>
-                            <div class="detail-value"><strong>20-40% reduction</strong> in capital reserves against protected portfolios</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capacity</div>
-                            <div class="detail-value">No upper limit via reinsurance panel</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Reinsurance Backing</div>
-                            <div class="detail-value">Madison Insurance</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Documentation</div>
-                            <div class="detail-value">Satisfies rigorous commercial bank and regional DFI due diligence</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Regulatory Standard</div>
-                            <div class="detail-value">IRA Kenya licensed · Insurance Act (CAP 487) compliant</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Application</div>
-                            <div class="detail-value">Individual exposures or full portfolio protection structures</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center space-y-6">
+            <a href="/index.html#solutions" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Solutions</a>
+            <a href="/index.html#why-us" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Why Us</a>
+            <a href="/index.html#claims" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Claims</a>
+            <a href="/about.html" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">About</a>
+            <a href="/index.html#quote" class="mobile-link mt-8 bg-emerald text-navy text-lg font-medium px-8 py-3 rounded-full transition-all">Get a Quote</a>
         </div>
     </div>
 
-    <!-- ===  INSTRUMENT 2: PERFORMANCE SECURITY BONDS  === -->
-    <div class="instrument-section alt" id="performance-bonds">
-        <div class="container">
-            <div class="instrument-layout reversed">
-                <div class="instrument-content-panel">
-                    <span class="instrument-number">02</span>
-                    <div class="eyebrow">Project Finance</div>
-                    <h2>Performance Security Bonds</h2>
-                    <div class="section-divider"></div>
-                    <p>Reframed from a compliance necessity into a powerful capital unlocking instrument. Performance Security Bonds guarantee a contractor's or supplier's obligations to a project owner - replacing cash-collateralised guarantees with insurance-backed instruments that free up working capital for deployment into the project itself.</p>
-                    <p>Backed by Tier-1 reinsurers, our bonds satisfy the most demanding international procurement standards, enabling contractors to bid on - and execute - projects that would otherwise exceed their capital capacity.</p>
-
-                    <h5 style="margin-bottom: 1.25rem;">Capital Unlocking Benefits</h5>
-                    <ul class="benefits-list">
-                        <li>Replaces large cash deposits tied up as collateral - freeing working capital</li>
-                        <li>Enables bidding on capital-intensive infrastructure contracts up to USD 100M+</li>
-                        <li>Improves financing terms by reducing perceived contractor risk</li>
-                        <li>Accepted by international procurement authorities and project financiers</li>
-                        <li>Scales with project size - no upper capacity limit via reinsurance</li>
-                    </ul>
-
-                    <a href="index.html#get-started" class="btn btn-dark">Enquire About This Instrument</a>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 0;">
-                    <!-- Product image -->
-                    <div style="position: relative; overflow: hidden; border: var(--border); border-bottom: none;">
-                        <img src="img/lotan_performance_bonds.png" alt="Performance Security Bonds - East African infrastructure project" style="width: 100%; height: 220px; object-fit: cover; display: block; object-position: center 60%;">
-                        <div style="position: absolute; top: var(--space-3); left: var(--space-3);">
-                            <span style="background: var(--gold); color: var(--emerald); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem;">Project Finance</span>
-                        </div>
-                    </div>
-                    <!-- Technical detail panel -->
-                    <div class="instrument-detail-panel" style="border-top: none;">
-                        <div class="detail-header">
-                            <h5>Technical Specification</h5>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Primary Beneficiary</div>
-                            <div class="detail-value">Contractors, Developers, Suppliers, JV Partners</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Bond Types</div>
-                            <div class="detail-value">Performance · Retention · Maintenance · Warranty Bonds</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capital Impact</div>
-                            <div class="detail-value"><strong>100% replacement</strong> of cash collateral with insurance-backed instrument</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capacity</div>
-                            <div class="detail-value">USD 50M+ per single project via reinsurance backing</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Reinsurance Backing</div>
-                            <div class="detail-value">Madison Insurance</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Accepted By</div>
-                            <div class="detail-value">Government agencies, IFIs, Multinational procurement bodies</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Documentation</div>
-                            <div class="detail-value">International surety standards</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Tenor</div>
-                            <div class="detail-value">Project duration + defects liability period</div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Page Header -->
+    <section class="pt-40 pb-20 bg-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
+                <span class="text-xs font-semibold text-royal tracking-wider uppercase">Products</span>
             </div>
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">Strategic <span class="text-royal">Protection.</span></h1>
+            <p class="text-lg text-platinum/70 max-w-2xl mx-auto">
+                Comprehensive, enterprise-grade insurance solutions tailored to protect your personal assets, families, and business operations.
+            </p>
         </div>
-    </div>
+    </section>
 
-    <!-- ===  INSTRUMENT 3: ADVANCE PAYMENT GUARANTEES  === -->
-    <div class="instrument-section" id="advance-payment">
-        <div class="container">
-            <div class="instrument-layout">
-                <div class="instrument-content-panel">
-                    <span class="instrument-number">03</span>
-                    <div class="eyebrow">Mobilisation Capital</div>
-                    <h2>Advance Payment Guarantees</h2>
-                    <div class="section-divider"></div>
-                    <p>Transforms the standard obligation to provide advance payment protection into a mobilisation capital engine. When a project owner advances funds to a contractor for mobilisation, an Advance Payment Guarantee protects the owner against misuse - while enabling the contractor to receive that advance without deploying their own cash as counter-collateral.</p>
-                    <p>The result is immediate project mobilisation liquidity, secured by our Tier-1 reinsurers, without depleting the contractor's operating reserves.</p>
-
-                    <h5 style="margin-bottom: 1.25rem;">Capital Unlocking Benefits</h5>
-                    <ul class="benefits-list">
-                        <li>Enables contractors to receive advance payments without cash counter-collateral</li>
-                        <li>Provides immediate project mobilisation capital for materials and equipment</li>
-                        <li>Protects project owners against advance payment misuse or contractor default</li>
-                        <li>Optimises contractor operational balance sheets from day one</li>
-                        <li>Reduces time-to-mobilisation, accelerating project delivery</li>
-                    </ul>
-
-                    <a href="index.html#get-started" class="btn btn-dark">Enquire About This Instrument</a>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 0;">
-                    <!-- Product image -->
-                    <div style="position: relative; overflow: hidden; border: var(--border); border-bottom: none;">
-                        <img src="img/lotan_advance_payment.png" alt="Advance Payment Guarantees - capital mobilisation" style="width: 100%; height: 220px; object-fit: cover; display: block;">
-                        <div style="position: absolute; top: var(--space-3); left: var(--space-3);">
-                            <span style="background: var(--emerald); color: var(--ivory); font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem;">Mobilisation Capital</span>
-                        </div>
+    <!-- Product 1: Credit Life -->
+    <section class="py-24 bg-white border-b border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="gsap-fade-right">
+                    <div class="w-16 h-16 rounded-2xl bg-royal/10 text-royal flex items-center justify-center mb-6">
+                        <i data-feather="shield" class="w-8 h-8"></i>
                     </div>
-                    <!-- Technical detail panel -->
-                    <div class="instrument-detail-panel" style="border-top: none;">
-                        <div class="detail-header">
-                            <h5>Technical Specification</h5>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Primary Beneficiary</div>
-                            <div class="detail-value">Contractors, Suppliers, Project Developers</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Protection For</div>
-                            <div class="detail-value">Project owners advancing mobilisation payments</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capital Impact</div>
-                            <div class="detail-value"><strong>Full advance</strong> received without cash counter-collateral deployment</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Typical Advance %</div>
-                            <div class="detail-value">10-20% of contract value (varies by contract)</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Reinsurance Backing</div>
-                            <div class="detail-value">Madison Insurance</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Repayment Mechanism</div>
-                            <div class="detail-value">Automatically reduces as advance is recovered from interim certificates</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Documentation</div>
-                            <div class="detail-value">International surety standards</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Accepted By</div>
-                            <div class="detail-value">Government, IFIs, PPP project sponsors globally</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===  INSTRUMENT 4: BID BONDS  === -->
-    <div class="instrument-section alt" id="bid-bonds">
-        <div class="container">
-            <div class="instrument-layout reversed">
-                <div class="instrument-content-panel">
-                    <span class="instrument-number">04</span>
-                    <div class="eyebrow">Tender Access</div>
-                    <h2>Bid Bonds</h2>
-                    <div class="section-divider"></div>
-                    <p>Strategic growth accelerators that unlock access to high-value tender opportunities. Bid Bonds guarantee a tenderer's commitment to accept a contract if awarded, protecting the project owner against abandonment - while shifting the entire financial burden of tender security away from the bidder's cash reserves.</p>
-                    <p>By replacing cash tender deposits with insurance-backed instruments, contractors can simultaneously participate in multiple large tenders, achieving a scale of market participation simply not possible with cash-constrained bidding strategies.</p>
-
-                    <h5 style="margin-bottom: 1.25rem;">Capital Unlocking Benefits</h5>
-                    <ul class="benefits-list">
-                        <li>Eliminates cash tender deposits - preserving liquidity for operations</li>
-                        <li>Enables simultaneous participation in multiple large-value tenders</li>
-                        <li>Unlocks access to USD 100M+ government and PPP procurement</li>
-                        <li>Protects internal cash flow throughout the often lengthy procurement cycle</li>
-                        <li>Accepted by all major government and international procurement bodies</li>
-                    </ul>
-
-                    <a href="index.html#get-started" class="btn btn-dark">Enquire About This Instrument</a>
-                </div>
-
-                <div style="display: flex; flex-direction: column; gap: 0;">
-                    <!-- Product image: reuse credit protection image with different positioning for visual variety -->
-                    <div style="position: relative; overflow: hidden; border: var(--border); border-bottom: none;">
-                        <img src="img/lotan_credit_protection.png" alt="Bid Bonds - tender security and capital preservation" style="width: 100%; height: 220px; object-fit: cover; display: block; filter: hue-rotate(10deg) saturate(0.85);">
-                        <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(29,110,24,0.35) 0%, rgba(192,154,82,0.2) 100%);"></div>
-                        <div style="position: absolute; top: var(--space-3); left: var(--space-3);">
-                            <span style="background: var(--gold); color: var(--emerald); font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.75rem;">Tender Access</span>
-                        </div>
-                        <div style="position: absolute; bottom: var(--space-3); right: var(--space-3);">
-                            <span style="background: rgba(29,110,24,0.85); color: var(--ivory); font-size: 0.75rem; font-weight: 500; padding: 0.375rem 0.75rem;">48-72hr issuance</span>
-                        </div>
-                    </div>
-                    <!-- Technical detail panel -->
-                    <div class="instrument-detail-panel" style="border-top: none;">
-                        <div class="detail-header">
-                            <h5>Technical Specification</h5>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Primary Beneficiary</div>
-                            <div class="detail-value">Contractors, Suppliers, Service Firms, Consortia</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Protection For</div>
-                            <div class="detail-value">Procuring entity against tender abandonment</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Capital Impact</div>
-                            <div class="detail-value"><strong>Zero cash deposit</strong> required - full tender security via insurance</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Typical Bond Value</div>
-                            <div class="detail-value">1-5% of contract value (per procurement rules)</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Reinsurance Backing</div>
-                            <div class="detail-value">Madison Insurance</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Tenor</div>
-                            <div class="detail-value">Validity of tender + award period (typically 90-180 days)</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Issued In</div>
-                            <div class="detail-value">48-72 hours from receipt of complete documentation</div>
-                        </div>
-                        <div class="detail-row">
-                            <div class="detail-label">Accepted By</div>
-                            <div class="detail-value">PPRA Kenya · All government MDAs · IFI procurement bodies</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===  REINSURANCE ENGINE  === -->
-    <section class="reinsurance-strip" id="reinsurance">
-        <div class="container">
-            <div class="grid-2" style="align-items: center; gap: var(--space-8);">
-                <div class="reveal reveal-left">
-                    <div class="eyebrow" style="color: rgba(192,154,82,0.8);">The Capital Backbone</div>
-                    <h2 style="color: var(--ivory);">The Reinsurance Engine</h2>
-                    <div class="section-divider"></div>
-                    <p style="color: rgba(248,246,241,0.7); margin-bottom: var(--space-5);">Reinsurance is the mechanism that transforms Lotan from a local intermediary into a global capital connector. Every structure we engineer is anchored to elite Tier-1 international reinsurers - translating regional risk into internationally bankable, credit-committee-ready documentation.</p>
-                    <ul style="display: flex; flex-direction: column; gap: 1rem;">
-                        <li style="font-size: 0.9375rem; color: rgba(248,246,241,0.65); padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">-</span>
-                            Unlimited capacity: no risk too large for our reinsurance panel
+                    <h2 class="text-3xl font-heading font-bold text-navy mb-4">Credit Protection Policy</h2>
+                    <p class="text-charcoal/70 text-lg mb-6 leading-relaxed">
+                        Comprehensive coverage protecting lenders and borrowers through death, total permanent disability, total temporary disability, and income protection benefits.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3">
+                            <i data-feather="check-circle" class="w-5 h-5 text-emerald shrink-0 mt-0.5"></i>
+                            <span class="text-charcoal/80">Keyman Death Cover & Total Permanent Disability</span>
                         </li>
-                        <li style="font-size: 0.9375rem; color: rgba(248,246,241,0.65); padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">-</span>
-                            Competitive pricing through multi-underwriter market access
+                        <li class="flex items-start gap-3">
+                            <i data-feather="check-circle" class="w-5 h-5 text-emerald shrink-0 mt-0.5"></i>
+                            <span class="text-charcoal/80">Protects lenders from loan default risks</span>
                         </li>
-                        <li style="font-size: 0.9375rem; color: rgba(248,246,241,0.65); padding-left: 1.5rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--gold);">-</span>
-                            Documentation satisfying leading commercial bank and regional DFI standards
+                        <li class="flex items-start gap-3">
+                            <i data-feather="check-circle" class="w-5 h-5 text-emerald shrink-0 mt-0.5"></i>
+                            <span class="text-charcoal/80">Ensures family assets pledged as collateral are preserved</span>
                         </li>
                     </ul>
+                    <a href="/index.html#quote" class="text-royal font-medium flex items-center gap-2 hover:gap-3 transition-all">Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i></a>
                 </div>
-
-                <div class="reveal reveal-right">
-                    <div class="reinsurer-grid" style="grid-template-columns: 1fr;">
-                        <div class="reinsurer-cell" style="padding: var(--space-6);">
-                            <div class="reinsurer-name" style="font-size: 2rem;">Madison Insurance</div>
-                            <div class="reinsurer-type">Exclusive Reinsurance Partner</div>
+                <div class="bg-platinum p-8 md:p-12 rounded-[2rem] border border-navy/5 gsap-fade-left">
+                    <h3 class="font-heading font-bold text-xl text-navy mb-6">Key Details</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-1">Premium Rate</div>
+                            <div class="text-navy font-medium">1.8% of total loan amount</div>
+                        </div>
+                        <div class="h-px w-full bg-navy/10"></div>
+                        <div>
+                            <div class="text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-1">Payment</div>
+                            <div class="text-navy font-medium">Lump sum in advance</div>
+                        </div>
+                        <div class="h-px w-full bg-navy/10"></div>
+                        <div>
+                            <div class="text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-1">Duration</div>
+                            <div class="text-navy font-medium">Matches loan repayment term</div>
                         </div>
                     </div>
-                    <p style="font-size: 0.8rem; color: rgba(248,246,241,0.35); text-align: center; margin-top: 1rem; text-transform: uppercase; letter-spacing: 0.08em;">Reinsurance Partner · Ksh 40B+ in Capital Protected</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===  CAPITAL UNLOCKING SCENARIOS  === -->
-    <section>
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Real-World Application</div>
-                <h2>Capital Unlocking Scenarios</h2>
-                <div class="section-divider centered"></div>
-                <p>How our four products translate into measurable capital outcomes for real enterprises.</p>
-            </div>
-
-            <div class="scenario-grid reveal reveal-up">
-                <div class="scenario-cell">
-                    <span class="scenario-tag">Infrastructure Finance</span>
-                    <h5>USD 50M Project Bond</h5>
-                    <p>Local insurer capacity insufficient to cover a USD 50M infrastructure bond requirement. Lotan's reinsurance access enables full coverage - unlocking the entire project capital.</p>
-                    <span class="scenario-result">> USD 50M in project capital unlocked</span>
+    <!-- Product 2: Surety & Bonds -->
+    <section class="py-24 bg-platinum border-b border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 bg-white p-8 md:p-12 rounded-[2rem] border border-navy/5 shadow-sm gsap-fade-right">
+                    <h3 class="font-heading font-bold text-xl text-navy mb-6">Bond Portfolio</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="text-navy font-semibold mb-1">Performance Security Bonds</div>
+                            <div class="text-sm text-charcoal/70">Guarantees ensuring contractor performance and project completion.</div>
+                        </div>
+                        <div class="h-px w-full bg-navy/10"></div>
+                        <div>
+                            <div class="text-navy font-semibold mb-1">Advance Payment Guarantees</div>
+                            <div class="text-sm text-charcoal/70">Protection for advance payments on major projects.</div>
+                        </div>
+                        <div class="h-px w-full bg-navy/10"></div>
+                        <div>
+                            <div class="text-navy font-semibold mb-1">Bid Bonds</div>
+                            <div class="text-sm text-charcoal/70">Security for competitive bidding processes.</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="scenario-cell" style="border-left: var(--border);">
-                    <span class="scenario-tag">Bank Lending Expansion</span>
-                    <h5>40% Lending Scale-Up</h5>
-                    <p>Credit protection backed by international reinsurers reduces a bank's capital reserve requirements, enabling a 40% expansion in lending volume without proportional new capital injection.</p>
-                    <span class="scenario-result">> 40% more lending capacity deployed</span>
-                </div>
-                <div class="scenario-cell" style="border-top: var(--border);">
-                    <span class="scenario-tag">Contractor Scale-Up</span>
-                    <h5>10x Revenue Scale Potential</h5>
-                    <p>Reinsurance-backed bid and performance bonds enable a mid-size contractor to simultaneously bid on multiple USD 100M+ government tenders - a scale of participation previously impossible with cash-constrained bidding.</p>
-                    <span class="scenario-result">> 10x revenue scale potential unlocked</span>
-                </div>
-                <div class="scenario-cell" style="border-top: var(--border); border-left: var(--border);">
-                    <span class="scenario-tag">Trade Finance</span>
-                    <h5>Cross-Border Supply Chain</h5>
-                    <p>Trade credit risk too high for local market acceptance. Internationally-backed trade credit insurance enables access to global supply chains and export credit facilities previously beyond reach.</p>
-                    <span class="scenario-result">> Access to global supply chain capital</span>
+                <div class="order-1 lg:order-2 gsap-fade-left">
+                    <div class="w-16 h-16 rounded-2xl bg-emerald/10 text-emerald flex items-center justify-center mb-6">
+                        <i data-feather="briefcase" class="w-8 h-8"></i>
+                    </div>
+                    <h2 class="text-3xl font-heading font-bold text-navy mb-4">Surety & Bonds</h2>
+                    <p class="text-charcoal/70 text-lg mb-6 leading-relaxed">
+                        Robust financial instruments designed for contractors and businesses engaging in large-scale projects, bidding, and development.
+                    </p>
+                    <a href="/index.html#quote" class="text-emerald font-medium flex items-center gap-2 hover:gap-3 transition-all">Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===  LOTAN VS BANCASSURANCE  === -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Competitive Architecture</div>
-                <h2>Lotan vs. Bancassurance</h2>
-                <div class="section-divider centered"></div>
-                <p>Our clients unlock 20-40% more capital than through standard bancassurance channels. Here is the structural reason why.</p>
-            </div>
-
-            <div class="vs-wrapper reveal reveal-up">
-                <table class="vs-table">
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th style="color: #9B3636; background: #FDF8F8;">Bancassurance</th>
-                            <th style="color: var(--emerald); background: #F5FAF7; border-top: 3px solid var(--emerald);">Lotan Insurance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Primary Goal</td><td style="color: #9B3636;">Insurance as a profit centre</td><td style="color: var(--emerald); font-weight: 500;">Insurance as a capital unlocking instrument</td></tr>
-                        <tr><td>Cost Structure</td><td style="color: #9B3636;">30-50% commissions raise capital cost</td><td style="color: var(--emerald); font-weight: 500;">Competitive rates maximise capital efficiency</td></tr>
-                        <tr><td>Flexibility</td><td style="color: #9B3636;">Bundled products limit financial optimisation</td><td style="color: var(--emerald); font-weight: 500;">Customised solutions enabling financial engineering</td></tr>
-                        <tr><td>Transparency</td><td style="color: #9B3636;">Opacity prevents confident financial planning</td><td style="color: var(--emerald); font-weight: 500;">Full transparency enabling strategic capital decisions</td></tr>
-                        <tr><td>Net Capital Unlocked</td><td style="color: #9B3636;">Suboptimal structures, higher costs</td><td style="color: var(--gold); font-weight: 700; font-size: 1.05rem;">20-40% more capital through superior architecture</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===  CTA  === -->
-    <section style="background: var(--emerald-3); padding-block: var(--space-8);">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: center;" class="reveal reveal-up">
-                <div>
-                    <div class="eyebrow" style="color: rgba(192,154,82,0.8);">Ready to Begin?</div>
-                    <h2 style="color: var(--ivory); margin-bottom: 1rem;">Start Your Journey with Us</h2>
-                    <p style="color: rgba(248,246,241,0.65);">Our financial architects will analyse your current structures and recommend the optimal instrument configuration for your capital goals.</p>
-                </div>
-                <div style="flex-shrink: 0;">
-                    <a href="index.html#get-started" class="btn" style="background: var(--gold); border-color: var(--gold); color: var(--emerald-3); font-weight: 600; white-space: nowrap;">Start the Conversation ></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>Lotan Insurance Limited</h2>
-                    <p>Independent financial architecture firm. Leveraging insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Our Products</h4>
-                    <ul>
-                        <li><a href="#credit-protection">Credit Protection Policy</a></li>
-                        <li><a href="#performance-bonds">Performance Security Bonds</a></li>
-                        <li><a href="#advance-payment">Advance Payment Guarantees</a></li>
-                        <li><a href="#bid-bonds">Bid Bonds</a></li>
-                        <li><a href="#reinsurance">The Reinsurance Engine</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>The Firm</h4>
-                    <ul>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="about.html">Core Values</a></li>
-                        <li><a href="about.html">Regulatory Framework</a></li>
-                        <li><a href="index.html#get-started">Talk To Us</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div>&copy; 2026 Lotan Insurance Limited. All rights reserved. &nbsp;|&nbsp; <span style="color: rgba(192,154,82,0.7);">Est. 2015 &nbsp;&middot;&nbsp; IRA LICENCE No: IRA/05/26054/2026</span></div>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+    <footer class="bg-platinum pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="pt-8 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-charcoal/50">
+                    &copy; 2026 LIA Insurance Agency. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-xs text-charcoal/50">
+                    <span>IRA Licence No: IRA/05/26054/2026</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <script>
+        feather.replace();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.remove("border-transparent");
+                } else {
+                    nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.add("border-transparent");
+                }
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+        });
+    </script>
 </body>
 </html>

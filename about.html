@@ -1,536 +1,297 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Lotan Insurance Limited | Financial Architecture Firm | Nairobi, Kenya</title>
-    <meta name="description" content="Lotan Insurance Limited is an independent financial architecture firm that engineers insurance as a strategic instrument to unlock capital and enable enterprise growth in East Africa and global markets.">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles moved to css/main.css -->
+    <meta name="description" content="About LIA Insurance Agency - Our story, mission, and core values.">
+    <title>About Us | LIA Insurance Agency</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#081B33',
+                        royal: '#0057FF',
+                        emerald: '#00B894',
+                        platinum: '#F8FAFC',
+                        gold: '#D4AF37',
+                        charcoal: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(8, 27, 51, 0.05)',
+                        'hover': '0 20px 40px -10px rgba(0, 87, 255, 0.15)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body>
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-royal selection:text-white">
 
-    <!-- NAVIGATION -->
-    <nav id="main-nav">
-        <div class="nav-brand">
-            <img src="img/lotan_logo_transparent.png" alt="Lotan Insurance Limited">
-            <span class="nav-brand-name">Lotan Insurance Limited</span>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-lg bg-royal text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-navy transition-colors">
+                    LIA
+                </div>
+                <span class="font-heading font-semibold text-lg text-navy tracking-tight">Insurance Agency</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="/index.html#solutions" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Solutions</a>
+                <a href="/index.html#why-us" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Why Us</a>
+                <a href="/index.html#claims" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Claims</a>
+                <a href="/about.html" class="text-sm font-medium text-royal transition-colors">About</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="/index.html#quote" class="bg-navy hover:bg-royal text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg hover:shadow-hover">
+                    Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-navy focus:outline-none" id="mobile-menu-btn">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
-            <a href="index.html#get-started" class="btn btn-dark">Talk To Us</a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </nav>
 
-    <!-- PAGE HEADER -->
-    <header class="page-header-dark">
-        <div class="container">
-            <div class="eyebrow">The Firm</div>
-            <h1 class="text-gradient-gold">Your Financial Architecture Partner</h1>
-            <p>Engineering insurance as a strategic instrument to unlock dormant capital and optimise financial structures for enterprises across East Africa and global markets.</p>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center space-y-6">
+            <a href="/index.html#solutions" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Solutions</a>
+            <a href="/index.html#why-us" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Why Us</a>
+            <a href="/index.html#claims" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Claims</a>
+            <a href="/about.html" class="mobile-link text-xl font-heading font-medium text-emerald transition-colors">About</a>
+            <a href="/index.html#quote" class="mobile-link mt-8 bg-emerald text-navy text-lg font-medium px-8 py-3 rounded-full transition-all">Get a Quote</a>
         </div>
-    </header>
+    </div>
 
+    <!-- Page Header -->
+    <section class="pt-40 pb-20 bg-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
+                <span class="text-xs font-semibold text-emerald tracking-wider uppercase">Our Identity</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">Architects of <span class="text-emerald">Security.</span></h1>
+            <p class="text-lg text-platinum/70 max-w-2xl mx-auto">
+                We bridge the gap between complex risk and simple, effective protection, setting the benchmark for digital insurance globally.
+            </p>
+        </div>
+    </section>
 
+    <!-- Our Story -->
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="gsap-fade-right">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="LIA Office" class="rounded-[2rem] shadow-2xl">
+                </div>
+                <div class="gsap-fade-left">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">Our Story</h2>
+                    <p class="text-charcoal/80 text-lg leading-relaxed mb-6">
+                        LIA Insurance Agency was founded with a singular mission: to be the most trusted provider of tailored insurance solutions in Africa and beyond. From our inception, we have grown by placing clients at the centre of every decision—delivering responsive, transparent, and reliable coverage.
+                    </p>
+                    <p class="text-charcoal/80 text-lg leading-relaxed">
+                        We partner with top-tier, reputable underwriters and reinsurers, ensuring every policy we issue is backed by significant financial strength.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- WHO WE ARE -->
-    <section>
-        <div class="container">
-            <div class="grid-2" style="align-items: center; gap: var(--space-8);">
-                <div class="reveal reveal-left">
-                    <div class="eyebrow">Our Identity</div>
-                    <h2>The Lotan Legacy</h2>
-                    <div class="section-divider"></div>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 1.75rem;">Lotan Insurance Limited is a financial architecture firm that leverages insurance as a strategic instrument to unlock dormant capital and optimise financial structures. We don't place insurance policies &mdash; we engineer bespoke financial solutions that turn risk management into a growth catalyst.</p>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 2rem;">We serve as independent financial facilitators for multinational corporations, international financial institutions, and regional enterprises, structuring risk to meet global standards while unlocking value within local market realities.</p>
-                    <!-- Key pillars inline -->
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--ivory-3); border: var(--border);">
-                        <div style="background: var(--white); padding: var(--space-4);">
-                            <div style="font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.5rem;">Our Clients</div>
-                            <p style="font-size: 0.875rem; color: var(--ink-muted); line-height: 1.6;">Multinational banks, DFIs, infrastructure contractors &amp; government agencies.</p>
+    <!-- Mission & Vision -->
+    <section class="py-24 bg-platinum">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-navy/5 gsap-fade-up">
+                <div class="w-16 h-16 rounded-2xl bg-royal/10 text-royal flex items-center justify-center mb-8">
+                    <i data-feather="target" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-navy mb-4">Our Mission</h3>
+                <p class="text-charcoal/70 text-lg leading-relaxed">
+                    To provide affordable, transparent, and reliable insurance services, empowering clients to mitigate risks with absolute confidence.
+                </p>
+            </div>
+            
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-navy/5 gsap-fade-up" style="animation-delay: 0.2s;">
+                <div class="w-16 h-16 rounded-2xl bg-emerald/10 text-emerald flex items-center justify-center mb-8">
+                    <i data-feather="eye" class="w-8 h-8"></i>
+                </div>
+                <h3 class="text-2xl font-heading font-bold text-navy mb-4">Our Vision</h3>
+                <p class="text-charcoal/70 text-lg leading-relaxed">
+                    To be the leading, most trusted regional insurance provider delivering innovative risk protection across global markets.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-24 bg-navy text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 gsap-fade-up">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Our Core Values</h2>
+                <p class="text-platinum/70 text-lg">The principles that guide every policy we write.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Integrity</h4>
+                    <p class="text-platinum/70">Transparency and uncompromising ethical standards in all our commitments.</p>
+                </div>
+                
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-royal mb-3">Client-Centricity</h4>
+                    <p class="text-platinum/70">Tailored solutions and responsive, personalized service for every customer.</p>
+                </div>
+                
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-gold mb-3">Reliability</h4>
+                    <p class="text-platinum/70">Fast claims processing and dependable underwriting you can count on.</p>
+                </div>
+                
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Professionalism</h4>
+                    <p class="text-platinum/70">Expert advisory services and technical excellence in risk assessment.</p>
+                </div>
+                
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-royal mb-3">Partnership</h4>
+                    <p class="text-platinum/70">Collaboration with highly reputable global partners for optimal outcomes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulatory Compliance -->
+    <section class="py-16 bg-white border-b border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <h3 class="text-2xl font-heading font-bold text-navy mb-4">Regulatory &amp; Compliance Framework</h3>
+            <p class="text-charcoal/70 max-w-2xl mx-auto mb-6">
+                LIA Insurance Agency is fully licensed and regulated by the Insurance Regulatory Authority of Kenya. We operate in strict compliance with the Insurance Act and all applicable IRA regulations.
+            </p>
+            <div class="inline-flex items-center gap-3 px-6 py-3 bg-platinum rounded-full border border-navy/10 text-navy font-semibold">
+                <i data-feather="shield" class="text-emerald"></i>
+                IRA Licence Number: IRA/05/26054/2026
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-platinum pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="/" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded border border-navy/20 text-navy flex items-center justify-center font-heading font-bold">
+                            LIA
                         </div>
-                        <div style="background: var(--white); padding: var(--space-4); border-left: 1px solid var(--ivory-3);">
-                            <div style="font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 0.5rem;">Our Differentiator</div>
-                            <p style="font-size: 0.875rem; color: var(--ink-muted); line-height: 1.6;">Independent intermediaries - no product bias, pure balance sheet focus.</p>
-                        </div>
-                    </div>
+                        <span class="font-heading font-semibold text-navy">Insurance Agency</span>
+                    </a>
+                    <p class="text-sm text-charcoal/60 max-w-sm mb-6">
+                        Premium insurance advisory and brokerage firm. We set the benchmark for digital insurance experiences globally.
+                    </p>
                 </div>
-                <!-- Team photo with overlay -->
-                <div class="reveal reveal-right" style="position: relative; overflow: hidden; border: var(--border);">
-                    <img src="img/lotan_team_boardroom.png" alt="Lotan Insurance Limited team - East Africa financial architects" style="width: 100%; height: 460px; object-fit: cover; display: block; object-position: center top;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(29,110,24,0.95) 0%, rgba(29,110,24,0.0) 55%); padding: var(--space-6) var(--space-5) var(--space-5);">
-                        <div style="font-size: 0.7rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 0.5rem;">Our Reinsurance Backbone</div>
-                        <p style="font-size: 0.9rem; color: rgba(248,246,241,0.85); line-height: 1.6; margin: 0;">Direct access to Madison Insurance - enabling unlimited capacity and internationally bankable documentation.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PURPOSE, MISSION & VISION -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Our Foundation</div>
-                <h2>Purpose, Mission &amp; Vision</h2>
-                <div class="section-divider centered"></div>
-                <p>The principles that guide every structure we engineer and every client relationship we build.</p>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5);" class="reveal reveal-up">
-
-                <!-- Purpose -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
-                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: var(--border); color: var(--emerald); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
-                        <i class="fa-solid fa-lightbulb"></i>
-                    </div>
-                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Purpose</div>
-                    <h3 style="font-size: 1.75rem; color: var(--emerald); margin-bottom: var(--space-4); line-height: 1.2;">Redefining Insurance as Capital</h3>
-                    <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.8; flex-grow: 1;">To redefine insurance as a strategic financial instrument, enabling enterprises to unlock trapped liquidity and maximise capital deployment through sophisticated risk engineering that serves balance sheets &mdash; not product quotas.</p>
-                </div>
-
-                <!-- Mission -->
-                <div style="background: var(--emerald-3); border: var(--border); border-top: 3px solid var(--gold); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
-                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: 1px solid rgba(248,246,241,0.2); color: var(--ivory); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
-                        <i class="fa-solid fa-bullseye"></i>
-                    </div>
-                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Mission</div>
-                    <h3 style="font-size: 1.75rem; color: var(--ivory); margin-bottom: var(--space-4); line-height: 1.2;">Bridging Risk &amp; Capital</h3>
-                    <p style="font-size: 1rem; color: rgba(248,246,241,0.7); line-height: 1.8; flex-grow: 1;">To bridge the gap between risk and capital by providing world-class financial architecture that ensures institutional resilience, satisfies global lender standards, and facilitates enterprise growth across borders.</p>
-                </div>
-
-                <!-- Vision -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-7) var(--space-6); display: flex; flex-direction: column;">
-                    <div style="display: flex; align-items: center; justify-content: center; width: 64px; height: 64px; border: var(--border); color: var(--emerald); font-size: 1.5rem; margin-bottom: var(--space-5); flex-shrink: 0;">
-                        <i class="fa-solid fa-mountain-sun"></i>
-                    </div>
-                    <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gold); margin-bottom: 1rem;">Our Vision</div>
-                    <h3 style="font-size: 1.75rem; color: var(--emerald); margin-bottom: var(--space-4); line-height: 1.2;">The Global Benchmark</h3>
-                    <p style="font-size: 1rem; color: var(--ink-muted); line-height: 1.8; flex-grow: 1;">To be the global benchmark for independent risk-based financial strategy &mdash; recognised for transforming insurance from a standard corporate cost into a powerful, precision engine for institutional and enterprise growth.</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- CORE VALUES -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">The Lotan Standard</div>
-                <h2>Core Values</h2>
-                <div class="section-divider centered"></div>
-                <p>What we stand for and what sets us apart in the global financial landscape.</p>
-            </div>
-
-            <div class="grid-4 reveal reveal-up">
-                <div class="value-card">
-                    <h4>Independence First</h4>
-                    <p>We are architects, not salesmen. Our independence from insurance carriers ensures our structures prioritise your balance sheet - not a product quota.</p>
-                </div>
-                <div class="value-card">
-                    <h4>Technical Integrity</h4>
-                    <p>Every structure we engineer is built on rigorous analysis and meets the transparency standards required by international lenders and regulators.</p>
-                </div>
-                <div class="value-card">
-                    <h4>Agile Innovation</h4>
-                    <p>Where others see obstacles, we see design opportunities. We thrive on engineering solutions for complex, high-stakes risk environments.</p>
-                </div>
-                <div class="value-card">
-                    <h4>Measurable Impact</h4>
-                    <p>Our value is defined by the capital we unlock. We deliver tangible, line-item financial improvement for every client we serve.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- OUR JOURNEY -->
-    <section>
-        <div class="container">
-            <div class="section-header reveal reveal-up">
-                <div class="eyebrow">A Decade of Financial Architecture &mdash; Est. 2015</div>
-                <h2>Our Story</h2>
-                <div class="section-divider"></div>
-                <p>Over a decade of building the infrastructure that translates insurance into capital across East Africa and global markets.</p>
-            </div>
-
-            <div class="timeline reveal reveal-up">
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2015 &mdash; Foundation</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">The Firm is Born</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">After a decade in senior roles spanning corporate banking and international reinsurance broking across Nairobi and London, our founding partners establish Lotan Insurance Limited - convinced that East Africa's enterprises were systematically underserved by transactional brokers who lacked the capital engineering expertise to unlock the region's true financial potential.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2016 &mdash; First Mandate</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Proof of Concept: Ksh 2.4B Infrastructure Bond</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">Our first major mandate - structuring performance and advance payment bonds for a Kenyan road contractor competing for a Ksh 2.4 billion government infrastructure tender - validates the model. By replacing cash collateral with engineered insurance instruments, the client frees Ksh 360M in working capital and wins the contract.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2018 &mdash; Madison Insurance Access</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Madison Insurance Partnership Secured</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">After two years of rigorous due diligence and capacity demonstrations, Lotan secures a coveted placement relationship with Madison Insurance syndicates - giving East African clients direct access to the world's oldest and most sophisticated insurance market. This transforms our capacity ceiling overnight, enabling us to structure bonds up to USD 50M+ on single projects.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2019 &mdash; Regional Expansion</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">East Africa Operations: Uganda, Tanzania &amp; Rwanda</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">Growing demand from cross-border contractors and regional DFIs drives our expansion across the East African Community. Lotan begins structuring multi-jurisdictional risk architectures - satisfying the requirements of the East African Development Bank, AfDB-funded projects, and large-scale regional infrastructure programmes simultaneously.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2020 &mdash; Resilience Tested</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Navigating the Global Disruption</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">The COVID-19 pandemic tests every institution. While traditional brokers struggle with frozen credit markets, Lotan's reinsurance-backed structures prove their decisive advantage - our credit protection instruments allow partner banks to maintain lending to critical sectors without breaching capital adequacy thresholds. We emerge with our strongest referral network to date.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2022 &mdash; Global Reinsurance Tier-Up</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Madison Insurance Global Tier-Up</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">Seven years of disciplined underwriting performance and zero claims disputes earn Lotan formal capacity relationships with Madison Insurance - completing a Tier-1 reinsurance panel that rivals the access enjoyed by London's largest independent brokerages. Capacity for single structures now exceeds USD 100M.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item left">
-                    <div class="timeline-content">
-                        <span class="timeline-date">2024 &mdash; Corporate Advisory Expansion</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Launch of Dedicated Corporate Division</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">Responding to the increasing complexity of risk in the manufacturing and energy sectors, Lotan establishes a specialized corporate advisory division. This move strengthens our capacity to design bespoke insurance architectures for Kenya's most critical infrastructure and industrial projects.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item right">
-                    <div class="timeline-content">
-                        <span class="timeline-date">Today &mdash; 2026</span>
-                        <h4 style="font-family: var(--font-serif); font-size: 1.25rem; font-weight: 400; color: var(--emerald); margin: 0.75rem 0 0.75rem;">Ksh 40B+ Capital Protected &mdash; A Decade Defined</h4>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.65;">Eleven years of singular focus on financial architecture - not product sales - have produced a firm that has collectively protected and unlocked over Ksh 40 Billion in capital value for institutional and corporate clients across East Africa. The work continues. The standard rises.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- LOTAN VS BANCASSURANCE -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Competitive Architecture</div>
-                <h2>Lotan vs. Bancassurance</h2>
-                <div class="section-divider centered"></div>
-                <p>Clients unlock 20-40% more capital through our financial architecture approach. Here is precisely why.</p>
-            </div>
-
-            <div class="table-container reveal reveal-up">
-                <table class="vs-table">
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th style="color: #9B3636; background: #FDF8F8;">Bancassurance</th>
-                            <th style="color: var(--emerald); background: #F5FAF7; border-top: 3px solid var(--emerald);">Lotan Insurance</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Core Approach</td>
-                            <td style="color: #9B3636;">Insurance as a profit centre</td>
-                            <td style="color: var(--emerald); font-weight: 500;">Insurance as a capital unlocking instrument</td>
-                        </tr>
-                        <tr>
-                            <td>Commission Structure</td>
-                            <td style="color: #9B3636;">30-50% commissions reduce capital benefit</td>
-                            <td style="color: var(--emerald); font-weight: 500;">Competitive rates maximise capital efficiency</td>
-                        </tr>
-                        <tr>
-                            <td>Product Options</td>
-                            <td style="color: #9B3636;">Limited - constrained by bank's own products</td>
-                            <td style="color: var(--emerald); font-weight: 500;">Customised solutions to optimise financial structures</td>
-                        </tr>
-                        <tr>
-                            <td>Underwriting</td>
-                            <td style="color: #9B3636;">Bundled - prevents optimal financial engineering</td>
-                            <td style="color: var(--emerald); font-weight: 500;">Transparent underwriting enables confident capital planning</td>
-                        </tr>
-                        <tr>
-                            <td>Incentive Alignment</td>
-                            <td style="color: #9B3636;">Bank incentives misaligned with capital optimisation</td>
-                            <td style="color: var(--emerald); font-weight: 500;">Our incentives directly aligned with your capital goals</td>
-                        </tr>
-                        <tr>
-                            <td>Net Capital Unlocked</td>
-                            <td style="color: #9B3636;">Higher costs, limited access, suboptimal structures</td>
-                            <td style="color: var(--gold); font-weight: 700; font-size: 1.05rem;">20-40% more capital unlocked through superior architecture</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- TECHNICAL EXPERTISE -->
-    <section>
-        <div class="container">
-
-            <!-- Section header + intro strip -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); align-items: end; margin-bottom: var(--space-8);" class="reveal reveal-up">
+                
                 <div>
-                    <div class="eyebrow">Technical Depth</div>
-                    <h2>Our Expertise</h2>
-                    <div class="section-divider"></div>
-                </div>
-                <div>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); line-height: 1.75;">We move beyond standard brokerage into the realm of high-stakes financial engineering - combining structural design, global market intelligence, and balance sheet architecture to create capital outcomes no off-the-shelf product can match.</p>
-                </div>
-            </div>
-
-            <!-- 3 expertise panels -->
-            <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 0; border: var(--border);" class="reveal reveal-up">
-
-                <!-- 01 · Risk Engineering -->
-                <div style="border-right: var(--border); display: flex; flex-direction: column;">
-                    <!-- Top accent + number -->
-                    <div style="background: var(--emerald); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
-                                <i class="fa-solid fa-compass-drafting"></i>
-                            </div>
-                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.12); letter-spacing:-0.04em; margin-top:-0.5rem;">01</span>
-                        </div>
-                    </div>
-                    <!-- Body -->
-                    <div style="background: var(--white); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
-                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
-                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Risk Engineering</h3>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Structure-first design that converts risk architecture into a measurable capital advantage for your balance sheet.</p>
-                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Capital-first risk design satisfying international lender covenants
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Structural optimisation aligning risk transfer with balance sheet needs
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Translating regional risk into bankable instruments for global credit committees
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Cross-border compliance frameworks for multi-jurisdictional financing
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- Stat footer -->
-                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
-                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">30%</span>
-                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Average capital cost reduction delivered</span>
-                    </div>
-                </div>
-
-                <!-- 02 · Market Intelligence -->
-                <div style="border-right: var(--border); display: flex; flex-direction: column;">
-                    <div style="background: var(--emerald-3); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.1); letter-spacing:-0.04em; margin-top:-0.5rem;">02</span>
-                        </div>
-                    </div>
-                    <div style="background: var(--ivory-2); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
-                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
-                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Market Intelligence</h3>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Real-time global capital market connectivity - positioning client risk profiles where international capacity is deepest and pricing most competitive.</p>
-                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Real-time mapping of global underwriting capacity and liquidity trends
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Deep expertise in DFI and multinational bank lending standards
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Positioning client risk profiles for optimal international capacity matching
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Dynamic trend analysis to anticipate shifts affecting project bankability
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
-                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">Tier 1</span>
-                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Global reinsurer panel access</span>
-                    </div>
-                </div>
-
-                <!-- 03 · Financial Architecture -->
-                <div style="display: flex; flex-direction: column;">
-                    <div style="background: var(--emerald); padding: var(--space-5) var(--space-5) var(--space-4); border-bottom: var(--border);">
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                            <div style="display:flex; align-items:center; justify-content:center; width:48px; height:48px; border: 1px solid rgba(248,246,241,0.25); color: var(--ivory); font-size: 1.25rem;">
-                                <i class="fa-solid fa-building-columns"></i>
-                            </div>
-                            <span style="font-family: var(--font-serif); font-size: 4rem; line-height:1; color: rgba(248,246,241,0.12); letter-spacing:-0.04em; margin-top:-0.5rem;">03</span>
-                        </div>
-                    </div>
-                    <div style="background: var(--white); padding: var(--space-6) var(--space-5); flex-grow: 1; display: flex; flex-direction: column;">
-                        <div class="eyebrow" style="margin-bottom: 0.75rem;">Discipline</div>
-                        <h3 style="font-size: 1.625rem; color: var(--emerald); margin-bottom: 0.75rem; line-height: 1.2;">Financial Architecture</h3>
-                        <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: var(--space-5);">Engineering bankable structures that satisfy the most rigorous credit committees globally and turn insurance from a cost into a strategic asset.</p>
-                        <ul style="display:flex; flex-direction:column; gap:0.875rem; flex-grow:1;">
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Unlocking trapped liquidity using insurance as a strategic release tool
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Total cost of capital optimisation through superior structuring
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Covenant-ready documentation passing rigorous credit due diligence
-                            </li>
-                            <li style="font-size:0.9rem; color:var(--ink-muted); padding-left:1.25rem; position:relative; line-height:1.6;">
-                                <span style="position:absolute;left:0;color:var(--emerald);font-weight:700;">></span>
-                                Growth enablement - turning high-potential projects into funded ventures
-                            </li>
-                        </ul>
-                    </div>
-                    <div style="background: var(--ivory-2); border-top: var(--border); padding: var(--space-4) var(--space-5); display:flex; align-items:center; gap:1rem;">
-                        <span style="font-family:var(--font-serif); font-size:2rem; color:var(--emerald); line-height:1; letter-spacing:-0.02em;">USD 40B+</span>
-                        <span style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-muted);">Capital unlocked through our structures</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- REGULATORY FRAMEWORK -->
-    <section class="section-alt">
-        <div class="container">
-            <div class="section-header reveal reveal-up">
-                <div class="eyebrow">Legal Integrity</div>
-                <h2>Regulatory &amp; Compliance Framework</h2>
-                <div class="section-divider"></div>
-                <p>Our architectural approach is built on a foundation of rigorous legal adherence and multi-jurisdictional transparency.</p>
-            </div>
-
-            <div class="grid-2 reveal reveal-up">
-                <!-- IRA License -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-6);">
-                    <div style="display: flex; align-items: flex-start; gap: var(--space-4);">
-                        <div style="display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border: var(--border); flex-shrink: 0; color: var(--emerald); font-size: 1.25rem;">
-                            <i class="fa-solid fa-building-columns"></i>
-                        </div>
-                        <div>
-                            <div class="eyebrow" style="margin-bottom: 0.5rem;">IRA Kenya</div>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 1.25rem;">Insurance Brokerage License</h3>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: 1rem;">Lotan Insurance Limited is fully licensed and authorised by the Insurance Regulatory Authority (IRA) of the Republic of Kenya to operate as an independent Insurance Broker under Corporate License Number: <strong style="color: var(--emerald);">IRA/05/26054/2026</strong>. Our license has been continuously renewed and held in good standing since our founding year.</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted); line-height: 1.7; margin-bottom: 1.5rem;">We operate under strict compliance with the Insurance Act (CAP 487) and are subject to continuous regulatory oversight to ensure the highest standards of policyholder protection and capital security - a standard we have upheld without interruption for over a decade.</p>
-                            <div class="credential-badge">
-                                <div class="dot"></div>
-                                Active &amp; In Good Standing - IRA Verified
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Governance -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--gold); padding: var(--space-6);">
-                    <h4 style="font-family: var(--font-serif); font-size: 1.375rem; color: var(--emerald); margin-bottom: var(--space-4);">Corporate Governance Standards</h4>
-                    <ul class="custom-list">
-                        <li><strong>Anti-Money Laundering:</strong> Full adherence to the Proceeds of Crime and Anti-Money Laundering Act (POCAMLA).</li>
-                        <li><strong>Data Protection:</strong> Operating in strict compliance with the Data Protection Act (2019) to secure all client capital information.</li>
-                        <li><strong>International Integrity:</strong> Documentation standards aligned with Madison Insurance and global reinsurance market protocols.</li>
-                        <li><strong>Professional Indemnity:</strong> Substantial coverage limits to protect all structured project mandates.</li>
-                        <li><strong>AML Controls:</strong> Rigorous Know Your Client (KYC) and transaction monitoring frameworks.</li>
-                    </ul>
-                    <div style="margin-top: var(--space-5); padding-top: var(--space-4); border-top: var(--border);">
-                        <p style="font-size: 0.875rem; color: var(--ink-light);">Regulatory status can be verified at the <a href="https://www.ira.go.ke" target="_blank" style="color: var(--emerald); text-decoration: underline;">official IRA Kenya portal</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA BANNER -->
-    <section style="background: var(--emerald-3); padding-block: var(--space-8);">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-6); align-items: center;" class="reveal reveal-up">
-                <div>
-                    <div class="eyebrow" style="color: rgba(192,154,82,0.8);">Begin the Conversation</div>
-                    <h2 style="color: var(--ivory); margin-bottom: 1rem;">Ready to Unlock Your Capital?</h2>
-                    <p style="color: rgba(248,246,241,0.65);">Our financial architects will analyse your current structures and identify immediate capital unlocking opportunities.</p>
-                </div>
-                <div style="flex-shrink: 0;">
-                    <a href="index.html#get-started" class="btn" style="background: var(--gold); border-color: var(--gold); color: var(--emerald); font-weight: 600; white-space: nowrap;">Start Your Journey with Us ></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>Lotan Insurance Limited</h2>
-                    <p>Independent financial architecture firm. Leveraging insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Our Products</h4>
-                    <ul>
-                        <li><a href="products.html">Credit Protection Policy</a></li>
-                        <li><a href="products.html">Performance Security Bonds</a></li>
-                        <li><a href="products.html">Advance Payment Guarantees</a></li>
-                        <li><a href="products.html">Bid Bonds</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>The Firm</h4>
-                    <ul>
-                        <li><a href="about.html">Our Story</a></li>
-                        <li><a href="about.html">Core Values</a></li>
-                        <li><a href="about.html">Regulatory Framework</a></li>
-                        <li><a href="index.html#get-started">Talk To Us</a></li>
+                    <h5 class="text-xs font-semibold text-navy uppercase tracking-wider mb-4">Contact</h5>
+                    <ul class="space-y-3 text-sm text-charcoal/60">
+                        <li class="flex items-center gap-2"><i data-feather="map-pin" class="w-4 h-4"></i> Nairobi, Kenya</li>
+                        <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i> info@lia.insure</li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <div>&copy; 2026 Lotan Insurance Limited. All rights reserved. &nbsp;|&nbsp; <span style="color: rgba(192,154,82,0.7);">Est. 2015 &nbsp;&middot;&nbsp; IRA LICENCE No: IRA/05/26054/2026</span></div>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+            
+            <div class="pt-8 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-charcoal/50">
+                    &copy; 2026 LIA Insurance Agency. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-xs text-charcoal/50">
+                    <span>IRA Licence No: IRA/05/26054/2026</span>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="js/app.js"></script>
+    <!-- Initialization Scripts -->
+    <script>
+        feather.replace();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const nav = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.remove("border-transparent");
+                } else {
+                    nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.add("border-transparent");
+                }
+            });
+
+            const mobileBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            let menuOpen = false;
+            
+            mobileBtn.addEventListener("click", () => {
+                menuOpen = !menuOpen;
+                if(menuOpen) {
+                    mobileMenu.classList.remove("hidden");
+                    setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
+                } else {
+                    mobileMenu.classList.add("opacity-0");
+                    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+                }
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+            
+            gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
+                    x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.from(".gsap-stagger-card", {
+                scrollTrigger: { trigger: ".gsap-stagger-card", start: "top 85%" },
+                y: 30, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power2.out"
+            });
+        });
+    </script>
 </body>
 </html>

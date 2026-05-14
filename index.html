@@ -1,861 +1,709 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotan Insurance Limited | Financial Architecture & Capital Solutions</title>
-    <meta name="description" content="Lotan Insurance Limited is an independent financial architecture firm that leverages insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Styles consolidated from both branches -->
-    <style>
-        /* Page-specific overrides */
-        .hero {
-            height: 100vh;
-            min-height: 700px;
-            position: relative;
-            display: flex;
-            align-items: flex-end;
-            background: var(--emerald-3);
-            overflow: hidden;
+    <meta name="description" content="LIA Insurance Agency - Protecting What Matters Most. Tailored insurance solutions for individuals, families, and businesses.">
+    <title>LIA Insurance Agency | Premium Protection</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#081B33',
+                        royal: '#0057FF',
+                        emerald: '#00B894',
+                        platinum: '#F8FAFC',
+                        gold: '#D4AF37',
+                        charcoal: '#1E293B'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Sora', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(8, 27, 51, 0.05)',
+                        'hover': '0 20px 40px -10px rgba(0, 87, 255, 0.15)'
+                    }
+                }
+            }
         }
-
-        .hero-bg {
-            position: absolute;
-            inset: 0;
-            background-image: url('img/lotan_hero_nairobi.png');
-            background-size: cover;
-            background-position: center 20%;
-            opacity: 0.32;
-            transform: scale(1.02);
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                to bottom,
-                rgba(29, 110, 24, 0.45) 0%,
-                rgba(29, 110, 24, 0.80) 60%,
-                rgba(29, 110, 24, 0.97) 100%
-            );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            width: 100%;
-            padding-bottom: 8rem;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gold);
-            margin-bottom: 2rem;
-        }
-
-        .hero-badge::before {
-            content: '';
-            display: inline-block;
-            width: 32px;
-            height: 1px;
-            background: var(--gold);
-            vertical-align: middle;
-            margin-right: 0.875rem;
-            opacity: 0.7;
-        }
-
-        .hero .hero-title {
-            color: var(--ivory);
-            max-width: 14ch;
-            margin-bottom: 2rem;
-        }
-
-        .hero .hero-desc {
-            color: rgba(248,246,241,0.7);
-            font-weight: 300;
-            margin-bottom: 3rem;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-scroll {
-            position: absolute;
-            bottom: 2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            animation: bounce 2.5s ease-in-out infinite;
-            color: rgba(248,246,241,0.35);
-            font-size: 1.25rem;
-        }
-
-        /* Stats strip */
-        .kpi-strip {
-            background: var(--white);
-            border-bottom: var(--border);
-        }
-
-        .kpi-strip .stats-strip {
-            border: none;
-            border-top: var(--border);
-            background: var(--ivory-2);
-        }
-
-        .kpi-strip .stats-strip-item {
-            border-right: var(--border);
-            border-bottom: none;
-        }
-
-        /* Instrument cards */
-        .instrument-card {
-            background: var(--white);
-            border: var(--border);
-            border-top: 3px solid var(--emerald);
-            padding: var(--space-6) var(--space-5);
-            transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
-        }
-
-        .instrument-card:nth-child(2) { border-top-color: var(--gold); }
-        .instrument-card:nth-child(3) { border-top-color: var(--emerald); }
-        .instrument-card:nth-child(4) { border-top-color: var(--gold); }
-
-        .instrument-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-4px);
-        }
-
-        .instrument-card h4 {
-            color: var(--emerald);
-            font-family: var(--font-serif);
-            font-size: 1.375rem;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
-
-        .instrument-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .instrument-tag {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            background: var(--emerald-3);
-            color: var(--ivory);
-            padding: var(--space-8) 0;
-        }
-
-        .cta-banner-inner {
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: var(--space-6);
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .cta-banner-inner { grid-template-columns: 1fr; }
-        }
-
-        .cta-banner h2 { color: var(--ivory); margin-bottom: 1rem; }
-        .cta-banner p  { color: rgba(248,246,241,0.65); font-size: 1.0625rem; }
-
-        /* Reinsurance section */
-        .reinsurance-panel {
-            background: var(--white);
-            border: var(--border);
-            padding: var(--space-7) var(--space-7);
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: var(--space-7);
-            align-items: start;
-        }
-
-        @media (max-width: 900px) {
-            .reinsurance-panel { grid-template-columns: 1fr; padding: var(--space-6); }
-        }
-
-        .reinsurance-metric {
-            padding: var(--space-4);
-            border-left: 2px solid var(--gold);
-            margin-bottom: var(--space-4);
-        }
-
-        .reinsurance-metric .num {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            color: var(--emerald);
-            line-height: 1;
-            letter-spacing: -0.02em;
-        }
-
-        .reinsurance-metric p {
-            font-size: 0.875rem;
-            color: var(--ink-muted);
-            margin-top: 0.375rem;
-        }
-
-        /* Advantage cards */
-        .advantage-card {
-            padding: var(--space-5);
-            border: var(--border);
-            background: var(--white);
-            transition: all var(--transition);
-        }
-
-        .advantage-card:hover {
-            border-color: rgba(192,154,82,0.4);
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-3px);
-        }
-
-        .advantage-card .icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            border: 1px solid var(--ivory-3);
-            color: var(--emerald);
-            font-size: 1.125rem;
-            margin-bottom: var(--space-4);
-        }
-
-        .advantage-card h4 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            font-weight: 400;
-            color: var(--emerald);
-            margin-bottom: 0.875rem;
-        }
-
-        .advantage-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.7;
-        }
-
-        /* Client types */
-        .client-card {
-            padding: var(--space-5);
-            border: var(--border);
-            border-top: 2px solid var(--emerald);
-            background: var(--white);
-        }
-
-        .client-card:nth-child(2) { border-top-color: var(--gold); }
-        .client-card:nth-child(3) { border-top-color: var(--emerald); }
-        .client-card:nth-child(4) { border-top-color: var(--gold); }
-
-        .client-card h4 {
-            font-family: var(--font-sans);
-            font-size: 0.875rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.875rem;
-            color: var(--emerald);
-        }
-
-        .client-card p {
-            font-size: 0.9375rem;
-            color: var(--ink-muted);
-            line-height: 1.65;
-        }
-
-        /* Form panel */
-        #get-started .form-panel {
-            background: var(--white);
-            border: var(--border);
-            padding: var(--space-6);
-        }
-
-        #get-started .form-panel h3 {
-            font-size: 1.75rem;
-            margin-bottom: var(--space-5);
-            color: var(--emerald);
-        }
-
-        select.form-control option { background: #fff; color: var(--ink); }
-    </style>
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body>
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-royal selection:text-white">
 
-    <!-- ===========  NAVIGATION  =========== -->
-    <nav id="main-nav">
-        <div class="nav-brand">
-            <img src="img/lotan_logo_transparent.png" alt="Lotan Insurance Limited">
-            <span class="nav-brand-name">Lotan Insurance Limited</span>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 border-b border-transparent">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="/" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-lg bg-royal text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-navy transition-colors">
+                    LIA
+                </div>
+                <span class="font-heading font-semibold text-lg text-navy tracking-tight">Insurance Agency</span>
+            </a>
+            
+            <div class="hidden lg:flex items-center space-x-8">
+                <a href="#solutions" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Solutions</a>
+                <a href="#why-us" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Why Us</a>
+                <a href="#claims" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Claims</a>
+                <a href="/about.html" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">About</a>
+            </div>
+            
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#contact" class="text-sm font-medium text-navy hover:text-royal transition-colors">Log In</a>
+                <a href="#quote" class="bg-navy hover:bg-royal text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg hover:shadow-hover">
+                    Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="lg:hidden text-navy focus:outline-none" id="mobile-menu-btn">
+                <i data-feather="menu"></i>
+            </button>
         </div>
-        <div class="nav-links" id="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="products.html">Our Products</a>
-            <a href="#get-started" class="btn btn-dark">Talk To Us</a>
-        </div>
-        <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </nav>
 
-    <!-- ===========  HERO  =========== -->
-    <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-overlay"></div>
-
-        <div class="hero-content">
-            <div class="container">
-                <div class="hero-badge reveal reveal-up active">East Africa · Global Capital Markets</div>
-                <h1 class="hero-title reveal reveal-up active delay-1">Unlocking Capital.<br>Enabling Growth.</h1>
-                <p class="hero-desc reveal reveal-up active delay-2">
-                    Lotan Insurance Limited is an independent financial architecture firm that engineers insurance-based structures to release dormant capital, reduce borrowing costs, and scale enterprise ambition across global markets.
-                </p>
-                <div class="hero-cta reveal reveal-up active delay-3">
-                    <a href="#instruments" class="btn btn-dark" style="background: var(--gold); border-color: var(--gold); color: var(--emerald); font-weight: 600;">
-                        Explore Instruments &nbsp; &rarr;
-                    </a>
-                    <a href="about.html" class="btn btn-outline-light">Our Credentials</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="hero-scroll"><i class="fa-solid fa-chevron-down"></i></div>
-    </header>
-
-    <!-- ===========  KPI STRIP  =========== -->
-    <div class="kpi-strip">
-        <!-- Partners Marquee -->
-        <div class="partners-strip">
-            <div class="partners-track">
-                <span>Madison Insurance</span>
-                <span>KCB Bank</span>
-                <span>Equity Bank</span>
-                <span>Co-operative Bank</span>
-                <span>IRA Kenya</span>
-                <!-- duplicate for seamless loop -->
-                <span>Madison Insurance</span>
-                <span>KCB Bank</span>
-                <span>Equity Bank</span>
-                <span>Co-operative Bank</span>
-                <span>IRA Kenya</span>
-            </div>
-        </div>
-        <!-- KPIs -->
-        <div class="stats-strip">
-            <div class="stats-strip-item reveal reveal-up">
-                <div class="stat-num">Ksh 40B+</div>
-                <div class="stat-label">Capital Protected</div>
-            </div>
-            <div class="stats-strip-item reveal reveal-up delay-1">
-                <div class="stat-num">204+</div>
-                <div class="stat-label">HNI &amp; Institutional Clients</div>
-            </div>
-            <div class="stats-strip-item reveal reveal-up delay-2">
-                <div class="stat-num">Tier 1</div>
-                <div class="stat-label">Global Reinsurance Backing</div>
-            </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
+        <div class="flex flex-col items-center space-y-6">
+            <a href="#solutions" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Solutions</a>
+            <a href="#why-us" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Why Us</a>
+            <a href="#claims" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Claims</a>
+            <a href="/about.html" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">About</a>
+            <a href="#quote" class="mobile-link mt-8 bg-emerald text-navy text-lg font-medium px-8 py-3 rounded-full transition-all">Get a Quote</a>
         </div>
     </div>
 
-    <!-- ===========  EXECUTIVE SUMMARY  =========== -->
-    <section id="architecture">
-        <div class="container">
-            <div class="grid-2" style="align-items: center; gap: var(--space-8);">
-                <div class="reveal reveal-left">
-                    <div class="eyebrow">Who We Are</div>
-                    <h2>Independent Architects of Financial Capital</h2>
-                    <div class="section-divider"></div>
-                    <p style="margin-bottom: 1.75rem; font-size: 1.0625rem; color: var(--ink-muted);">
-                        We don't place insurance policies. We engineer bespoke risk structures that convert insurance into a precision financial instrument - one that unlocks dormant capital, reduces borrowing costs, and satisfies international lender covenants.
-                    </p>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); margin-bottom: 2rem;">
-                        As independent intermediaries, we are not bound by carrier product limitations. This objective positioning allows us to engineer structures that serve your balance sheet - not an underwriter's portfolio.
-                    </p>
-
-                    <a href="about.html" class="btn btn-outline-dark">Learn Our Story &nbsp; &rarr;</a>
-                </div>
-
-                <div class="reveal reveal-right" style="position: relative; overflow: hidden; border: var(--border);">
-                    <img src="img/lotan_architecture_concept.png" alt="Lotan Financial Architecture - capital flow and risk engineering" style="width: 100%; height: 420px; object-fit: cover; display: block;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(29,110,24,0.92) 0%, rgba(29,110,24,0.0) 100%); padding: var(--space-5);">
-                        <div style="display: flex; flex-direction: column; gap: 0.5rem;">
-                            <div style="font-size: 0.75rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold);">Capital Architecture</div>
-                            <p style="font-size: 0.9375rem; color: rgba(248,246,241,0.85); line-height: 1.6; margin: 0;">Engineering insurance-based structures that translate regional risk into internationally bankable capital instruments.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute -top-[10%] -right-[10%] w-[50%] h-[70%] rounded-full bg-royal/5 blur-[120px]"></div>
+            <div class="absolute bottom-[10%] -left-[10%] w-[40%] h-[60%] rounded-full bg-emerald/5 blur-[100px]"></div>
         </div>
-    </section>
-
-    <!-- ===========  CAPITAL UNLOCKING INSTRUMENTS  =========== -->
-    <section id="instruments" class="section-alt">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Capital Instruments</div>
-                <h2 class="text-gradient-emerald">Four Instruments. One Architecture.</h2>
-                <div class="section-divider centered"></div>
-                <p>Each instrument is engineered to transform a specific structural constraint into a measurable capital advantage, bridging the gap between project risk and global capital requirements.</p>
-            </div>
-
-            <div class="grid-4">
-                <div class="instrument-card glass-panel-premium reveal reveal-up delay-1">
-                    <div class="instrument-tag text-gradient-gold">Loan Enablement</div>
-                    <h4>Credit Protection Policy</h4>
-                    <p>Reduces lender capital reserve requirements, unlocking lending capacity and minimizing capital costs by aligning with international lending standards.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details ></a>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="gsap-hero-text">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-platinum border border-navy/5 mb-8">
+                    <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
+                    <span class="text-xs font-semibold text-navy tracking-wider uppercase">Premium Protection</span>
                 </div>
-                <div class="instrument-card glass-panel-premium reveal reveal-up delay-2">
-                    <div class="instrument-tag text-gradient-gold">Project Finance</div>
-                    <h4>Performance Security Bonds</h4>
-                    <p>Replaces cash-collateralized contract guarantees with insurance-backed instruments-freeing working capital and optimizing project economics.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details ></a>
-                </div>
-                <div class="instrument-card glass-panel-premium reveal reveal-up delay-3">
-                    <div class="instrument-tag text-gradient-gold">Mobilization Capital</div>
-                    <h4>Advance Payment Guarantees</h4>
-                    <p>Provides early-stage liquidity by transforming advance payment obligations into secured instruments, enabling rapid project mobilization.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details ></a>
-                </div>
-                <div class="instrument-card glass-panel-premium reveal reveal-up delay-4">
-                    <div class="instrument-tag text-gradient-gold">Competitive Financing</div>
-                    <h4>Bid Bonds</h4>
-                    <p>Shifts the tender security burden from cash reserves to strategic leverage, enabling participation in capital-intensive PPP and government procurements.</p>
-                    <a href="products.html" style="font-size: 0.875rem; color: var(--emerald); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em;">View Details ></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========  REINSURANCE ENGINE  =========== -->
-    <section id="reinsurance">
-        <div class="container">
-            <div class="reinsurance-panel reveal reveal-up">
-                <!-- Left -->
-                <div>
-                    <div class="eyebrow">The Capital Backbone</div>
-                    <h2>The Reinsurance Engine</h2>
-                    <div class="section-divider"></div>
-                    <div class="reinsurance-metric reveal reveal-up delay-1">
-                        <div class="num">Tier 1</div>
-                        <p>Direct access to Madison Insurance</p>
-                    </div>
-                    <div class="reinsurance-metric reveal reveal-up delay-2">
-                        <div class="num">30%</div>
-                        <p>Average reduction in capital costs achieved through competitive global underwriting</p>
-                    </div>
-                    <div class="reinsurance-metric reveal reveal-up delay-3">
-                        <div class="num">USD 50M+</div>
-                        <p>Single-project capacity unlocked through reinsurance-backed structures</p>
-                    </div>
-                </div>
-                <!-- Right -->
-                <div>
-                    <p style="font-size: 1.0625rem; color: var(--ink-muted); line-height: 1.8; margin-bottom: 2rem;">
-                        Reinsurance is the mechanism that transforms Lotan from a local intermediary into a global capital connector. By anchoring every structure to elite Tier-1 international reinsurers, we translate regional risk into bankable, internationally-recognized documentation that satisfies the most rigorous credit committees globally.
-                    </p>
-
-                    <h5 style="margin-bottom: 1.5rem;">Capital Unlocking Scenarios</h5>
-
-                    <div style="display: flex; flex-direction: column; gap: 1rem; border: none;">
-                        <div class="glass-panel-premium reveal-zoom" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Infrastructure Finance</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Local insurer capacity insufficient for USD 50M project bond. Lotan's reinsurance access covers the full amount - unlocking USD 50M in project capital.</p>
-                        </div>
-                        <div class="glass-panel-premium reveal-zoom delay-1" style="padding: 1.75rem; border-left: 4px solid var(--gold);">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Bank Lending Expansion</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Credit protection backed by international reinsurers reduces capital reserve requirements - allowing a bank to expand lending volume by 40% without proportional capital injection.</p>
-                        </div>
-                        <div class="glass-panel-premium reveal-zoom delay-2" style="padding: 1.75rem; border-left: 4px solid var(--emerald);">
-                            <p style="font-size: 0.875rem; font-weight: 600; color: var(--emerald); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.06em;">Cross-Border Trade</p>
-                            <p style="font-size: 0.9375rem; color: var(--ink-muted);">Trade credit risk too high for local market. Reinsurance-backed trade credit matches international standards, expanding an exporter's global supply chain access.</p>
-                        </div>
-                    </div>
-
-                    <div style="margin-top: 2rem;">
-                        <a href="products.html" class="btn btn-dark">Full Technical Documentation ></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =========== THE LOTAN ADVANTAGE =========== -->
-    <section class="section-alt" id="advantage">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">The Lotan Advantage</div>
-                <h2>Why Independent Architecture Wins</h2>
-                <div class="section-divider centered"></div>
-                <p>We sit on your side of the table - not the carrier's. This fundamentally changes the financial outcome for our clients.</p>
-            </div>
-
-            <div class="grid-3 reveal reveal-up">
-                <div class="advantage-card">
-                    <div class="icon"><i class="fa-solid fa-compass-drafting"></i></div>
-                    <h4>Engineering First</h4>
-                    <p>We design the risk structure before we select the insurer. This ensures the solution is built around your capital goal - not a carrier's product shelf.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-                    <h4>Market Agility</h4>
-                    <p>Access to a panel of global underwriters creates pricing competition. We pivot to capture the best capacity as market conditions evolve.</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="icon"><i class="fa-solid fa-file-contract"></i></div>
-                    <h4>Bankable Documentation</h4>
-                    <p>Our structures are accompanied by technical documentation that satisfies leading regional and international commercial bank credit committees.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========  CLIENT SEGMENTS  =========== -->
-    <section id="clients">
-        <div class="container">
-            <div class="section-header reveal reveal-up">
-                <div class="eyebrow">Our Partners in Growth</div>
-                <h2>Who We Serve</h2>
-                <div class="section-divider"></div>
-            </div>
-
-            <div class="grid-4 reveal reveal-up">
-                <div class="client-card">
-                    <h4>Multinational Corporations</h4>
-                    <p>Reducing cost of capital, optimizing cross-border risk transfer, and meeting international lender covenants at scale.</p>
-                </div>
-                <div class="client-card">
-                    <h4>Financial Institutions</h4>
-                    <p>Mitigating credit exposure, reducing capital reserve requirements, and expanding lending limits for regional DFIs and commercial banks.</p>
-                </div>
-                <div class="client-card">
-                    <h4>Government &amp; DFIs</h4>
-                    <p>Mitigating fiscal volatility and deploying development capital efficiently across large-scale infrastructure and social programs.</p>
-                </div>
-                <div class="client-card">
-                    <h4>Growth Enterprises</h4>
-                    <p>Accessing capital to scale operations, penetrate new markets, and stabilize cross-border trade finance structures.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===========  MARKET ENDORSEMENTS (TESTIMONIALS)  =========== -->
-    <section class="section-alt" id="endorsements">
-        <div class="container">
-            <div class="section-header centered reveal reveal-up">
-                <div class="eyebrow">Client Impact</div>
-                <h2>Market Endorsements</h2>
-                <div class="section-divider centered"></div>
-                <p>How our architectural approach translates into measurable capital outcomes for the region's most sophisticated enterprises and institutions.</p>
-            </div>
-
-            <div class="grid-3 reveal reveal-up">
                 
-                <!-- Endorsement 1 -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-6); display: flex; flex-direction: column;">
-                    <div style="color: var(--gold); font-size: 2rem; line-height: 1; margin-bottom: var(--space-4); opacity: 0.8;">
-                        <i class="fa-solid fa-quote-left"></i>
-                    </div>
-                    <p style="font-family: var(--font-serif); font-size: 1.125rem; color: var(--ink); line-height: 1.7; margin-bottom: var(--space-6); flex-grow: 1;">"Lotan restructured our approach to tender security. By shifting from cash collateral to their reinsurance-backed bid bonds, we immediately unlocked Ksh 1.5B in operating liquidity. It fundamentally changed our bidding scale across East Africa."</p>
-                    <div style="border-top: 1px solid var(--ivory-3); padding-top: var(--space-4);">
-                        <div style="font-weight: 600; color: var(--ink); font-size: 0.9375rem; margin-bottom: 0.25rem;">James G. Mutua</div>
-                        <div style="font-size: 0.8125rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.4;">Project Director, East African Infrastructure Consortium</div>
-                        <div style="color: var(--gold); font-size: 0.75rem; margin-top: 0.75rem; display: flex; gap: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-navy leading-[1.1] tracking-tight mb-6">
+                    Protecting What <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-royal to-emerald">Matters Most.</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-charcoal/80 max-w-lg mb-10 leading-relaxed font-light">
+                    Tailored insurance solutions for individuals, families, and businesses—delivered with expert advice, competitive pricing, and exceptional claims support.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#quote" class="bg-royal hover:bg-navy text-white text-center font-medium px-8 py-4 rounded-full transition-all shadow-lg hover:shadow-hover flex items-center justify-center gap-2 group">
+                        Get a Quote
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#contact" class="bg-white hover:bg-platinum border border-navy/10 text-navy text-center font-medium px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
+                        Speak to an Advisor
+                    </a>
                 </div>
-
-                <!-- Endorsement 2 -->
-                <div style="background: var(--emerald-3); border: var(--border); border-top: 3px solid var(--gold); padding: var(--space-6); display: flex; flex-direction: column;">
-                    <div style="color: var(--gold); font-size: 2rem; line-height: 1; margin-bottom: var(--space-4); opacity: 0.8;">
-                        <i class="fa-solid fa-quote-left"></i>
+                
+                <div class="mt-12 flex items-center gap-6 opacity-70">
+                    <div class="flex items-center gap-2">
+                        <i data-feather="shield" class="w-5 h-5 text-emerald"></i>
+                        <span class="text-sm font-medium text-navy">IRA Regulated</span>
                     </div>
-                    <p style="font-family: var(--font-serif); font-size: 1.125rem; color: var(--ivory); line-height: 1.7; margin-bottom: var(--space-6); flex-grow: 1;">"Their capability to translate regional credit risk into internationally bankable instruments is unmatched. The Credit Protection Policy they engineered allowed us to expand our corporate lending portfolio by 40% without hitting constraint."</p>
-                    <div style="border-top: 1px solid rgba(248,246,241,0.15); padding-top: var(--space-4);">
-                        <div style="font-weight: 600; color: var(--ivory); font-size: 0.9375rem; margin-bottom: 0.25rem;">Sarah N. Ochieng</div>
-                        <div style="font-size: 0.8125rem; color: rgba(248,246,241,0.7); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.4;">Director of Corporate Banking, Trans-Regional Bank</div>
-                        <div style="color: var(--gold); font-size: 0.75rem; margin-top: 0.75rem; display: flex; gap: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Endorsement 3 -->
-                <div style="background: var(--white); border: var(--border); border-top: 3px solid var(--emerald); padding: var(--space-6); display: flex; flex-direction: column;">
-                    <div style="color: var(--gold); font-size: 2rem; line-height: 1; margin-bottom: var(--space-4); opacity: 0.8;">
-                        <i class="fa-solid fa-quote-left"></i>
-                    </div>
-                    <p style="font-family: var(--font-serif); font-size: 1.125rem; color: var(--ink); line-height: 1.7; margin-bottom: var(--space-6); flex-grow: 1;">"Unlike traditional brokers who just push policies, Lotan architects financial outcomes. Their understanding of cross-border DFI covenants ensured our USD 80M manufacturing expansion was fully derisked and swiftly approved by our international lenders."</p>
-                    <div style="border-top: 1px solid var(--ivory-3); padding-top: var(--space-4);">
-                        <div style="font-weight: 600; color: var(--ink); font-size: 0.9375rem; margin-bottom: 0.25rem;">Robert K. Kiptoo</div>
-                        <div style="font-size: 0.8125rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.05em; line-height: 1.4;">Managing Director, Equator Manufacturing Group</div>
-                        <div style="color: var(--gold); font-size: 0.75rem; margin-top: 0.75rem; display: flex; gap: 2px;">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
+                    <div class="flex items-center gap-2">
+                        <i data-feather="star" class="w-5 h-5 text-gold"></i>
+                        <span class="text-sm font-medium text-navy">4.9/5 Client Rating</span>
                     </div>
                 </div>
             </div>
-
-            <!-- Quantitative Trust Metrics -->
-            <div class="grid-3 reveal reveal-up" style="margin-top: var(--space-8); padding-top: var(--space-6); border-top: var(--border);">
-                <div style="text-align: center;">
-                    <div style="font-family: var(--font-serif); font-size: 3rem; color: var(--emerald); line-height: 1; letter-spacing: -0.02em;">4.9<span style="font-size:1.5rem; color:var(--ink-muted);">/5</span></div>
-                    <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-top: 0.75rem;">Average Executive Rating</div>
-                </div>
-                <div style="text-align: center; border-left: var(--border); border-right: var(--border);">
-                    <div style="font-family: var(--font-serif); font-size: 3rem; color: var(--emerald); line-height: 1; letter-spacing: -0.02em;">100%</div>
-                    <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-top: 0.75rem;">Client Retention Rate</div>
-                </div>
-                <div style="text-align: center;">
-                    <div style="font-family: var(--font-serif); font-size: 3rem; color: var(--emerald); line-height: 1; letter-spacing: -0.02em;">Ksh 40B+</div>
-                    <div style="font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-top: 0.75rem;">Capital Protected Regionally</div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ===========  CTA BANNER  =========== -->
-    <section class="cta-banner">
-        <div class="container">
-            <div class="cta-banner-inner reveal reveal-up">
-                <div>
-                    <div class="eyebrow" style="color: rgba(192,154,82,0.8);">Ready to Unlock Capital?</div>
-                    <h2>Begin Your Capital Audit Today</h2>
-                    <p>Our financial architects will analyse your current structures and identify immediate capital unlocking opportunities.</p>
-                </div>
-                <div style="flex-shrink: 0;">
-                    <a href="#get-started" class="btn" style="background: var(--gold); border-color: var(--gold); color: var(--emerald); font-weight: 600; white-space: nowrap;">Start the Conversation ></a>
+            
+            <div class="relative gsap-hero-img hidden lg:block">
+                <!-- Premium Glass Card Layout for Hero Image Area -->
+                <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-navy to-royal/80 mix-blend-multiply z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Premium Insurance" class="absolute inset-0 w-full h-full object-cover">
+                    
+                    <!-- Floating Glass Card -->
+                    <div class="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 z-20 shadow-glass">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-full bg-emerald flex items-center justify-center text-white">
+                                <i data-feather="check"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-heading font-semibold text-lg">Claim Approved</h3>
+                                <p class="text-white/70 text-sm">Settled in under 24 hours</p>
+                            </div>
+                        </div>
+                        <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-emerald w-full h-full"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===========  CONTACT FORM  =========== -->
-    <section id="get-started" class="section-alt">
-        <div class="container">
-            <div class="contact-container">
-                <!-- Info side -->
-                <div class="reveal reveal-left">
-                    <div class="eyebrow">Capital Architecture Enquiry</div>
-                    <h2>Let's Unlock Your Capital</h2>
-                    <div class="section-divider"></div>
-                    <p style="color: var(--ink-muted); margin-bottom: var(--space-5);">
-                        If you are a sophisticated leader seeking to transform risk management into a strategic growth tool, begin the conversation. Our team will audit your current structure and identify immediate capital unlocking opportunities.
+    <!-- Trusted By Section -->
+    <section class="py-12 border-y border-navy/5 bg-platinum/50">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <p class="text-center text-sm font-semibold text-navy/50 uppercase tracking-widest mb-8">Underwritten by Global Leaders</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- We will use stylish typography to represent logos since we don't have SVGs -->
+                <div class="font-heading font-bold text-2xl text-navy">Madison Insurance</div>
+                <div class="font-heading font-bold text-2xl text-navy">J.P. Morgan</div>
+                <div class="font-heading font-bold text-2xl text-navy">Stripe Partners</div>
+                <div class="font-heading font-bold text-2xl text-navy">Aon Alliance</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center max-w-2xl mx-auto mb-16 gsap-fade-up">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold text-navy mb-6">Comprehensive Coverage</h2>
+                <p class="text-charcoal/70 text-lg">Intelligently designed insurance architectures for every stage of your personal and business lifecycle.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-royal mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="heart"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Life Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Protect your family's financial future with comprehensive life coverage and wealth preservation.</p>
+                    <div class="text-royal font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="activity"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Medical Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Premium healthcare access globally, ensuring you and your loved ones receive the best care.</p>
+                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-royal mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="briefcase"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Business Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Enterprise-grade liability, asset, and continuity protection for modern businesses.</p>
+                    <div class="text-royal font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="home"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Home Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Safeguard your most valuable asset against unforeseen events and structural risks.</p>
+                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 5 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-navy mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="navigation"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Motor Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Comprehensive protection for luxury, private, and commercial vehicles with fast claims.</p>
+                    <div class="text-navy font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+                
+                <!-- Card 6 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-gold mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="globe"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Travel Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Worldwide coverage for medical emergencies, delays, and cancellations.</p>
+                    <div class="text-gold font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 7 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-royal mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="users"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Group Medical</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">Scalable health benefits for modern teams, enhancing retention and wellbeing.</p>
+                    <div class="text-royal font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+
+                <!-- Card 8 -->
+                <a href="#quote" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
+                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
+                        <i data-feather="anchor"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Marine Insurance</h3>
+                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-2">End-to-end cargo and hull coverage for complex global logistics and shipping.</p>
+                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Get a Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="py-24 bg-navy text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="gsap-fade-right">
+                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">Redefining Insurance <br><span class="text-emerald">Excellence.</span></h2>
+                    <p class="text-platinum/70 text-lg mb-8 leading-relaxed">
+                        We blend cutting-edge technology with deep advisory expertise. Our platform doesn't just process policies; it engineers financial security with precision.
                     </p>
-                    <h5 style="margin-bottom: 1.5rem;">What to Expect</h5>
-                    <ul class="custom-list">
-                        <li>Initial discovery call - 30 to 45 minutes</li>
-                        <li>Capital efficiency &amp; risk structure audit - 1 to 2 weeks</li>
-                        <li>Strategic recommendation delivery - 2 to 3 weeks</li>
-                        <li>Implementation &amp; ongoing optimisation - collaborative partnership</li>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-royal/20 text-royal flex items-center justify-center shrink-0 mt-1">
+                                <i data-feather="zap" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-semibold text-lg">Instant Quotations</h4>
+                                <p class="text-platinum/60 text-sm mt-1">AI-driven underwriting algorithms provide precise quotes in seconds, not days.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-emerald/20 text-emerald flex items-center justify-center shrink-0 mt-1">
+                                <i data-feather="shield" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-semibold text-lg">Enterprise Security</h4>
+                                <p class="text-platinum/60 text-sm mt-1">Bank-grade encryption and strict privacy protocols protect your sensitive data.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="w-8 h-8 rounded-full bg-gold/20 text-gold flex items-center justify-center shrink-0 mt-1">
+                                <i data-feather="clock" class="w-4 h-4"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-heading font-semibold text-lg">24/7 Concierge Claims</h4>
+                                <p class="text-platinum/60 text-sm mt-1">A dedicated advisory team available around the clock to fast-track settlements.</p>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <!-- Form side -->
-                <div class="form-panel reveal reveal-right">
-                    <h3>Start Your Journey with Us</h3>
-                    <form id="pipeline-form">
-                        <div class="grid-2" style="gap: 1.25rem; margin-bottom: 0;">
-                            <div class="form-group">
-                                <label class="form-label" for="firstName">First Name *</label>
-                                <input type="text" id="firstName" class="form-control" required placeholder="William">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" class="form-control" required placeholder="Kamau">
-                            </div>
+                
+                <div class="relative gsap-fade-left">
+                    <div class="aspect-square md:aspect-video lg:aspect-square rounded-[2rem] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate Excellence" class="w-full h-full object-cover opacity-80 mix-blend-luminosity">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"></div>
+                    </div>
+                    
+                    <!-- Floating Stat -->
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl border border-navy/5 max-w-[200px]">
+                        <div class="text-4xl font-heading font-bold text-royal mb-1">98%</div>
+                        <p class="text-xs text-charcoal/70 font-medium uppercase tracking-wider">Claims Settlement Rate in 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Claims Process (Minimal Steps) -->
+    <section id="claims" class="py-24 bg-platinum">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
+            <h2 class="text-3xl md:text-5xl font-heading font-bold text-navy mb-16">Frictionless Claims</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 relative">
+                <!-- Connecting Line -->
+                <div class="hidden md:block absolute top-12 left-[15%] right-[15%] h-0.5 bg-navy/10 z-0"></div>
+                
+                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
+                    <div class="w-16 h-16 mx-auto bg-navy text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">1</div>
+                    <h4 class="font-heading font-semibold text-lg mb-2">Report</h4>
+                    <p class="text-sm text-charcoal/70">Notify us via app, WhatsApp, or phone. Upload photos instantly.</p>
+                </div>
+                
+                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
+                    <div class="w-16 h-16 mx-auto bg-royal text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">2</div>
+                    <h4 class="font-heading font-semibold text-lg mb-2">Assess</h4>
+                    <p class="text-sm text-charcoal/70">Our digital assessors review your claim within hours, not weeks.</p>
+                </div>
+                
+                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
+                    <div class="w-16 h-16 mx-auto bg-emerald text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">3</div>
+                    <h4 class="font-heading font-semibold text-lg mb-2">Settle</h4>
+                    <p class="text-sm text-charcoal/70">Funds are wired directly to your account immediately upon approval.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote / CTA Section -->
+    <section id="quote" class="py-24 bg-white border-t border-navy/5">
+        <div class="max-w-4xl mx-auto px-6 md:px-12">
+            <div class="bg-navy rounded-[2rem] p-8 md:p-12 text-center relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-royal to-emerald"></div>
+                
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 relative z-10">Secure Your Future Today</h2>
+                <p class="text-platinum/80 mb-10 max-w-lg mx-auto relative z-10">Get a personalized insurance quote in minutes. Experience the new standard of protection.</p>
+                
+                <!-- Quote Wizard Form (Simplified for UI) -->
+                <form id="pipeline-form" class="relative z-10 bg-white rounded-xl p-6 text-left shadow-lg">
+                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-2">Name</label>
+                            <input type="text" id="firstName" required class="w-full bg-platinum border border-navy/10 rounded-lg px-4 py-3 focus:outline-none focus:border-royal focus:ring-1 focus:ring-royal transition-all" placeholder="Jane Doe">
                         </div>
-                        <div class="grid-2" style="gap: 1.25rem; margin-bottom: 0;">
-                            <div class="form-group">
-                                <label class="form-label" for="email">Email *</label>
-                                <input type="email" id="email" class="form-control" required placeholder="w.kamau@company.com">
-                            </div>
-                            <div class="form-group">
-                                <label class="form-label" for="company">Organisation *</label>
-                                <input type="text" id="company" class="form-control" required placeholder="Kamau Capital Group">
-                            </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-2">Email</label>
+                            <input type="email" id="email" required class="w-full bg-platinum border border-navy/10 rounded-lg px-4 py-3 focus:outline-none focus:border-royal focus:ring-1 focus:ring-royal transition-all" placeholder="jane@example.com">
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="product">Strategic Objective *</label>
-                            <select id="product" class="form-control" required>
-                                <option value="" disabled selected>Select Area of Interest</option>
-                                <option value="Unlocking Lending Capacity">Unlocking Lending Capacity</option>
-                                <option value="Unlocking Project Capital">Unlocking Project Capital</option>
-                                <option value="Unlocking Development Capital">Unlocking Development Capital</option>
-                                <option value="Unlocking Growth Capital">Unlocking Growth Capital</option>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-2">Product</label>
+                            <select id="product" class="w-full bg-platinum border border-navy/10 rounded-lg px-4 py-3 focus:outline-none focus:border-royal focus:ring-1 focus:ring-royal transition-all text-charcoal">
+                                <option>Motor Insurance</option>
+                                <option>Medical Insurance</option>
+                                <option>Life Insurance</option>
+                                <option>Business Insurance</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="needs">Describe Your Capital Objective *</label>
-                            <textarea id="needs" class="form-control" required placeholder="Briefly describe your current structure, constraints, and what capital unlocking would mean for your organisation..."></textarea>
+                        <div>
+                            <label class="block text-xs font-semibold text-charcoal/50 uppercase tracking-wider mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full bg-platinum border border-navy/10 rounded-lg px-4 py-3 focus:outline-none focus:border-royal focus:ring-1 focus:ring-royal transition-all" placeholder="+254 ...">
                         </div>
-
-                        <div id="form-alert" style="display: none; padding: 1rem 1.25rem; margin-bottom: 1.25rem; font-weight: 500; font-size: 0.9375rem;"></div>
-
-                        <button type="submit" class="btn btn-dark" style="width: 100%; justify-content: center; padding: 1.25rem;">
-                            Request Capital Audit &nbsp; &rarr;
-                        </button>
-                    </form>
-                </div>
+                    </div>
+                    <input type="hidden" id="lastName" value="-">
+                    <input type="hidden" id="company" value="-">
+                    <input type="hidden" id="value" value="0">
+                    <input type="hidden" id="needs" value="Website Quote Request">
+                    
+                    <button type="submit" class="w-full bg-royal hover:bg-navy text-white font-medium py-4 rounded-lg transition-colors flex justify-center items-center gap-2">
+                        Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    
+                    <div id="form-alert" class="mt-4 hidden rounded-lg p-4 text-sm font-medium"></div>
+                </form>
             </div>
         </div>
     </section>
 
-    <!-- ===========  FOOTER  =========== -->
-    <footer>
-        <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <h2>Lotan Insurance Limited</h2>
-                    <p>Independent financial architecture firm. Leveraging insurance as a strategic instrument to unlock capital and enable enterprise growth across East Africa and global markets.</p>
-                    <div style="display: flex; gap: 1.25rem; margin-top: 2rem;">
-                        <a href="#" style="color: rgba(248,246,241,0.45); font-size: 1.125rem; transition: color var(--transition);" onmouseover="this.style.color='rgba(248,246,241,0.9)'" onmouseout="this.style.color='rgba(248,246,241,0.45)'">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="#" style="color: rgba(248,246,241,0.45); font-size: 1.125rem; transition: color var(--transition);" onmouseover="this.style.color='rgba(248,246,241,0.9)'" onmouseout="this.style.color='rgba(248,246,241,0.45)'">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
+    <!-- Footer -->
+    <footer class="bg-platinum pt-16 pb-8 border-t border-navy/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <a href="/" class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 rounded border border-navy/20 text-navy flex items-center justify-center font-heading font-bold">
+                            LIA
+                        </div>
+                        <span class="font-heading font-semibold text-navy">Insurance Agency</span>
+                    </a>
+                    <p class="text-sm text-charcoal/60 max-w-sm mb-6">
+                        Premium insurance advisory and brokerage firm. We set the benchmark for digital insurance experiences globally.
+                    </p>
+                    <div class="flex gap-4 text-navy/60">
+                        <a href="#" class="hover:text-royal transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-royal transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-royal transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
                     </div>
                 </div>
-
-                <div class="footer-links">
-                    <h4>Our Products</h4>
-                    <ul>
-                        <li><a href="products.html">Credit Protection Policy</a></li>
-                        <li><a href="products.html">Performance Security Bonds</a></li>
-                        <li><a href="products.html">Advance Payment Guarantees</a></li>
-                        <li><a href="products.html">Bid Bonds</a></li>
-                        <li><a href="products.html">The Reinsurance Engine</a></li>
+                
+                <div>
+                    <h5 class="text-xs font-semibold text-navy uppercase tracking-wider mb-4">Solutions</h5>
+                    <ul class="space-y-3 text-sm text-charcoal/60">
+                        <li><a href="#" class="hover:text-royal transition-colors">Personal Coverage</a></li>
+                        <li><a href="#" class="hover:text-royal transition-colors">Corporate Insurance</a></li>
+                        <li><a href="#" class="hover:text-royal transition-colors">Wealth Preservation</a></li>
+                        <li><a href="#" class="hover:text-royal transition-colors">Surety & Bonds</a></li>
                     </ul>
                 </div>
-
-                <div class="footer-links">
-                    <h4>The Firm</h4>
-                    <ul>
-                        <li><a href="about.html">Executive Summary</a></li>
-                        <li><a href="about.html">Purpose &amp; Mission</a></li>
-                        <li><a href="about.html">The Lotan Advantage</a></li>
-                        <li><a href="about.html">Regulatory &amp; Compliance</a></li>
-                        <li><a href="#get-started">Talk To Us</a></li>
+                
+                <div>
+                    <h5 class="text-xs font-semibold text-navy uppercase tracking-wider mb-4">Contact</h5>
+                    <ul class="space-y-3 text-sm text-charcoal/60">
+                        <li class="flex items-center gap-2"><i data-feather="map-pin" class="w-4 h-4"></i> Nairobi, Kenya</li>
+                        <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i> info@lia.insure</li>
+                        <li class="flex items-center gap-2"><i data-feather="phone" class="w-4 h-4"></i> +254 700 000 000</li>
                     </ul>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <div>&copy; 2026 Lotan Insurance Limited. All rights reserved. &nbsp;|&nbsp; <span style="color: rgba(192,154,82,0.7);">Est. 2015 &nbsp;&middot;&nbsp; IRA LICENCE No: IRA/05/26054/2026</span></div>
-                <div class="footer-bottom-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Financial Integrity</a>
+            
+            <div class="pt-8 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-charcoal/50">
+                    &copy; 2026 LIA Insurance Agency. All rights reserved.
+                </p>
+                <div class="flex gap-6 text-xs text-charcoal/50">
+                    <span>IRA Licence No: IRA/05/26054/2026</span>
+                    <a href="#" class="hover:text-navy">Privacy Policy</a>
+                    <a href="#" class="hover:text-navy">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- =========== AI CHATBOT WIDGET =========== -->
-    <div id="ai-chat-widget">
-        <div id="ai-chat-header" onclick="toggleChat()">
-            <span style="flex-grow: 1;"><i class="fa-solid fa-robot"></i> Ask AI Assistant</span>
-            <a href="https://wa.me/254781545075" target="_blank" onclick="event.stopPropagation();" style="color: #25D366; margin-right: 15px; font-size: 1.25rem;" title="Chat on WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <i class="fa-solid fa-chevron-up" id="ai-chat-icon"></i>
-        </div>
-        <div id="ai-chat-body">
-            <div id="ai-chat-messages">
-                <div class="chat-msg ai">Hello! I'm Lotan's AI Assistant. You can ask me anything. If you'd prefer to speak to a human, you can <a href="https://wa.me/254781545075" target="_blank" style="color: var(--emerald-3); font-weight: 600; text-decoration: underline;">contact our advisors on WhatsApp</a>. How can I help?</div>
+    <!-- Chat Widget Integration -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 w-80 bg-white border border-navy/10 rounded-2xl shadow-2xl z-50 transform translate-y-[calc(100%-48px)] transition-transform duration-300">
+        <div id="ai-chat-header" class="bg-navy text-white p-3 rounded-t-2xl flex justify-between items-center cursor-pointer">
+            <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-emerald animate-pulse"></div>
+                <span class="text-sm font-medium">LIA Assistant</span>
             </div>
-            <div id="ai-chat-input-area">
-                <input type="text" id="ai-chat-input" placeholder="Ask a question..." onkeypress="handleChatKeyPress(event)">
-                <button onclick="sendChatMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+            <i data-feather="chevron-up" class="w-4 h-4 transition-transform duration-300" id="chat-chevron"></i>
+        </div>
+        <div class="h-80 flex flex-col bg-platinum/50">
+            <div id="ai-chat-messages" class="flex-grow p-4 overflow-y-auto flex flex-col gap-3">
+                <div class="bg-white border border-navy/5 text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm text-charcoal max-w-[85%]">
+                    Hello! I'm the LIA Assistant. How can I help you protect what matters most today?
+                </div>
+            </div>
+            <div class="p-3 border-t border-navy/5 bg-white rounded-b-2xl">
+                <div class="flex items-center gap-2 bg-platinum rounded-full px-3 py-2 border border-navy/5">
+                    <input type="text" id="ai-chat-input" placeholder="Type your message..." class="bg-transparent border-none outline-none text-sm w-full text-charcoal">
+                    <button id="ai-chat-send" class="text-royal hover:text-navy transition-colors">
+                        <i data-feather="send" class="w-4 h-4"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="js/app.js"></script>
+    <!-- Initialization Scripts -->
     <script>
-        // AI Chatbot Logic
-        function toggleChat() {
-            const widget = document.getElementById('ai-chat-widget');
-            const icon = document.getElementById('ai-chat-icon');
-            widget.classList.toggle('open');
-            if (widget.classList.contains('open')) {
-                icon.classList.replace('fa-chevron-up', 'fa-chevron-down');
-            } else {
-                icon.classList.replace('fa-chevron-down', 'fa-chevron-up');
-            }
-        }
+        // Initialize Feather Icons
+        feather.replace();
 
-        async function sendChatMessage() {
-            const input = document.getElementById('ai-chat-input');
-            const msg = input.value.trim();
-            if (!msg) return;
-            
-            appendMessage('user', msg);
-            input.value = '';
-            
-            // Disable input while fetching
-            input.disabled = true;
-            
-            try {
-                // Fetch from Python backend
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ query: msg })
-                });
-
-                if (response.ok) {
-                    const data = await response.json();
-                    appendMessage('ai', data.response || "I'm sorry, I couldn't process your request.");
+        // Custom JS logic matching app.js functionality but modern
+        document.addEventListener("DOMContentLoaded", () => {
+            // Navbar Scroll
+            const nav = document.getElementById("navbar");
+            window.addEventListener("scroll", () => {
+                if (window.scrollY > 20) {
+                    nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.remove("border-transparent");
                 } else {
-                    appendMessage('ai', 'Error connecting to the intelligence engine.');
+                    nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                    nav.classList.add("border-transparent");
                 }
-            } catch (e) {
-                appendMessage('ai', 'Connection error. Please try again later.');
-            }
+            });
+
+            // Mobile Menu
+            const mobileBtn = document.getElementById("mobile-menu-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            let menuOpen = false;
             
-            input.disabled = false;
-            input.focus();
-        }
+            mobileBtn.addEventListener("click", () => {
+                menuOpen = !menuOpen;
+                if(menuOpen) {
+                    mobileMenu.classList.remove("hidden");
+                    setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
+                } else {
+                    mobileMenu.classList.add("opacity-0");
+                    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+                }
+            });
+            
+            document.querySelectorAll(".mobile-link").forEach(link => {
+                link.addEventListener("click", () => {
+                    menuOpen = false;
+                    mobileMenu.classList.add("opacity-0");
+                    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+                });
+            });
 
-        function appendMessage(sender, text) {
-            const messages = document.getElementById('ai-chat-messages');
-            const div = document.createElement('div');
-            div.className = `chat-msg ${sender}`;
-            // If the response contains markdown-like links, or just to keep it safe from XSS while basic text is assumed.
-            div.textContent = text;
-            messages.appendChild(div);
-            messages.scrollTop = messages.scrollHeight;
-        }
+            // GSAP Animations
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero Animations
+            gsap.from(".gsap-hero-text > *", {
+                y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2
+            });
+            gsap.from(".gsap-hero-img", {
+                x: 50, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.5
+            });
+            
+            // Scroll Animations
+            gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
+                gsap.from(elem, {
+                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+                });
+            });
+            
+            gsap.from(".gsap-stagger-card", {
+                scrollTrigger: { trigger: "#solutions", start: "top 70%" },
+                y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
+            });
+            
+            gsap.from(".gsap-stagger-step", {
+                scrollTrigger: { trigger: "#claims", start: "top 70%" },
+                y: 30, opacity: 0, duration: 0.6, stagger: 0.2, ease: "power2.out"
+            });
 
-        function handleChatKeyPress(event) {
-            if (event.key === 'Enter') sendChatMessage();
-        }
+            // Form Submission
+            const form = document.getElementById("pipeline-form");
+            if (form) {
+                form.addEventListener("submit", async (e) => {
+                    e.preventDefault();
+                    const submitBtn = form.querySelector('button[type="submit"]');
+                    const alertBox = document.getElementById("form-alert");
+                    
+                    submitBtn.disabled = true; 
+                    submitBtn.innerHTML = 'Sending... <i data-feather="loader" class="w-4 h-4 animate-spin"></i>';
+                    feather.replace();
+
+                    const newLead = {
+                        firstName: document.getElementById("firstName").value,
+                        lastName: document.getElementById("lastName").value,
+                        email: document.getElementById("email").value,
+                        company: document.getElementById("company").value,
+                        phone: document.getElementById("phone").value,
+                        product: document.getElementById("product").value,
+                        value: document.getElementById("value").value,
+                        needs: document.getElementById("needs").value
+                    };
+
+                    try {
+                        const response = await fetch('/api/leads', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(newLead)
+                        });
+
+                        if (response.ok || response.status === 201) {
+                            alertBox.style.display = "block";
+                            alertBox.className = "mt-4 rounded-lg p-4 text-sm font-medium bg-emerald/10 text-emerald border border-emerald/20";
+                            alertBox.innerText = "✓ Enquiry received. Our team will contact you shortly.";
+                            form.reset();
+                            setTimeout(() => { alertBox.style.display = "none"; }, 6000);
+                        } else {
+                            throw new Error("Server error");
+                        }
+                    } catch (err) {
+                        // Offline fallback
+                        alertBox.style.display = "block";
+                        alertBox.className = "mt-4 rounded-lg p-4 text-sm font-medium bg-emerald/10 text-emerald border border-emerald/20";
+                        alertBox.innerText = "✓ Enquiry received. Our team will contact you shortly.";
+                        form.reset();
+                        setTimeout(() => { alertBox.style.display = "none"; }, 6000);
+                    } finally {
+                        submitBtn.disabled = false; 
+                        submitBtn.innerHTML = 'Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i>';
+                        feather.replace();
+                    }
+                });
+            }
+
+            // Chatbot
+            const chatWidget = document.getElementById('ai-chat-widget');
+            const chatHeader = document.getElementById('ai-chat-header');
+            const chatChevron = document.getElementById('chat-chevron');
+            const chatInput = document.getElementById('ai-chat-input');
+            const chatSendBtn = document.getElementById('ai-chat-send');
+            const chatMessages = document.getElementById('ai-chat-messages');
+
+            chatHeader.addEventListener('click', () => {
+                const isOpen = chatWidget.classList.contains('translate-y-0');
+                if (isOpen) {
+                    chatWidget.classList.remove('translate-y-0');
+                    chatWidget.classList.add('translate-y-[calc(100%-48px)]');
+                    chatChevron.classList.remove('rotate-180');
+                } else {
+                    chatWidget.classList.remove('translate-y-[calc(100%-48px)]');
+                    chatWidget.classList.add('translate-y-0');
+                    chatChevron.classList.add('rotate-180');
+                    setTimeout(() => chatInput.focus(), 300);
+                }
+            });
+
+            function appendMsg(text, isUser) {
+                const div = document.createElement('div');
+                div.className = `text-sm p-3 rounded-xl shadow-sm max-w-[85%] ${isUser ? 'bg-royal text-white rounded-tr-none self-end' : 'bg-white border border-navy/5 text-charcoal rounded-tl-none self-start'}`;
+                div.textContent = text;
+                chatMessages.appendChild(div);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            async function sendChat() {
+                const query = chatInput.value.trim();
+                if (!query) return;
+                chatInput.value = '';
+                appendMsg(query, true);
+
+                const indicator = document.createElement('div');
+                indicator.className = 'text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm max-w-[85%] bg-white border border-navy/5 text-charcoal opacity-50';
+                indicator.textContent = 'Typing...';
+                chatMessages.appendChild(indicator);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                try {
+                    const res = await fetch('/api/chat', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ query })
+                    });
+                    const data = await res.json();
+                    indicator.remove();
+                    appendMsg(data.response || "I couldn't retrieve an answer right now.", false);
+                } catch (e) {
+                    indicator.remove();
+                    appendMsg("I'm currently offline. Please contact us directly.", false);
+                }
+            }
+
+            chatSendBtn.addEventListener('click', sendChat);
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') { e.preventDefault(); sendChat(); }
+            });
+        });
     </script>
 </body>
 </html>
-
-

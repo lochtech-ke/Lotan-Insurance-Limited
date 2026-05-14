@@ -26,10 +26,10 @@ try:
         ('IRA license number updated in footer', 'IRA/05/26054/2026' in html),
         ('Old IRA license removed', 'IRA/001/BR/2015' not in html),
         ('PVT-86RI2EL removed from footer', 'PVT-86RI2EL' not in html),
-        ('Navbar has Home link', 'href="index.html"' in html),
+        ('Navbar has Home link', 'href="/"' in html),
         ('Navbar has About Us link', 'about.html' in html),
-        ('Navbar has Products link', 'products.html' in html),
-        ('Unlock Capital CTA present', 'Start the Conversation' in html),
+        ('Navbar has Solutions link', '#solutions' in html),
+        ('Get a Quote CTA present', 'Get a Quote' in html),
         ('Contact form present', 'pipeline-form' in html),
     ]
     print('  --- index.html ---')
@@ -48,8 +48,8 @@ try:
         ('IRA license number updated in footer', 'IRA/05/26054/2026' in html),
         ('Old IRA license removed', 'IRA/001/BR/2015' not in html),
         ('Who We Are section present', 'Our Identity' in html),
-        ('Lotan Advantage section present', 'Competitive Architecture' in html),
-        ('CTA present', 'Unlock Your Capital' in html),
+        ('Core Values section present', 'Our Core Values' in html),
+        ('CTA present', 'Get a Quote' in html),
     ]
     print('  --- about.html ---')
     for label, result in checks:
