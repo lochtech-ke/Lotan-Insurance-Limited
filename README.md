@@ -29,7 +29,7 @@ The Lotan platform adheres to a strict **Green and White** institutional identit
 
 ## ⚖️ Regulatory Transparency
 Lotan Insurance Limited operates under the regulatory framework of the **Insurance Regulatory Authority (IRA)**.
-*   **License Number**: IRA/001/BR/2026
+*   **License Number**: IRA/05/26054/2026
 
 ---
 
