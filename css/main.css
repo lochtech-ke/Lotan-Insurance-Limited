@@ -158,3 +158,29 @@ input:focus, select:focus, textarea:focus {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* 
+  8. Custom Premium Scrollbar
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FAFC; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8; 
+}
+
+/* Ensure text selection color matches the brand (Royal Blue) */
+::selection {
+  background: rgba(0, 87, 255, 0.2);
+  color: #081B33;
+}

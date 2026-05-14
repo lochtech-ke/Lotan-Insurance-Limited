@@ -332,8 +332,8 @@
                     </div>
                     
                     <!-- Floating Stat -->
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl border border-navy/5 max-w-[200px]">
-                        <div class="text-4xl font-heading font-bold text-royal mb-1">98%</div>
+                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl border border-navy/5 max-w-[200px] gsap-counter-box">
+                        <div class="text-4xl font-heading font-bold text-royal mb-1"><span id="claim-counter" data-target="98">0</span>%</div>
                         <p class="text-xs text-charcoal/70 font-medium uppercase tracking-wider">Claims Settlement Rate in 2025</p>
                     </div>
                 </div>
@@ -548,45 +548,71 @@
             // GSAP Animations
             gsap.registerPlugin(ScrollTrigger);
             
-            // Hero Animations
-            gsap.from(".gsap-hero-text > *", {
-                y: 30, opacity: 0, duration: 1, stagger: 0.15, ease: "power3.out", delay: 0.2
-            });
-            gsap.from(".gsap-hero-img", {
-                x: 50, opacity: 0, duration: 1.2, ease: "power3.out", delay: 0.5
-            });
+            // 1. Orchestrated Master Timeline (Apple-style reveal)
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+            tl.from("#navbar", { y: -20, opacity: 0, duration: 0.8, delay: 0.2 })
+              .from(".gsap-hero-text > *", { y: 30, opacity: 0, duration: 1, stagger: 0.15 }, "-=0.4")
+              .from(".gsap-hero-img", { x: 50, opacity: 0, duration: 1.2 }, "-=0.8");
             
-            // Scroll Animations
+            // 2. Premium Parallax Mouse Tracking (Hero Image)
+            const heroImg = document.querySelector('.gsap-hero-img');
+            if (heroImg) {
+                document.addEventListener('mousemove', (e) => {
+                    const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+                    const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+                    gsap.to(heroImg, { x: xAxis, y: yAxis, duration: 1, ease: "power1.out" });
+                });
+            }
+
+            // 3. Scroll Animations
             gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
                 gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
                     y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
                 });
             });
             
             gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
                 gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
                     x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
                 });
             });
             
             gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
                 gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 80%" },
+                    scrollTrigger: { trigger: elem, start: "top 85%" },
                     x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
                 });
             });
             
             gsap.from(".gsap-stagger-card", {
-                scrollTrigger: { trigger: "#solutions", start: "top 70%" },
+                scrollTrigger: { trigger: "#solutions", start: "top 75%" },
                 y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
             });
             
             gsap.from(".gsap-stagger-step", {
-                scrollTrigger: { trigger: "#claims", start: "top 70%" },
+                scrollTrigger: { trigger: "#claims", start: "top 75%" },
                 y: 30, opacity: 0, duration: 0.6, stagger: 0.2, ease: "power2.out"
             });
+
+            // 4. Animated Number Counter
+            const counter = document.getElementById("claim-counter");
+            if (counter) {
+                ScrollTrigger.create({
+                    trigger: ".gsap-counter-box",
+                    start: "top 90%",
+                    onEnter: () => {
+                        gsap.to(counter, {
+                            innerHTML: counter.getAttribute("data-target"),
+                            duration: 2,
+                            ease: "power2.out",
+                            snap: { innerHTML: 1 }
+                        });
+                    },
+                    once: true
+                });
+            }
 
             // Form Submission
             const form = document.getElementById("pipeline-form");
