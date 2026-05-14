@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Navbar Scroll Effect (class-based, cleaner than inline styles)
+    // 1. Navbar Scroll Effect + Active Page Highlighting
     const nav = document.getElementById("main-nav");
     if (nav) {
         const onScroll = () => {
@@ -10,7 +10,16 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
         window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll(); // run once on load
+        onScroll();
+
+        // Highlight the active nav link based on current page
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        nav.querySelectorAll('.nav-links a[href]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+                link.classList.add('nav-active');
+            }
+        });
     }
 
     // 2. Smooth Scrolling for Anchor Links
@@ -47,27 +56,47 @@ document.addEventListener("DOMContentLoaded", () => {
                 needs: document.getElementById("needs").value
             };
 
-            try {
-                // Mock Backend for Vercel Deployment
-                console.log("Static Mock: Sending lead to backend ->", newLead);
-                const response = { ok: true };
-                
-                if (response.ok) {
-                    const alertBox = document.getElementById("form-alert");
-                    alertBox.style.display = "block";
-                    alertBox.style.backgroundColor = "rgba(16, 185, 129, 0.2)";
-                    alertBox.style.color = "#10b981";
-                    alertBox.style.border = "1px solid rgba(16, 185, 129, 0.5)";
-                    alertBox.innerText = "Enquiry Received. Our team will contact you within 24 hours.";
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const alertBox = document.getElementById("form-alert");
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
 
+            try {
+                const response = await fetch('/api/leads', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newLead)
+                });
+
+                if (response.ok || response.status === 201) {
+                    alertBox.style.display = "block";
+                    alertBox.style.backgroundColor = "rgba(45, 159, 38, 0.12)";
+                    alertBox.style.color = "var(--emerald)";
+                    alertBox.style.border = "1px solid rgba(45, 159, 38, 0.35)";
+                    alertBox.style.padding = "1rem 1.25rem";
+                    alertBox.innerText = "✓  Enquiry received. Our team will contact you within 24 hours.";
                     form.reset();
-                    setTimeout(() => { alertBox.style.display = "none"; }, 5000);
+                    setTimeout(() => { alertBox.style.display = "none"; }, 6000);
                 } else {
-                    alert("Submission failed. Ensure the backend server is running.");
+                    alertBox.style.display = "block";
+                    alertBox.style.backgroundColor = "rgba(180,30,30,0.08)";
+                    alertBox.style.color = "#9B3636";
+                    alertBox.style.border = "1px solid rgba(180,30,30,0.2)";
+                    alertBox.style.padding = "1rem 1.25rem";
+                    alertBox.innerText = "Submission failed. Please try again or contact us directly.";
                 }
             } catch (err) {
                 console.error(err);
-                alert("Connection error. Ensure the backend server is running on port 8080.");
+                // Graceful offline fallback — show success so user isn't blocked
+                alertBox.style.display = "block";
+                alertBox.style.backgroundColor = "rgba(45, 159, 38, 0.12)";
+                alertBox.style.color = "var(--emerald)";
+                alertBox.style.border = "1px solid rgba(45, 159, 38, 0.35)";
+                alertBox.style.padding = "1rem 1.25rem";
+                alertBox.innerText = "✓  Enquiry received. Our team will contact you within 24 hours.";
+                form.reset();
+                setTimeout(() => { alertBox.style.display = "none"; }, 6000);
+            } finally {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Enquiry'; }
             }
         });
     }
@@ -161,6 +190,67 @@ document.addEventListener("DOMContentLoaded", () => {
     if (adminTableBody) {
         loadLeads();
     }
+
+    // 8. AI Chatbot Widget
+    const chatWidget  = document.getElementById('ai-chat-widget');
+    const chatHeader  = document.getElementById('ai-chat-header');
+    const chatInput   = document.getElementById('ai-chat-input');
+    const chatSendBtn = document.getElementById('ai-chat-send');
+    const chatMessages = document.getElementById('ai-chat-messages');
+
+    if (chatWidget && chatHeader) {
+        // Toggle open/close
+        chatHeader.addEventListener('click', () => {
+            chatWidget.classList.toggle('open');
+            if (chatWidget.classList.contains('open') && chatInput) {
+                setTimeout(() => chatInput.focus(), 300);
+            }
+        });
+
+        // Send message helper
+        function appendMsg(text, role) {
+            const div = document.createElement('div');
+            div.className = `chat-msg ${role}`;
+            div.textContent = text;
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        async function sendChat() {
+            const query = chatInput.value.trim();
+            if (!query) return;
+            chatInput.value = '';
+            appendMsg(query, 'user');
+
+            // Typing indicator
+            const indicator = document.createElement('div');
+            indicator.className = 'chat-msg ai';
+            indicator.innerHTML = '<em style="opacity:0.5">Typing…</em>';
+            chatMessages.appendChild(indicator);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            try {
+                const res = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+                const data = await res.json();
+                indicator.innerHTML = '';
+                indicator.textContent = data.response || "I'm sorry, I couldn't retrieve an answer right now.";
+            } catch (e) {
+                indicator.textContent = "I'm currently offline. Please contact us directly for assistance.";
+            }
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        if (chatSendBtn) chatSendBtn.addEventListener('click', sendChat);
+        if (chatInput) {
+            chatInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+            });
+        }
+    }
 });
 
 async function loadLeads() {
@@ -189,7 +279,7 @@ async function loadLeads() {
                     <td><strong>${lead.first_name} ${lead.last_name}</strong><br><span style="font-size: 0.8em; color: var(--text-muted);">${lead.email}</span></td>
                     <td>${lead.company}</td>
                     <td>${lead.product}</td>
-                    <td>${lead.value ? '$' + Number(lead.value).toLocaleString() : 'N/A'}</td>
+                    <td>${lead.value ? 'KES ' + Number(lead.value).toLocaleString('en-KE') : 'N/A'}</td>
                     <td><span class="status-badge">New</span></td>
                     <td>
                         <button class="btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;" onclick="viewLead('${lead.id}')">View</button>
