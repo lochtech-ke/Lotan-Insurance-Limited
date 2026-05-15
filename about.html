@@ -90,7 +90,7 @@
     <!-- Page Header -->
     <section class="pt-40 pb-20 bg-navy text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up-hero">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
                 <span class="text-xs font-semibold text-emerald tracking-wider uppercase">Our Identity</span>
             </div>
@@ -99,6 +99,8 @@
                 We bridge the gap between complex risk and simple, effective protection, setting the benchmark for digital insurance globally.
             </p>
         </div>
+        <!-- Abstract Parallax Element -->
+        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-royal/10 blur-[120px] rounded-full gsap-parallax-img"></div>
     </section>
 
     <!-- Our Story -->
@@ -234,64 +236,8 @@
     </footer>
 
     <!-- Initialization Scripts -->
-    <script>
-        feather.replace();
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const nav = document.getElementById("navbar");
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 20) {
-                    nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
-                    nav.classList.remove("border-transparent");
-                } else {
-                    nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
-                    nav.classList.add("border-transparent");
-                }
-            });
-
-            const mobileBtn = document.getElementById("mobile-menu-btn");
-            const mobileMenu = document.getElementById("mobile-menu");
-            let menuOpen = false;
-            
-            mobileBtn.addEventListener("click", () => {
-                menuOpen = !menuOpen;
-                if(menuOpen) {
-                    mobileMenu.classList.remove("hidden");
-                    setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
-                } else {
-                    mobileMenu.classList.add("opacity-0");
-                    setTimeout(() => mobileMenu.classList.add("hidden"), 300);
-                }
-            });
-
-            gsap.registerPlugin(ScrollTrigger);
-            
-            gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-            
-            gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-            
-            gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-            
-            gsap.from(".gsap-stagger-card", {
-                scrollTrigger: { trigger: ".gsap-stagger-card", start: "top 85%" },
-                y: 30, opacity: 0, duration: 0.6, stagger: 0.15, ease: "power2.out"
-            });
-        });
-    </script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
 </body>
 </html>

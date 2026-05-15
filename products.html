@@ -84,7 +84,7 @@
     <!-- Page Header -->
     <section class="pt-40 pb-20 bg-navy text-white relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up-hero">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
                 <span class="text-xs font-semibold text-royal tracking-wider uppercase">Products</span>
             </div>
@@ -93,6 +93,8 @@
                 Comprehensive, enterprise-grade insurance solutions tailored to protect your personal assets, families, and business operations.
             </p>
         </div>
+        <!-- Abstract Parallax Element -->
+        <div class="absolute -bottom-20 -left-20 w-96 h-96 bg-royal/10 blur-[120px] rounded-full gsap-parallax-img"></div>
     </section>
 
     <!-- Product 1: Credit Life -->
@@ -196,44 +198,9 @@
         </div>
     </footer>
 
-    <script>
-        feather.replace();
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const nav = document.getElementById("navbar");
-            window.addEventListener("scroll", () => {
-                if (window.scrollY > 20) {
-                    nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
-                    nav.classList.remove("border-transparent");
-                } else {
-                    nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
-                    nav.classList.add("border-transparent");
-                }
-            });
-
-            gsap.registerPlugin(ScrollTrigger);
-            
-            gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-            
-            gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-            
-            gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
-                gsap.from(elem, {
-                    scrollTrigger: { trigger: elem, start: "top 85%" },
-                    x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
-                });
-            });
-        });
-    </script>
+    <!-- Initialization Scripts -->
+    <script src="/js/app.js"></script>
+</body>
+</html>
 </body>
 </html>

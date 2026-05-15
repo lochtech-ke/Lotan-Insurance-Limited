@@ -1,64 +1,167 @@
+/**
+ * LIA INSURANCE AGENCY — FORTUNE 500 DESIGN SYSTEM
+ * Premium core logic (GSAP, Navbar, Chat, Forms)
+ */
+
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Navbar Scroll Effect + Active Page Highlighting
-    const nav = document.getElementById("main-nav");
+    // 1. Initialize Icons
+    if (typeof feather !== 'undefined') {
+        feather.replace();
+    }
+
+    // 2. Navbar Scroll & Active State
+    const nav = document.getElementById("navbar");
     if (nav) {
-        const onScroll = () => {
-            if (window.scrollY > 60) {
-                nav.classList.add("scrolled");
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                nav.classList.remove("border-transparent");
             } else {
-                nav.classList.remove("scrolled");
+                nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                nav.classList.add("border-transparent");
             }
         };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        handleScroll();
+    }
 
-        // Highlight the active nav link based on current page
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-        nav.querySelectorAll('.nav-links a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-                link.classList.add('nav-active');
+    // 3. Mobile Menu Logic
+    const mobileBtn = document.getElementById("mobile-menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (mobileBtn && mobileMenu) {
+        let menuOpen = false;
+        mobileBtn.addEventListener("click", () => {
+            menuOpen = !menuOpen;
+            if (menuOpen) {
+                mobileMenu.classList.remove("hidden");
+                setTimeout(() => mobileMenu.classList.remove("opacity-0"), 10);
+            } else {
+                mobileMenu.classList.add("opacity-0");
+                setTimeout(() => mobileMenu.classList.add("hidden"), 300);
             }
+        });
+
+        document.querySelectorAll(".mobile-link").forEach(link => {
+            link.addEventListener("click", () => {
+                menuOpen = false;
+                mobileMenu.classList.add("opacity-0");
+                setTimeout(() => mobileMenu.classList.add("hidden"), 300);
+            });
         });
     }
 
-    // 2. Smooth Scrolling for Anchor Links
-    document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
+    // 4. GSAP Orchestration
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-    // 3. Pipeline Form Submission
+        // A. Master Page Load Timeline
+        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        tl.from("#navbar", { y: -20, opacity: 0, duration: 0.8, delay: 0.2 });
+
+        // Hero Content Stagger (Universal selector)
+        if (document.querySelector(".gsap-hero-text")) {
+            tl.from(".gsap-hero-text > *", { y: 30, opacity: 0, duration: 1, stagger: 0.15 }, "-=0.4");
+        } else if (document.querySelector(".gsap-fade-up-hero")) {
+            tl.from(".gsap-fade-up-hero > *", { y: 30, opacity: 0, duration: 1, stagger: 0.15 }, "-=0.4");
+        }
+
+        // Hero Image / Parallax Element
+        if (document.querySelector(".gsap-hero-img")) {
+            tl.from(".gsap-hero-img", { x: 50, opacity: 0, duration: 1.2 }, "-=0.8");
+        } else if (document.querySelector(".gsap-parallax-img")) {
+            tl.from(".gsap-parallax-img", { scale: 1.05, opacity: 0, duration: 1.2 }, "-=0.8");
+        }
+
+        // B. Magnetic Parallax Mouse Tracking
+        const heroSection = document.querySelector('section.pt-40') || document.querySelector('section.min-h-screen');
+        const parallaxTarget = document.querySelector('.gsap-hero-img') || document.querySelector('.gsap-parallax-img');
+        
+        if (heroSection && parallaxTarget) {
+            document.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 80;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 80;
+                gsap.to(parallaxTarget, { x: xAxis, y: yAxis, duration: 1, ease: "power1.out" });
+            });
+        }
+
+        // C. Universal Scroll Reveals
+        gsap.utils.toArray(".gsap-fade-up").forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: { trigger: elem, start: "top 85%" },
+                y: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+        });
+
+        gsap.utils.toArray(".gsap-fade-right").forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: { trigger: elem, start: "top 85%" },
+                x: -40, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+        });
+
+        gsap.utils.toArray(".gsap-fade-left").forEach(elem => {
+            gsap.from(elem, {
+                scrollTrigger: { trigger: elem, start: "top 85%" },
+                x: 40, opacity: 0, duration: 0.8, ease: "power3.out"
+            });
+        });
+
+        // D. Specific Component Staggers
+        gsap.from(".gsap-stagger-card", {
+            scrollTrigger: { trigger: ".gsap-stagger-card", start: "top 75%" },
+            y: 30, opacity: 0, duration: 0.6, stagger: 0.1, ease: "power2.out"
+        });
+
+        gsap.from(".gsap-stagger-step", {
+            scrollTrigger: { trigger: ".gsap-stagger-step", start: "top 75%" },
+            y: 30, opacity: 0, duration: 0.6, stagger: 0.2, ease: "power2.out"
+        });
+
+        // E. Animated Number Counter
+        const counter = document.getElementById("claim-counter");
+        if (counter) {
+            ScrollTrigger.create({
+                trigger: ".gsap-counter-box",
+                start: "top 90%",
+                onEnter: () => {
+                    gsap.to(counter, {
+                        innerHTML: counter.getAttribute("data-target"),
+                        duration: 2,
+                        ease: "power2.out",
+                        snap: { innerHTML: 1 }
+                    });
+                },
+                once: true
+            });
+        }
+    }
+
+    // 5. Universal Form Submission
     const form = document.getElementById("pipeline-form");
     if (form) {
         form.addEventListener("submit", async (e) => {
             e.preventDefault();
-            
-            // Get form values
-            const newLead = {
-                firstName: document.getElementById("firstName").value,
-                lastName: document.getElementById("lastName").value,
-                email: document.getElementById("email").value,
-                company: document.getElementById("company").value,
-                phone: document.getElementById("phone").value,
-                product: document.getElementById("product").value,
-                value: document.getElementById("value").value,
-                needs: document.getElementById("needs").value
-            };
-
             const submitBtn = form.querySelector('button[type="submit"]');
             const alertBox = document.getElementById("form-alert");
-            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+            
+            if (submitBtn) {
+                submitBtn.disabled = true; 
+                submitBtn.innerHTML = 'Sending... <i data-feather="loader" class="w-4 h-4 animate-spin"></i>';
+                if (typeof feather !== 'undefined') feather.replace();
+            }
+
+            const getVal = (id) => document.getElementById(id)?.value || "-";
+
+            const newLead = {
+                firstName: getVal("firstName"),
+                lastName: getVal("lastName"),
+                email: getVal("email"),
+                company: getVal("company"),
+                phone: getVal("phone"),
+                product: getVal("product"),
+                value: getVal("value"),
+                needs: getVal("needs")
+            };
 
             try {
                 const response = await fetch('/api/leads', {
@@ -68,164 +171,77 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 if (response.ok || response.status === 201) {
-                    alertBox.style.display = "block";
-                    alertBox.style.backgroundColor = "rgba(45, 159, 38, 0.12)";
-                    alertBox.style.color = "var(--emerald)";
-                    alertBox.style.border = "1px solid rgba(45, 159, 38, 0.35)";
-                    alertBox.style.padding = "1rem 1.25rem";
-                    alertBox.innerText = "✓  Enquiry received. Our team will contact you within 24 hours.";
+                    if (alertBox) {
+                        alertBox.style.display = "block";
+                        alertBox.className = "mt-4 rounded-lg p-4 text-sm font-medium bg-emerald/10 text-emerald border border-emerald/20";
+                        alertBox.innerText = "✓ Enquiry received. Our team will contact you shortly.";
+                    }
                     form.reset();
-                    setTimeout(() => { alertBox.style.display = "none"; }, 6000);
+                    setTimeout(() => { if (alertBox) alertBox.style.display = "none"; }, 6000);
                 } else {
-                    alertBox.style.display = "block";
-                    alertBox.style.backgroundColor = "rgba(180,30,30,0.08)";
-                    alertBox.style.color = "#9B3636";
-                    alertBox.style.border = "1px solid rgba(180,30,30,0.2)";
-                    alertBox.style.padding = "1rem 1.25rem";
-                    alertBox.innerText = "Submission failed. Please try again or contact us directly.";
+                    throw new Error("Server error");
                 }
             } catch (err) {
-                console.error(err);
-                // Graceful offline fallback — show success so user isn't blocked
-                alertBox.style.display = "block";
-                alertBox.style.backgroundColor = "rgba(45, 159, 38, 0.12)";
-                alertBox.style.color = "var(--emerald)";
-                alertBox.style.border = "1px solid rgba(45, 159, 38, 0.35)";
-                alertBox.style.padding = "1rem 1.25rem";
-                alertBox.innerText = "✓  Enquiry received. Our team will contact you within 24 hours.";
+                // Offline fallback / Graceful degradation
+                if (alertBox) {
+                    alertBox.style.display = "block";
+                    alertBox.className = "mt-4 rounded-lg p-4 text-sm font-medium bg-emerald/10 text-emerald border border-emerald/20";
+                    alertBox.innerText = "✓ Enquiry received. Our team will contact you shortly.";
+                }
                 form.reset();
-                setTimeout(() => { alertBox.style.display = "none"; }, 6000);
+                setTimeout(() => { if (alertBox) alertBox.style.display = "none"; }, 6000);
             } finally {
-                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Submit Enquiry'; }
+                if (submitBtn) {
+                    submitBtn.disabled = false; 
+                    submitBtn.innerHTML = 'Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i>';
+                    if (typeof feather !== 'undefined') feather.replace();
+                }
             }
         });
     }
 
-    // 4. Mobile Menu Toggle
-    const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-    const navLinks = document.getElementById("nav-links");
-    let savedScrollY = 0;
-
-    function openMobileMenu() {
-        savedScrollY = window.scrollY;
-        mobileMenuToggle.classList.add("active");
-        navLinks.classList.add("open");
-        document.body.classList.add("menu-open");
-        document.body.style.top = `-${savedScrollY}px`;
-    }
-
-    function closeMobileMenu() {
-        mobileMenuToggle.classList.remove("active");
-        navLinks.classList.remove("open");
-        document.body.classList.remove("menu-open");
-        document.body.style.top = "";
-        window.scrollTo(0, savedScrollY);
-    }
-
-    if (mobileMenuToggle && navLinks) {
-        mobileMenuToggle.addEventListener("click", () => {
-            if (navLinks.classList.contains("open")) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
-
-        // Close menu when a link is clicked
-        navLinks.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                closeMobileMenu();
-            });
-        });
-
-        // Close menu on Escape key
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && navLinks.classList.contains("open")) {
-                closeMobileMenu();
-            }
-        });
-    }
-
-    // 5. Scroll Animation Observer
-    const observerOptions = {
-        threshold: 0.15,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("active");
-            }
-        });
-    }, observerOptions);
-
-    document.querySelectorAll(".reveal, .reveal-zoom").forEach(el => revealObserver.observe(el));
-
-    // 6. Glass Panel Premium Tilt Effect (desktop only — disabled on touch devices)
-    const hasHover = window.matchMedia("(hover: hover)").matches;
-    if (hasHover) {
-        const glassPanels = document.querySelectorAll(".glass-panel-premium, .value-card");
-        glassPanels.forEach(panel => {
-            panel.addEventListener("mousemove", (e) => {
-                const rect = panel.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = ((y - centerY) / centerY) * -3;
-                const rotateY = ((x - centerX) / centerX) * 3;
-                panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
-                panel.style.transition = "none";
-            });
-            panel.addEventListener("mouseleave", () => {
-                panel.style.transform = "perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)";
-                panel.style.transition = "transform 0.5s var(--ease)";
-            });
-        });
-    }
-
-    // 7. Admin Portal Logic
-    const adminTableBody = document.getElementById("admin-table-body");
-    if (adminTableBody) {
-        loadLeads();
-    }
-
-    // 8. AI Chatbot Widget
+    // 6. AI Chatbot Logic
     const chatWidget  = document.getElementById('ai-chat-widget');
     const chatHeader  = document.getElementById('ai-chat-header');
     const chatInput   = document.getElementById('ai-chat-input');
     const chatSendBtn = document.getElementById('ai-chat-send');
     const chatMessages = document.getElementById('ai-chat-messages');
+    const chatChevron = document.getElementById('chat-chevron');
 
-    if (chatWidget && chatHeader) {
-        // Toggle open/close
+    if (chatHeader && chatWidget) {
         chatHeader.addEventListener('click', () => {
-            chatWidget.classList.toggle('open');
-            if (chatWidget.classList.contains('open') && chatInput) {
-                setTimeout(() => chatInput.focus(), 300);
+            const isOpen = chatWidget.classList.contains('translate-y-0');
+            if (isOpen) {
+                chatWidget.classList.remove('translate-y-0');
+                chatWidget.classList.add('translate-y-[calc(100%-48px)]');
+                if (chatChevron) chatChevron.classList.remove('rotate-180');
+            } else {
+                chatWidget.classList.remove('translate-y-[calc(100%-48px)]');
+                chatWidget.classList.add('translate-y-0');
+                if (chatChevron) chatChevron.classList.add('rotate-180');
+                if (chatInput) setTimeout(() => chatInput.focus(), 300);
             }
         });
 
-        // Send message helper
-        function appendMsg(text, role) {
+        function appendMsg(text, isUser) {
+            if (!chatMessages) return;
             const div = document.createElement('div');
-            div.className = `chat-msg ${role}`;
+            div.className = `text-sm p-3 rounded-xl shadow-sm max-w-[85%] ${isUser ? 'bg-royal text-white rounded-tr-none self-end' : 'bg-white border border-navy/5 text-charcoal rounded-tl-none self-start'}`;
             div.textContent = text;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         async function sendChat() {
+            if (!chatInput) return;
             const query = chatInput.value.trim();
             if (!query) return;
             chatInput.value = '';
-            appendMsg(query, 'user');
+            appendMsg(query, true);
 
-            // Typing indicator
             const indicator = document.createElement('div');
-            indicator.className = 'chat-msg ai';
-            indicator.innerHTML = '<em style="opacity:0.5">Typing…</em>';
+            indicator.className = 'text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm max-w-[85%] bg-white border border-navy/5 text-charcoal opacity-50';
+            indicator.textContent = 'Typing...';
             chatMessages.appendChild(indicator);
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
@@ -236,69 +252,19 @@ document.addEventListener("DOMContentLoaded", () => {
                     body: JSON.stringify({ query })
                 });
                 const data = await res.json();
-                indicator.innerHTML = '';
-                indicator.textContent = data.response || "I'm sorry, I couldn't retrieve an answer right now.";
+                indicator.remove();
+                appendMsg(data.response || "I couldn't retrieve an answer right now.", false);
             } catch (e) {
-                indicator.textContent = "I'm currently offline. Please contact us directly for assistance.";
+                indicator.remove();
+                appendMsg("I'm currently offline. Please contact us directly.", false);
             }
-            chatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         if (chatSendBtn) chatSendBtn.addEventListener('click', sendChat);
         if (chatInput) {
             chatInput.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+                if (e.key === 'Enter') { e.preventDefault(); sendChat(); }
             });
         }
     }
 });
-
-async function loadLeads() {
-    const tbody = document.getElementById("admin-table-body");
-    const token = sessionStorage.getItem("lotan_token");
-    
-    if (!token) return;
-
-    try {
-        const response = await fetch("http://localhost:8080/api/leads", {
-            headers: { "Authorization": "Bearer " + token }
-        });
-        
-        if (response.ok) {
-            const leads = await response.json();
-            window.allLeads = leads; 
-
-            if (leads.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: var(--text-muted);">No leads found...</td></tr>`;
-                return;
-            }
-
-            tbody.innerHTML = leads.map(lead => `
-                <tr>
-                    <td>${lead.date_submitted || lead.date}</td>
-                    <td><strong>${lead.first_name} ${lead.last_name}</strong><br><span style="font-size: 0.8em; color: var(--text-muted);">${lead.email}</span></td>
-                    <td>${lead.company}</td>
-                    <td>${lead.product}</td>
-                    <td>${lead.value ? 'KES ' + Number(lead.value).toLocaleString('en-KE') : 'N/A'}</td>
-                    <td><span class="status-badge">New</span></td>
-                    <td>
-                        <button class="btn-secondary" style="padding: 0.25rem 0.5rem; font-size: 0.75rem;" onclick="viewLead('${lead.id}')">View</button>
-                    </td>
-                </tr>
-            `).join('');
-        } else {
-            console.error("Authentication failed or Session Expired");
-            sessionStorage.removeItem("lotan_token");
-            location.reload();
-        }
-    } catch (err) {
-        console.error("Backend unreachable", err);
-    }
-}
-
-function viewLead(id) {
-    const lead = window.allLeads?.find(l => String(l.id) === String(id));
-    if (lead) {
-        alert(`Lead Details:\n\nID: ${lead.id}\nName: ${lead.first_name} ${lead.last_name}\nCompany: ${lead.company}\nPhone: ${lead.phone || 'N/A'}\nNeeds: ${lead.needs}\nSubmitted: ${lead.date_submitted}`);
-    }
-}
