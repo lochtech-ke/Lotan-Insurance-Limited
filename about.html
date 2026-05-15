@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="About LIA Insurance Agency - Our story, mission, and core values.">
-    <title>About Us | LIA Insurance Agency</title>
+    <meta name="description" content="About Lotan Insurance Limited - Our story, mission, and core values.">
+    <title>About Us | Lotan Insurance Limited</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -12,11 +12,11 @@
             theme: {
                 extend: {
                     colors: {
-                        navy: '#081B33',
-                        royal: '#0057FF',
-                        emerald: '#00B894',
-                        platinum: '#F8FAFC',
-                        gold: '#D4AF37',
+                        forest: '#064E3B',
+                        mint: '#F0FFF4',
+                        emerald: '#10B981',
+                        platinum: '#FFFFFF',
+                        sage: '#F1F5F9',
                         charcoal: '#1E293B'
                     },
                     fontFamily: {
@@ -37,86 +37,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     
-    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-    
-    <!-- GSAP for animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-royal selection:text-white">
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-emerald selection:text-white">
 
-    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 border-b border-transparent">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
             <a href="/" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-lg bg-royal text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-navy transition-colors">
-                    LIA
+                <div class="w-10 h-10 rounded-lg bg-emerald text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-forest transition-colors">
+                    LOTAN
                 </div>
-                <span class="font-heading font-semibold text-lg text-navy tracking-tight">Insurance Agency</span>
+                <span class="font-heading font-semibold text-lg text-forest tracking-tight">Insurance Limited</span>
             </a>
             
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="/index.html#solutions" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Solutions</a>
-                <a href="/index.html#why-us" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Why Us</a>
-                <a href="/index.html#claims" class="text-sm font-medium text-navy/80 hover:text-royal transition-colors">Claims</a>
-                <a href="/about.html" class="text-sm font-medium text-royal transition-colors">About</a>
+                <a href="/index.html#solutions" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Solutions</a>
+                <a href="/index.html#why-us" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Why Us</a>
+                <a href="/index.html#claims" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Claims</a>
+                <a href="/about.html" class="text-sm font-medium text-emerald transition-colors">About</a>
             </div>
             
             <div class="hidden lg:flex items-center space-x-4">
-                <a href="/index.html#quote" class="bg-navy hover:bg-royal text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg hover:shadow-hover">
+                <a href="/index.html#quote" class="bg-forest hover:bg-emerald text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg">
                     Get a Quote
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-navy focus:outline-none" id="mobile-menu-btn">
+            <button class="lg:hidden text-forest focus:outline-none" id="mobile-menu-btn">
                 <i data-feather="menu"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
-        <div class="flex flex-col items-center space-y-6">
-            <a href="/index.html#solutions" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Solutions</a>
-            <a href="/index.html#why-us" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Why Us</a>
-            <a href="/index.html#claims" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Claims</a>
-            <a href="/about.html" class="mobile-link text-xl font-heading font-medium text-emerald transition-colors">About</a>
-            <a href="/index.html#quote" class="mobile-link mt-8 bg-emerald text-navy text-lg font-medium px-8 py-3 rounded-full transition-all">Get a Quote</a>
-        </div>
-    </div>
-
     <!-- Page Header -->
-    <section class="pt-40 pb-20 bg-navy text-white relative overflow-hidden">
+    <section class="pt-40 pb-20 bg-mint text-forest relative overflow-hidden">
         <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up-hero">
             <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 mb-6">
                 <span class="text-xs font-semibold text-emerald tracking-wider uppercase">Our Identity</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6">Financial <span class="text-emerald">Architecture.</span></h1>
-            <p class="text-lg text-platinum/70 max-w-2xl mx-auto">
-                Operating at the intersection of risk management and capital optimization to transform balance sheet constraints into strategic advantage.
+            <h1 class="text-4xl md:text-6xl font-heading font-bold mb-6 text-forest">Our <span class="text-emerald">Story.</span></h1>
+            <p class="text-lg text-forest/70 max-w-2xl mx-auto">
+                Bridging the gap between complex risk and simple, effective protection with global-standard insurance solutions.
             </p>
         </div>
-        <!-- Abstract Parallax Element -->
-        <div class="absolute -bottom-20 -right-20 w-96 h-96 bg-royal/10 blur-[120px] rounded-full gsap-parallax-img"></div>
     </section>
 
-    <!-- Our Story -->
-    <section class="py-24 bg-white relative">
+    <!-- Story Section -->
+    <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <div class="gsap-fade-right">
-                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="LIA Office" class="rounded-[2rem] shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Lotan Team" class="rounded-[2rem] shadow-2xl">
                 </div>
                 <div class="gsap-fade-left">
-                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">Who We Are</h2>
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-forest mb-6">Our Story</h2>
                     <p class="text-charcoal/80 text-lg leading-relaxed mb-6">
-                        Lotan Insurance Agency Limited is a financial architecture firm that leverages insurance as a strategic instrument to unlock dormant capital, optimize financial structures, and improve balance sheet efficiency.
+                        Lotan Insurance Limited was founded with a singular mission: to be the most trusted provider of tailored insurance solutions in Kenya and beyond. We bridge the gap between complex risk and simple, effective protection.
                     </p>
                     <p class="text-charcoal/80 text-lg leading-relaxed">
-                        We design bespoke, insurance-led solutions that transform risk management into a catalyst for growth, liquidity preservation, and enterprise resilience.
+                        We combine deep local insight with operational practices that meet rigorous international standards, ensuring your ambitions are backed by financial security.
                     </p>
                 </div>
             </div>
@@ -124,108 +106,141 @@
     </section>
 
     <!-- Mission & Vision -->
-    <section class="py-24 bg-platinum">
+    <section class="py-24 bg-sage border-y border-emerald/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12">
-            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-navy/5 gsap-fade-up">
-                <div class="w-16 h-16 rounded-2xl bg-royal/10 text-royal flex items-center justify-center mb-8">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-emerald/5 gsap-fade-up">
+                <div class="w-16 h-16 rounded-2xl bg-emerald/10 text-emerald flex items-center justify-center mb-8">
                     <i data-feather="target" class="w-8 h-8"></i>
                 </div>
-                <h3 class="text-2xl font-heading font-bold text-navy mb-4">Our Mission</h3>
+                <h3 class="text-2xl font-heading font-bold text-forest mb-4">Our Mission</h3>
                 <p class="text-charcoal/70 text-lg leading-relaxed">
-                    To convert dormant reserves into active, deployable capital by structuring insurance around the client's interests and long-term financial resilience.
+                    To provide affordable, transparent, and reliable insurance services, empowering clients to mitigate risks with absolute confidence.
                 </p>
             </div>
             
-            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-navy/5 gsap-fade-up" style="animation-delay: 0.2s;">
+            <div class="bg-white p-12 rounded-[2rem] shadow-sm border border-emerald/5 gsap-fade-up" style="animation-delay: 0.2s;">
                 <div class="w-16 h-16 rounded-2xl bg-emerald/10 text-emerald flex items-center justify-center mb-8">
-                    <i data-feather="trending-up" class="w-8 h-8"></i>
+                    <i data-feather="eye" class="w-8 h-8"></i>
                 </div>
-                <h3 class="text-2xl font-heading font-bold text-navy mb-4">Our Vision</h3>
+                <h3 class="text-2xl font-heading font-bold text-forest mb-4">Our Vision</h3>
                 <p class="text-charcoal/70 text-lg leading-relaxed">
-                    To achieve Fortune 500-ready balance sheet efficiency for our clients, setting the regional benchmark for risk engineering and capital optimization.
+                    To be a trusted regional insurance provider delivering innovative risk protection across East Africa.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Core Competencies -->
-    <section class="py-24 bg-navy text-white">
+    <!-- Core Values -->
+    <section class="py-24 bg-forest text-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="text-center mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Our Core Values & Competencies</h2>
-                <p class="text-platinum/70 text-lg">Four pillars of strategic financial engineering.</p>
+                <h2 class="text-3xl md:text-5xl font-heading font-bold mb-4">Our Core Values</h2>
+                <p class="text-mint/70 text-lg">Uncompromising standards in everything we do.</p>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-8">
                 <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
-                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Advanced Risk Transfer</h4>
-                    <p class="text-platinum/70 text-sm">Structuring complex risk across multiple markets and layers to ensure enterprise resilience.</p>
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Integrity</h4>
+                    <p class="text-mint/70 text-sm">Transparency and uncompromising ethical standards in all commitments.</p>
                 </div>
                 
                 <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
-                    <h4 class="text-xl font-heading font-semibold text-royal mb-3">Structured Placement</h4>
-                    <p class="text-platinum/70 text-sm">Designing bespoke programs aligned to covenant requirements and enterprise risk appetite.</p>
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Client-Centricity</h4>
+                    <p class="text-mint/70 text-sm">Tailored solutions and responsive, personalized service for customer needs.</p>
                 </div>
                 
                 <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
-                    <h4 class="text-xl font-heading font-semibold text-gold mb-3">Regulatory Capital</h4>
-                    <p class="text-platinum/70 text-sm">Deep understanding of Basel III/IV capital adequacy and risk-weight optimization.</p>
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Reliability</h4>
+                    <p class="text-mint/70 text-sm">Fast claims processing and dependable underwriting.</p>
                 </div>
                 
                 <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
-                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Independent Intermediation</h4>
-                    <p class="text-platinum/70 text-sm">Objective evaluation of underwriting capacity across multiple carriers without product bias.</p>
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Professionalism</h4>
+                    <p class="text-mint/70 text-sm">Expert advisory services and technical excellence.</p>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-2xl bg-white/5 backdrop-blur-md gsap-stagger-card">
+                    <h4 class="text-xl font-heading font-semibold text-emerald mb-3">Partnership</h4>
+                    <p class="text-mint/70 text-sm">Collaboration with reputable partners for optimal outcomes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Target Clients -->
+    <!-- The Lotan Advantage -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="text-center mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-5xl font-heading font-bold text-navy mb-4">Target Segments</h2>
-                <p class="text-charcoal/70 text-lg">Serving sophisticated organizations that view risk as a strategic lever.</p>
+                <h2 class="text-3xl md:text-5xl font-heading font-bold text-forest mb-4">The Lotan Advantage</h2>
+                <p class="text-charcoal/70 text-lg">Why partner with Lotan Insurance Limited?</p>
             </div>
             
-            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <div class="p-6 bg-platinum rounded-2xl border border-navy/5 gsap-stagger-card">
-                    <i data-feather="briefcase" class="text-royal mb-4"></i>
-                    <h5 class="font-heading font-bold text-navy mb-2">Multinational Institutions</h5>
-                    <p class="text-xs text-charcoal/60 leading-relaxed">Banks and investment firms managing capital adequacy and concentration limits.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 bg-mint rounded-[2rem] border border-emerald/5 gsap-stagger-card">
+                    <h5 class="font-heading font-bold text-forest mb-3">Deep Local Insight</h5>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">Intimate understanding of the East African market dynamics.</p>
                 </div>
-                <div class="p-6 bg-platinum rounded-2xl border border-navy/5 gsap-stagger-card">
-                    <i data-feather="truck" class="text-emerald mb-4"></i>
-                    <h5 class="font-heading font-bold text-navy mb-2">Global Logistics</h5>
-                    <p class="text-xs text-charcoal/60 leading-relaxed">Intermediaries needing cover for goods in motion and supply-chain exposures.</p>
+                <div class="p-8 bg-mint rounded-[2rem] border border-emerald/5 gsap-stagger-card">
+                    <h5 class="font-heading font-bold text-forest mb-3">Financial Security</h5>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">Backed by top-tier underwriters and significant financial strength.</p>
                 </div>
-                <div class="p-6 bg-platinum rounded-2xl border border-navy/5 gsap-stagger-card">
-                    <i data-feather="settings" class="text-royal mb-4"></i>
-                    <h5 class="font-heading font-bold text-navy mb-2">Infrastructure Developers</h5>
-                    <p class="text-xs text-charcoal/60 leading-relaxed">Firms depending on performance certainty and upfront mobilization liquidity.</p>
+                <div class="p-8 bg-mint rounded-[2rem] border border-emerald/5 gsap-stagger-card">
+                    <h5 class="font-heading font-bold text-forest mb-3">Client-Centric Agility</h5>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">Transparent services and fast, empathetic claims support.</p>
                 </div>
-                <div class="p-6 bg-platinum rounded-2xl border border-navy/5 gsap-stagger-card">
-                    <i data-feather="globe" class="text-emerald mb-4"></i>
-                    <h5 class="font-heading font-bold text-navy mb-2">Multinational Corporations</h5>
-                    <p class="text-xs text-charcoal/60 leading-relaxed">Fortune 500 groups managing coordinated coverage across jurisdictions.</p>
-                </div>
-                <div class="p-6 bg-platinum rounded-2xl border border-navy/5 gsap-stagger-card">
-                    <i data-feather="trending-up" class="text-royal mb-4"></i>
-                    <h5 class="font-heading font-bold text-navy mb-2">Regional Enterprise Leaders</h5>
-                    <p class="text-xs text-charcoal/60 leading-relaxed">Ambitious businesses expanding into new markets needing resilient structures.</p>
+                <div class="p-8 bg-mint rounded-[2rem] border border-emerald/5 gsap-stagger-card">
+                    <h5 class="font-heading font-bold text-forest mb-3">Team of Experts</h5>
+                    <p class="text-sm text-charcoal/70 leading-relaxed">Professional guidance and proactive risk management.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Regulatory Compliance -->
-    <section class="py-16 bg-white border-b border-navy/5">
+    <!-- Global Client Portfolio -->
+    <section class="py-24 bg-sage">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-16 gsap-fade-up">
+                <h2 class="text-3xl md:text-5xl font-heading font-bold text-forest mb-4">Global Client Portfolio</h2>
+                <p class="text-charcoal/70 text-lg">Serving sophisticated organizations with global standards.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="p-6 bg-white rounded-2xl border border-emerald/5 gsap-stagger-card">
+                    <i data-feather="briefcase" class="text-emerald mb-4"></i>
+                    <h5 class="font-heading font-bold text-forest mb-2">Financial Institutions</h5>
+                    <p class="text-xs text-charcoal/60 leading-relaxed">International banks relying on our Credit Protection Policy for portfolio protection.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-emerald/5 gsap-stagger-card">
+                    <i data-feather="truck" class="text-emerald mb-4"></i>
+                    <h5 class="font-heading font-bold text-forest mb-2">Logistics & Trade</h5>
+                    <p class="text-xs text-charcoal/60 leading-relaxed">Shipping and supply chain operators using our marine and transit insurance.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-emerald/5 gsap-stagger-card">
+                    <i data-feather="settings" class="text-emerald mb-4"></i>
+                    <h5 class="font-heading font-bold text-forest mb-2">Infrastructure Developers</h5>
+                    <p class="text-xs text-charcoal/60 leading-relaxed">Global firms using our Performance Bonds, APGs, and Bid Bonds for regional projects.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-emerald/5 gsap-stagger-card">
+                    <i data-feather="globe" class="text-emerald mb-4"></i>
+                    <h5 class="font-heading font-bold text-forest mb-2">Multinational Corporations</h5>
+                    <p class="text-xs text-charcoal/60 leading-relaxed">Fortune 500 companies requiring comprehensive, rigorous risk protection.</p>
+                </div>
+                <div class="p-6 bg-white rounded-2xl border border-emerald/5 gsap-stagger-card">
+                    <i data-feather="trending-up" class="text-emerald mb-4"></i>
+                    <h5 class="font-heading font-bold text-forest mb-2">Regional Leaders</h5>
+                    <p class="text-xs text-charcoal/60 leading-relaxed">Established businesses with continental ambitions seeking global-standard solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-white border-b border-emerald/5">
         <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <h3 class="text-2xl font-heading font-bold text-navy mb-4">Regulatory &amp; Compliance Framework</h3>
+            <h3 class="text-2xl font-heading font-bold text-forest mb-4">Regulatory &amp; Compliance Framework</h3>
             <p class="text-charcoal/70 max-w-2xl mx-auto mb-6">
-                LIA Insurance Agency is fully licensed and regulated by the Insurance Regulatory Authority of Kenya. We operate in strict compliance with the Insurance Act and all applicable IRA regulations.
+                Lotan Insurance Limited is fully licensed and regulated by the Insurance Regulatory Authority of Kenya. We operate in strict compliance with the Insurance Act and all applicable IRA regulations.
             </p>
-            <div class="inline-flex items-center gap-3 px-6 py-3 bg-platinum rounded-full border border-navy/10 text-navy font-semibold">
+            <div class="inline-flex items-center gap-3 px-6 py-3 bg-mint rounded-full border border-emerald/10 text-forest font-semibold">
                 <i data-feather="shield" class="text-emerald"></i>
                 IRA Licence Number: IRA/05/26054/2026
             </div>
@@ -233,33 +248,33 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-platinum pt-16 pb-8">
+    <footer class="bg-sage pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="md:col-span-2">
                     <a href="/" class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 rounded border border-navy/20 text-navy flex items-center justify-center font-heading font-bold">
-                            LIA
+                        <div class="w-8 h-8 rounded border border-forest/20 text-forest flex items-center justify-center font-heading font-bold">
+                            LOTAN
                         </div>
-                        <span class="font-heading font-semibold text-navy">Insurance Agency</span>
+                        <span class="font-heading font-semibold text-forest">Insurance Limited</span>
                     </a>
                     <p class="text-sm text-charcoal/60 max-w-sm mb-6">
-                        Premium insurance advisory and brokerage firm. We set the benchmark for digital insurance experiences globally.
+                        Lotan Insurance Limited: Your trusted partner in protection and peace of mind. Delivering global-standard solutions across East Africa.
                     </p>
                 </div>
                 
                 <div>
-                    <h5 class="text-xs font-semibold text-navy uppercase tracking-wider mb-4">Contact</h5>
+                    <h5 class="text-xs font-semibold text-forest uppercase tracking-wider mb-4">Contact</h5>
                     <ul class="space-y-3 text-sm text-charcoal/60">
                         <li class="flex items-center gap-2"><i data-feather="map-pin" class="w-4 h-4"></i> Nairobi, Kenya</li>
-                        <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i> info@lia.insure</li>
+                        <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i> info@lotan.insure</li>
                     </ul>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="pt-8 border-t border-forest/10 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-xs text-charcoal/50">
-                    &copy; 2026 LIA Insurance Agency. All rights reserved.
+                    &copy; 2026 Lotan Insurance Limited. All rights reserved.
                 </p>
                 <div class="flex gap-6 text-xs text-charcoal/50">
                     <span>IRA Licence No: IRA/05/26054/2026</span>
@@ -270,7 +285,5 @@
 
     <!-- Initialization Scripts -->
     <script src="/js/app.js"></script>
-</body>
-</html>
 </body>
 </html>

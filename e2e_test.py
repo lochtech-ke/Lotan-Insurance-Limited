@@ -82,7 +82,7 @@ payload = json.dumps({
     'email': 'test@example.com',
     'company': 'Test Corp',
     'phone': '+254 700 000 001',
-    'product': 'Unlocking Lending Capacity',
+    'product': 'Credit Protection Policy',
     'value': 1000000,
     'needs': 'Automated e2e test submission'
 }).encode()

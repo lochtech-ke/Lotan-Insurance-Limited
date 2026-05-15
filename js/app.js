@@ -1,5 +1,5 @@
 /**
- * LIA INSURANCE AGENCY — FORTUNE 500 DESIGN SYSTEM
+ * LOTAN INSURANCE LIMITED — FORTUNE 500 DESIGN SYSTEM
  * Premium core logic (GSAP, Navbar, Chat, Forms)
  */
 
@@ -14,10 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nav) {
         const handleScroll = () => {
             if (window.scrollY > 20) {
-                nav.classList.add("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                nav.classList.add("bg-white/90", "backdrop-blur-md", "border-emerald/5", "shadow-sm");
                 nav.classList.remove("border-transparent");
             } else {
-                nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-navy/5", "shadow-sm");
+                nav.classList.remove("bg-white/90", "backdrop-blur-md", "border-emerald/5", "shadow-sm");
                 nav.classList.add("border-transparent");
             }
         };
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function appendMsg(text, isUser) {
             if (!chatMessages) return;
             const div = document.createElement('div');
-            div.className = `text-sm p-3 rounded-xl shadow-sm max-w-[85%] ${isUser ? 'bg-royal text-white rounded-tr-none self-end' : 'bg-white border border-navy/5 text-charcoal rounded-tl-none self-start'}`;
+            div.className = `text-sm p-3 rounded-xl shadow-sm max-w-[85%] ${isUser ? 'bg-emerald text-white rounded-tr-none self-end' : 'bg-white border border-emerald/5 text-charcoal rounded-tl-none self-start'}`;
             div.textContent = text;
             chatMessages.appendChild(div);
             chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
             appendMsg(query, true);
 
             const indicator = document.createElement('div');
-            indicator.className = 'text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm max-w-[85%] bg-white border border-navy/5 text-charcoal opacity-50';
+            indicator.className = 'text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm max-w-[85%] bg-white border border-emerald/5 text-charcoal opacity-50';
             indicator.textContent = 'Typing...';
             chatMessages.appendChild(indicator);
             chatMessages.scrollTop = chatMessages.scrollHeight;
