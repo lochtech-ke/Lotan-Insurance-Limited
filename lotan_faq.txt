@@ -1,143 +1,65 @@
-Lotan Insurance Limited
-Our Value Proposition
-Your Trusted Partner in Protection and Peace of Mind
-Date: 2026
+LIA Insurance Agency Limited - Knowledge Base (Gold Standard Financial Architecture)
 
-Who We Are: Our Story, Mission & Vision
+Q: Who is Lotan Insurance Agency Limited?
+A: Lotan Insurance Agency Limited is a premier financial architecture firm that leverages insurance as a strategic instrument to unlock dormant capital, optimize financial structures, and improve balance sheet efficiency. We operate at the intersection of risk management and capital optimization, helping enterprises transform balance sheet constraints into strategic advantages.
 
-Our Story
-Lotan Insurance Limited was founded with a singular mission: to be the most trusted provider of tailored insurance solutions in Kenya and beyond. We bridge the gap between complex risk and simple, effective protection. From our inception, we have grown by placing clients at the centre of every decision — delivering responsive, transparent, and reliable coverage.
+Q: What are your core competencies?
+A: Our core competencies include:
+1. Advanced Risk Transfer: Structuring complex risk across multiple markets and layers.
+2. Structured Insurance Placement: Designing bespoke programs aligned to covenant requirements and enterprise risk appetite.
+3. Regulatory Capital Expertise: Deep understanding of Basel III/IV capital adequacy and risk-weight optimization.
+4. Independent Intermediation: Objective evaluation of underwriting capacity across multiple carriers without product bias.
 
-Our Vision
-To be a trusted regional insurance provider delivering innovative risk protection across East Africa.
+Q: What is a Loan Enablement Instrument (Credit Protection Policy)?
+A: A Loan Enablement Instrument is a structured risk-transfer tool that converts a lender’s exposure to borrower default into an insurable credit event. It helps unlock lending capacity and reduces capital costs by improving lender confidence. From a financial engineering perspective, it functions as a contingent protection wrapper around a debt exposure.
 
-Our Mission
-To provide affordable, transparent, and reliable insurance services, empowering clients to mitigate risks with confidence.
+Q: What are the benefits for Lenders using the Credit Protection Policy?
+A: For lenders, the policy:
+- Reduces risk-weighted asset (RWA) pressure.
+- Supports Basel III and Basel IV capital optimization.
+- Improves return on regulatory capital by lowering capital consumption.
+- Enables higher approval rates for non-investment-grade or thin-file obligors.
+- Supports tighter pricing, longer tenor, and improved advance rates.
 
-Our Core Values
-Integrity: Transparency and uncompromising ethical standards in all commitments.
-Client-Centricity: Tailored solutions and responsive, personalized service for every customer.
-Reliability: Fast claims processing and dependable underwriting.
-Professionalism: Expert advisory services and technical excellence.
-Partnership: Collaboration with reputable partners for optimal outcomes.
+Q: What are the benefits for Borrowers using the Credit Protection Policy?
+A: For borrowers, the policy:
+- Creates access to credit where the balance sheet alone might be insufficient.
+- Improves pricing, tenor, and facility size by strengthening lender confidence.
+- Protects operating capacity during temporary distress.
+- Reduces reliance on personal guarantees by substituting a structured mechanism.
+- Improves credibility with international lenders and export financiers.
 
-Regulatory Compliance
-Lotan Insurance Limited is fully licensed and regulated by the Insurance Regulatory Authority of Kenya.
-IRA Licence Number: IRA/05/26054/2026
-We operate in strict compliance with Kenya's Insurance Act and all applicable IRA regulations.
+Q: What are your project security instruments?
+A: We offer several instruments designed for project financing and mobilization:
+1. Performance Bonds: Typically 2%-5% of contract value, guaranteeing contractor performance and project completion.
+2. Advance Payment Guarantees: Protects the owner’s mobilization payment until applied to the works, preserving contractor liquidity.
+3. Bid Bonds (Competitive Financing Tool): Ensures that a contractor will enter into a contract at the bid price if selected, demonstrating financial capability without tying up excessive cash.
 
-Our Core Strengths: The Lotan Advantage
+Q: What is Mobilization Capital?
+A: Mobilization Capital refers to our solutions that unlock working capital for project startup by securing advance payments and early procurement commitments. This helps preserve liquidity before progress billings begin.
 
-Deep Local Insight, Regional Standards
-We combine an intimate understanding of the East African market with operational practices that meet rigorous regional and international standards.
+Q: Who are your target clients?
+A: We serve sophisticated organizations including:
+- Multinational Financial Institutions (Banks, DFIs, Investment Firms).
+- Global Logistics & Trade Companies.
+- International Infrastructure Developers (Construction, EPC, Energy).
+- Multinational Corporations (Fortune 500 groups).
+- Regional Enterprise Leaders expanding into new markets.
 
-Financial Security & Trust
-We partner with top-tier, reputable underwriters and reinsurers, ensuring every policy we issue is backed by significant financial strength. Our primary reinsurance partner is Madison Insurance.
+Q: What are your premium rates?
+A: For Credit Protection Policies and most structured instruments, the premium rate is typically between 2% and 3% of the total loan or contract amount.
 
-Client-Centric Agility
-We offer personalized, transparent services and fast, empathetic claims support, treating every client's needs as our own.
+Q: Is Lotan Insurance Agency regulated?
+A: Yes. Lotan Insurance Agency Limited is fully licensed and regulated by Kenya's Insurance Regulatory Authority (IRA).
+License Number: IRA/05/26054/2026.
+Registration Number: 05 26 3437 537404477.
 
-A Team of Experts
-Our professional, friendly, and responsive team is dedicated to providing expert guidance and proactive risk management.
+Q: What is the engagement process?
+A: We follow a structured four-step process:
+1. Discovery: Discussing your business, goals, and capital constraints.
+2. Assessment: Reviewing bottlenecks and identifying trapped capital.
+3. Solution Design: Developing a tailored capital-unlocking strategy.
+4. Ongoing Support: Monitoring and optimizing the structure as needs evolve.
 
-Our Four Core Products
-
-1. Credit Protection Policy (Credit Life Insurance)
-Comprehensive coverage protecting lenders and borrowers through death, total permanent disability, total temporary disability, and income protection benefits.
-
-What It Is
-A specialized policy that ensures an outstanding loan is fully repaid in the event of the borrower's death, permanent disability, or involuntary job loss. It is linked to a specific loan — mortgage financing, bank loans, asset financing, or microfinance lending.
-
-How It Works
-- Borrower Secures Loan: The Credit Life Insurance policy is linked to the borrower's loan.
-- Insurance Activation: In the event of death, disability, or incapacitation, the policy activates.
-- Lender Receives Payment: The lender is the primary beneficiary, receiving direct payment to settle the outstanding debt.
-- Coverage Adjusts: Insurance coverage decreases proportionally as the loan is repaid.
-
-Value for Lenders (Banks, MFIs, SACCOs)
-Mitigates default risk, protects the loan portfolio, and ensures business continuity by transferring credit risk to a stable insurer.
-
-Value for Borrowers
-Provides profound peace of mind — ensuring the borrower's family or business is not burdened by debt in a time of crisis, and that pledged assets (such as a home) are preserved.
-
-Premium Rate: 1.8% of the total loan amount (standard rate), paid as a lump sum upfront.
-Duration: Matches the loan repayment term.
-
-Key Coverage Areas
-- Keyman Death Cover: Pays outstanding loan balance upon death of the borrower. Claims must be reported within 60 days.
-- Total Permanent Disability (TPD): Pays outstanding balance when the borrower becomes permanently unable to work. Requires medical certification. 3-month waiting period (waived for accidents).
-- Total Temporary Disability (TTD): Covers temporary inability to work for a minimum of 30 days. Pays up to 6 monthly loan installments. 3-month waiting period (waived for accidents). Auto-reinstated after 6-month benefit period.
-
-Additional Protections under Credit Protection Policy
-- Fidelity Guarantee: Protection against employee dishonesty and embezzlement.
-- Cybercrime Coverage: Protection from data breaches, ransomware, and cyber attacks.
-- Business Interruption: Coverage for lost income during operational disruptions.
-- Cash-in-Transit & Cash-on-Hand: Protection for cash losses during storage or transport.
-
-Refund Policy
-A premium refund is available in the following circumstances:
-- Early loan settlement before the agreed repayment term ends.
-- If the insurer identifies fraudulent activity or misrepresentation.
-- If the contract is terminated before loan disbursement.
-Refunds are processed net of administrative costs and applicable taxes. Premium is a true risk premium and does not acquire a surrender value.
-
-2. Performance Security Bonds
-A guarantee (surety bond) issued by Lotan on behalf of a contractor (the Principal) to a project owner (the Obligee), assuring that the contractor will fulfill all contractual obligations.
-
-How It Works
-If the contractor defaults or fails to perform, the project owner can claim against the bond to recover financial losses up to the bond amount — typically 10% of the contract sum.
-
-Who Needs It
-Contractors, construction firms, engineering companies, and service providers tendering for public or private sector projects.
-
-3. Advance Payment Guarantee
-A guarantee issued by Lotan to protect an employer's advance payment made to a contractor, typically for large projects requiring upfront capital for materials or mobilization. If the contractor fails to deliver, the employer is refunded the advance.
-
-4. Bid Bonds
-A guarantee issued by Lotan Insurance on behalf of a contractor to a project owner, ensuring the contractor will enter into a contract at the bid price if selected. It protects project owners from contractors who bid but fail to execute.
-
-Our Reinsurance Engine
-At the core of Lotan's capability is our direct access to reputable regional reinsurers — primarily Madison Insurance. These relationships are the fundamental mechanism enabling our ability to underwrite and protect capital at scale, across credit, surety, and performance products.
-
-Policy Document — Credit Protection Insurance
-Sentinel Insure (the "Company") undertakes to assume and absorb the credit risk under the Insured Loan and to pay the benefits set out in the Schedule of Benefits, subject to the following terms, conditions, and exclusions.
-
-General Exclusions
-Sentinel Insure is not obliged to make any payment in respect of any condition or event arising from:
-8.1 Intentional self-injury or attempted suicide, or self-injury during the first two years of entry date (whether sane or insane).
-8.2 Any act of war, civil war, insurrection, riot, commotion, terrorism, or other acts of violence or military action.
-8.3 Any pre-existing physical defect or infirmity of which the Keyman was aware, with an origin prior to the granting of life insurance. This clause applies in the first 6 months of every individual policy.
-8.4 Alcoholic intemperance and use of drugs, even when prescribed by a qualified doctor.
-8.5 Active participation in mountaineering, horse riding, hunting, motor racing, power boat racing, or fighting (except in self-defence).
-
-Frequently Asked Questions
-
-Q: What types of businesses does Lotan serve?
-A: Lotan serves a wide range of clients including commercial banks, microfinance institutions (MFIs), SACCOs, mortgage lenders, construction contractors, engineering firms, and corporates in need of surety bonds and credit protection.
-
-Q: How do I get a quote?
-A: You can submit an enquiry through our website's "Talk To Us" form on the home page, or contact our team directly. We will get back to you within 24 hours.
-
-Q: What is the premium rate for Credit Life Insurance?
-A: The standard premium rate is 1.8% of the total loan amount, paid as a lump sum upfront at the time of loan disbursement.
-
-Q: Is Lotan regulated?
-A: Yes. Lotan Insurance Limited is fully licensed and regulated by the Insurance Regulatory Authority of Kenya under Licence No. IRA/05/26054/2026.
-
-Q: What is the claims process?
-A: Claims must be reported within 60 days of the triggering event (e.g., death or disability). Required documentation includes medical certification from a recognized practitioner and the relevant loan schedule. Our team guides clients through every step.
-
-Q: Can the credit life policy be cancelled?
-A: The policy term matches the loan term. Early settlement of the loan qualifies for a pro-rated premium refund, net of administrative costs and taxes.
-
-Q: Who is covered under a Performance Security Bond?
-A: The Obligee (the project owner or employer) is the beneficiary. The Principal (the contractor) is the party whose performance is guaranteed.
-
-Q: What is the typical bond value?
-A: Performance Security Bonds are typically set at 10% of the contract sum. Bid Bonds are generally 1-2% of the tender value.
-
-Contact Information
-Office: Nairobi, Kenya
-Email: info@lotaninsurance.co.ke
-Phone: +254 700 000 000
-Website: www.lotaninsurance.co.ke
+Q: How can I contact the technical team?
+A: For technical underwriting discussions and engagement scoping, you can email underwriting@lia.insure. For general inquiries, email info@lia.insure.
