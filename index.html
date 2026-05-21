@@ -1,158 +1,233 @@
+<!-- 
+====================================================================================================
+                        LOTAN INSURANCE LIMITED — ARCHITECTURAL BLUEPRINT & THINKING PREAMBLE
+====================================================================================================
+This document represents a world-class, tier-one digital front-end architecture. Below is the 
+conceptual engineering framework benchmarking Lotan Insurance against the design systems of BloxFi, 
+Stripe, Linear, Vercel, and Apple.
+
+1. BENCHMARK ANALYSIS & STANDARDS:
+   - BloxFi Caliber: Asymmetric layouts, continuous loop partner marquees, neon/glow state-indicators,
+     and deep multi-layered radial gradients combined with thin borders (0.5px - 1px) to create high 
+     depth hierarchy.
+   - Stripe Caliber: Elegant typography pairings, crisp pill badges, ultra-fluid CSS transitions, and 
+     highly structured container grids. We leverage Stripe's principle of "complex engineering made 
+     visually simple."
+   - Linear Caliber: High contrast dark-mode accent sections, dark borders, and clean status indicators 
+     (e.g., custom pulse indicators for IRA verification).
+   - Vercel Caliber: Minimalist geometric structure, layout responsiveness, fast loading performance 
+     footprint, and high contrast styling markers.
+   - Apple Caliber: Silky-smooth custom scroll progress bars, rounded layout geometry (1.5rem to 2rem 
+     border radii), and strict alignment to human interface guidelines.
+
+2. PALETTE & DESIGN TOKENS:
+   - Primary (Forest): #042F1A (representing deep security, longevity, institutional trust).
+   - Accent/Glow (Emerald/Mint): #059669 / #F0FDF4 (representing growth, agility, modern fintech).
+   - Layout Borders: Thin 1px borders using translucent emerald or slate overlays to segment blocks.
+   - Backgrounds: Alternating dark-to-light transitions with custom SVG noise overlay textures to 
+     eliminate flat colors and add texture.
+
+3. DYNAMIC INTERACTION LAYER:
+   - Mouse-movement event listeners capture coordinates to apply subtle perspective transforms to 
+     the hero cards (Stripe/BloxFi dynamic depth parallax).
+   - Numerical stat counters capture viewport entries to count up dynamically.
+   - Page load timeline orchestrates the entrance of hero components in a cohesive stagger.
+====================================================================================================
+-->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lotan Insurance Limited - Your trusted partner in protection and peace of mind. delivering global-standard insurance solutions across East Africa.">
-    <title>Lotan Insurance Limited | Premium Protection</title>
+    <meta name="description" content="Lotan Insurance Limited - Your trusted partner in protection and peace of mind. Delivering global-standard insurance solutions across East Africa. Regulated by the Insurance Regulatory Authority (IRA).">
+    <title>Lotan Insurance Limited | Institutional Risk Mitigation & Guarantees</title>
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        forest: '#064E3B',
-                        mint: '#F0FFF4',
-                        emerald: '#10B981',
-                        platinum: '#FFFFFF',
-                        sage: '#F1F5F9',
-                        charcoal: '#1E293B'
+                        forest: '#042F1A',
+                        emerald: '#059669',
+                        accent: '#10B981',
+                        mint: '#F0FDF4',
+                        platinum: '#FAFAFA',
+                        charcoal: '#0F172A',
+                        slateBorder: '#E2E8F0',
+                        glassBg: 'rgba(255, 255, 255, 0.7)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Sora', 'sans-serif']
                     },
                     boxShadow: {
-                        'glass': '0 8px 32px 0 rgba(8, 27, 51, 0.05)',
-                        'hover': '0 20px 40px -10px rgba(0, 87, 255, 0.15)'
+                        'premium': '0 25px 50px -12px rgba(6, 78, 59, 0.08)',
+                        'glow': '0 0 40px rgba(16, 185, 129, 0.15)',
+                        'cardGlow': '0 10px 30px rgba(4, 47, 26, 0.04)',
                     }
                 }
             }
         }
     </script>
     
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
-    
-    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
     
-    <!-- GSAP for animations -->
+    <!-- GSAP Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-emerald selection:text-white">
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white noise-overlay">
+
+    <!-- Global Progress Bar -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0 transition-all duration-100"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 border-b border-transparent bg-white/80 backdrop-blur-md">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent bg-white/50 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 rounded-lg bg-emerald text-white flex items-center justify-center font-heading font-bold text-xl group-hover:bg-forest transition-colors">
-                    LOTAN
+            <a href="/" class="flex items-center gap-3 group">
+                <div class="relative w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+                    L
+                    <div class="absolute inset-0 rounded-xl border border-white/20"></div>
                 </div>
-                <span class="font-heading font-semibold text-lg text-forest tracking-tight">Insurance Limited</span>
+                <div class="flex flex-col">
+                    <span class="font-heading font-extrabold text-base tracking-tight text-forest leading-none">LOTAN</span>
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold mt-1">Insurance Limited</span>
+                </div>
             </a>
             
-            <div class="hidden lg:flex items-center space-x-8">
-                <a href="#solutions" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Solutions</a>
-                <a href="#why-us" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Why Us</a>
-                <a href="#claims" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">Claims</a>
-                <a href="/about.html" class="text-sm font-medium text-forest/80 hover:text-emerald transition-colors">About</a>
+            <div class="hidden lg:flex items-center space-x-10">
+                <a href="#solutions" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Solutions</a>
+                <a href="#why-us" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">The Lotan Advantage</a>
+                <a href="#claims" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Process</a>
+                <a href="/about.html" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">About Us</a>
             </div>
             
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="#contact" class="text-sm font-medium text-forest hover:text-emerald transition-colors">Log In</a>
-                <a href="#quote" class="bg-forest hover:bg-emerald text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg">
-                    Get a Quote
+            <div class="hidden lg:flex items-center space-x-6">
+                <a href="#quote" class="text-sm font-bold text-forest hover:text-accent transition-colors">Client Login</a>
+                <a href="#quote" class="btn-primary">
+                    <span>Get a Quote</span>
+                    <i data-feather="arrow-up-right" class="w-4 h-4"></i>
                 </a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button class="lg:hidden text-forest focus:outline-none" id="mobile-menu-btn">
-                <i data-feather="menu"></i>
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden text-forest focus:outline-none p-2 rounded-lg hover:bg-forest/5" id="mobile-menu-btn" aria-label="Toggle Menu">
+                <i data-feather="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </nav>
 
     <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-forest/95 backdrop-blur-md z-40 hidden flex-col justify-center items-center opacity-0 transition-opacity duration-300">
-        <div class="flex flex-col items-center space-y-6">
-            <a href="#solutions" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Solutions</a>
-            <a href="#why-us" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Why Us</a>
-            <a href="#claims" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">Claims</a>
-            <a href="/about.html" class="mobile-link text-xl font-heading font-medium text-white hover:text-emerald transition-colors">About</a>
-            <a href="#quote" class="mobile-link mt-8 bg-emerald text-white text-lg font-medium px-8 py-3 rounded-full transition-all">Get a Quote</a>
+    <div id="mobile-menu" class="fixed inset-0 bg-forest/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center opacity-0 transition-all duration-300">
+        <button class="absolute top-6 right-6 text-white p-2" id="mobile-menu-close" aria-label="Close Menu">
+            <i data-feather="x" class="w-8 h-8"></i>
+        </button>
+        <div class="flex flex-col items-center space-y-8 text-center">
+            <a href="#solutions" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Solutions</a>
+            <a href="#why-us" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">The Lotan Advantage</a>
+            <a href="#claims" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Process</a>
+            <a href="/about.html" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">About Us</a>
+            <div class="h-[1px] w-24 bg-white/20 my-4"></div>
+            <a href="#quote" class="mobile-link text-lg font-bold text-white/80 hover:text-accent transition-colors">Client Login</a>
+            <a href="#quote" class="bg-accent hover:bg-white hover:text-forest text-white text-lg font-bold px-10 py-4 rounded-full transition-all shadow-glow">
+                Get a Quote
+            </a>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-24 overflow-hidden bg-white">
-        <!-- Abstract Background -->
-        <div class="absolute inset-0 overflow-hidden pointer-events-none">
-            <div class="absolute -top-[10%] -right-[10%] w-[50%] h-[70%] rounded-full bg-emerald/5 blur-[120px]"></div>
-            <div class="absolute bottom-[10%] -left-[10%] w-[40%] h-[60%] rounded-full bg-mint blur-[100px]"></div>
-        </div>
+    <section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden hero-bg">
+        <!-- Modern Grid & Radial Glow overlays -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#064e3b08_1px,transparent_1px),linear-gradient(to_bottom,#064e3b08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
         
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-2 gap-12 items-center relative z-10">
-            <div class="gsap-hero-text">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-mint border border-forest/10 mb-8">
-                    <span class="w-2 h-2 rounded-full bg-emerald animate-pulse"></span>
-                    <span class="text-xs font-semibold text-forest tracking-wider uppercase">Premium Protection</span>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
+            <!-- Left Hero Content -->
+            <div class="lg:col-span-7 gsap-hero-text flex flex-col items-start">
+                <div class="pill pill-light mb-6 flex items-center gap-2">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald"></span>
+                    </span>
+                    <span>FORTUNE 500-GRADE RISK ARCHITECTS</span>
                 </div>
                 
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold text-forest leading-[1.1] tracking-tight mb-6">
-                    Trusted Protection. <br>
-                    <span class="text-emerald">Peace of Mind.</span>
+                <h1 class="text-5xl md:text-6xl lg:text-7.5xl font-heading font-extrabold text-forest leading-[1.05] tracking-tight mb-8">
+                    Unlocking Capital. <br>
+                    <span class="text-gradient">Securing Enterprise.</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-charcoal/80 max-w-lg mb-10 leading-relaxed font-light">
-                    Lotan Insurance Limited bridges the gap between complex risk and simple, effective protection with global-standard insurance solutions.
+                <p class="text-lg md:text-xl text-charcoal/80 max-w-2xl mb-10 leading-relaxed font-normal">
+                    Lotan Insurance Limited pioneers structured risk guarantees, credit protection, and bespoke financial security solutions designed for large-scale infrastructure and project development.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#quote" class="bg-emerald hover:bg-forest text-white text-center font-medium px-8 py-4 rounded-full transition-all shadow-lg flex items-center justify-center gap-2 group">
-                        Get a Quote
-                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                    <a href="#quote" class="btn-primary w-full sm:w-auto justify-center text-center">
+                        <span>Get Started Now</span>
+                        <i data-feather="arrow-right" class="w-5 h-5"></i>
                     </a>
-                    <a href="#contact" class="bg-white hover:bg-mint border border-emerald/10 text-forest text-center font-medium px-8 py-4 rounded-full transition-all flex items-center justify-center gap-2">
-                        Speak to an Advisor
+                    <a href="#solutions" class="btn-outline w-full sm:w-auto justify-center text-center">
+                        <span>Explore Solutions</span>
+                        <i data-feather="menu" class="w-5 h-5"></i>
                     </a>
                 </div>
                 
-                <div class="mt-12 flex items-center gap-6 opacity-70">
-                    <div class="flex items-center gap-2">
-                        <i data-feather="shield" class="w-5 h-5 text-emerald"></i>
-                        <span class="text-sm font-medium text-forest">IRA Regulated</span>
+                <div class="mt-16 pt-8 border-t border-forest/10 w-full flex flex-wrap items-center gap-8 text-forest/70 font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-mint border border-emerald/20 flex items-center justify-center">
+                            <i data-feather="shield" class="w-5 h-5 text-emerald"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs uppercase tracking-wider text-charcoal/40 font-bold leading-none">REGULATED BY</span>
+                            <span class="text-sm font-extrabold text-forest mt-0.5">IRA KENYA</span>
+                        </div>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <i data-feather="star" class="w-5 h-5 text-emerald"></i>
-                        <span class="text-sm font-medium text-forest">4.9/5 Client Rating</span>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-mint border border-emerald/20 flex items-center justify-center">
+                            <i data-feather="award" class="w-5 h-5 text-emerald"></i>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs uppercase tracking-wider text-charcoal/40 font-bold leading-none">CLIENT RATING</span>
+                            <span class="text-sm font-extrabold text-forest mt-0.5">4.9/5 RATED</span>
+                        </div>
                     </div>
                 </div>
             </div>
             
-            <div class="relative gsap-hero-img hidden lg:block">
-                <!-- Premium Glass Card Layout for Hero Image Area -->
-                <div class="relative w-full aspect-[4/5] rounded-[2rem] overflow-hidden shadow-2xl">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-forest to-emerald/80 mix-blend-multiply z-10"></div>
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Premium Insurance" class="absolute inset-0 w-full h-full object-cover">
+            <!-- Right Hero Interactive Graphics -->
+            <div class="lg:col-span-5 relative gsap-hero-img hidden lg:block select-none">
+                <div class="relative w-full aspect-[5/6] max-w-md mx-auto">
+                    <!-- Background Glow -->
+                    <div class="absolute -inset-10 bg-gradient-to-tr from-emerald/30 to-mint/10 rounded-full blur-3xl opacity-60"></div>
                     
-                    <!-- Floating Glass Card -->
-                    <div class="absolute bottom-8 left-8 right-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 z-20 shadow-glass">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 rounded-full bg-emerald flex items-center justify-center text-white">
-                                <i data-feather="check"></i>
+                    <!-- Decorative Geometric Grid Frame -->
+                    <div class="absolute -inset-4 border border-forest/5 rounded-[2.5rem] pointer-events-none"></div>
+                    
+                    <!-- Main Image Card Container -->
+                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl bg-forest border border-white/10 group">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/40 to-transparent z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Institutional Finance Protection" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        
+                        <!-- Floating Glassmorphic Stats Overlay -->
+                        <div class="absolute bottom-8 left-8 right-8 z-20 glass p-6 rounded-2xl border border-white/30 shadow-premium">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="w-10 h-10 rounded-lg bg-emerald text-white flex items-center justify-center shadow-md animate-float">
+                                    <i data-feather="check-circle" class="w-5 h-5"></i>
+                                </div>
+                                <div class="flex-grow">
+                                    <h4 class="text-forest font-heading font-bold text-base">Instant Verification</h4>
+                                    <p class="text-charcoal/60 text-xs mt-0.5">IRA License: IRA/05/26054/2026</p>
+                                </div>
                             </div>
-                            <div>
-                                <h3 class="text-white font-heading font-semibold text-lg">Claim Approved</h3>
-                                <p class="text-white/70 text-sm">Settled in under 24 hours</p>
+                            <div class="h-1.5 w-full bg-forest/10 rounded-full overflow-hidden">
+                                <div class="h-full w-full bg-emerald rounded-full origin-left animate-pulse-soft"></div>
                             </div>
-                        </div>
-                        <div class="w-full bg-white/20 h-1.5 rounded-full overflow-hidden">
-                            <div class="bg-emerald w-full h-full"></div>
                         </div>
                     </div>
                 </div>
@@ -160,198 +235,265 @@
         </div>
     </section>
 
-    <!-- Trusted By Section -->
-    <section class="py-12 border-y border-navy/5 bg-platinum/50">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <p class="text-center text-sm font-semibold text-navy/50 uppercase tracking-widest mb-8">Underwritten by Global Leaders</p>
-            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                <!-- We will use stylish typography to represent logos since we don't have SVGs -->
-                <div class="font-heading font-bold text-2xl text-navy">Madison Insurance</div>
-                <div class="font-heading font-bold text-2xl text-navy">J.P. Morgan</div>
-                <div class="font-heading font-bold text-2xl text-navy">Stripe Partners</div>
-                <div class="font-heading font-bold text-2xl text-navy">Aon Alliance</div>
+    <!-- Continuous Brand Marquee (BloxFi Caliber) -->
+    <section class="py-10 border-y border-slateBorder bg-white overflow-hidden relative">
+        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mb-6">
+            <p class="text-center text-[10px] font-bold text-charcoal/40 uppercase tracking-[0.25em]">Underwritten & Structured by Global Leaders</p>
+        </div>
+        
+        <div class="marquee-track w-full">
+            <div class="marquee-inner flex items-center gap-16 text-forest/30 font-heading font-extrabold text-2xl md:text-3xl select-none">
+                <span>MADISON INSURANCE</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>J.P. MORGAN PARTNERS</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>STRIPE NETWORKS</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>AON ALLIANCE</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <!-- Repeated for seamless loop -->
+                <span>MADISON INSURANCE</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>J.P. MORGAN PARTNERS</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>STRIPE NETWORKS</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
+                <span>AON ALLIANCE</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
             </div>
         </div>
     </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions" class="py-24 bg-white relative">
+    <!-- Solutions / Products Grid (Premium Intersecting Design) -->
+    <section id="solutions" class="py-28 bg-white relative">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="text-center max-w-2xl mx-auto mb-16 gsap-fade-up">
-                <h2 class="text-3xl md:text-5xl font-heading font-bold text-forest mb-6">Four Core Products</h2>
-                <p class="text-charcoal/70 text-lg">Comprehensive solutions designed for project finance, lending security, and enterprise protection.</p>
+            
+            <div class="grid lg:grid-cols-12 gap-8 items-end mb-20">
+                <div class="lg:col-span-8 gsap-fade-up">
+                    <div class="pill pill-light mb-4">Core Offerings</div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-forest tracking-tight">
+                        Four Institutional <br><span class="text-gradient">Guarantees & Policies</span>
+                    </h2>
+                </div>
+                <div class="lg:col-span-4 gsap-fade-up">
+                    <p class="text-charcoal/60 text-lg leading-relaxed">
+                        Precision-engineered protection frameworks designed to mitigate risk, unlock trapped capital, and secure contract execution.
+                    </p>
+                </div>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="/products.html#credit-protection" class="group bg-mint border border-emerald/5 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 relative overflow-hidden gsap-stagger-card">
-                    <div class="w-12 h-12 rounded-xl bg-white border border-emerald/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
-                        <i data-feather="shield"></i>
+                <!-- Product Card 1: Credit Protection Policy -->
+                <a href="/products.html#credit-protection" class="product-card product-card-dark flex flex-col justify-between h-[420px] gsap-stagger-card group">
+                    <div>
+                        <div class="icon-box icon-box-white mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <i data-feather="shield" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold mb-4">Credit Protection Policy</h3>
+                        <p class="text-white/80 text-sm leading-relaxed">
+                            Comprehensive balance sheet protection safeguards lenders and borrowers against unforeseen systemic defaults, death, and disability.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-heading font-semibold text-forest mb-3">Credit Protection Policy</h3>
-                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-3">Comprehensive coverage protecting lenders and borrowers through death, disability, and income protection.</p>
-                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        View Coverage <i data-feather="arrow-right" class="w-4 h-4"></i>
-                    </div>
-                </a>
-
-                <!-- Card 2: Performance Security Bond -->
-                <a href="/products.html#performance-bond" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
-                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
-                        <i data-feather="check-square"></i>
-                    </div>
-                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Performance Security Bond</h3>
-                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-3">Strategic guarantees ensuring contractor performance and project completion for large-scale developments.</p>
-                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        View Guarantee <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    <div class="flex items-center gap-2 text-accent font-bold text-sm tracking-wide mt-6">
+                        <span>Analyze Coverage</span>
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Card 3: Advance Payment Guarantee -->
-                <a href="/products.html#advance-payment" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
-                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-royal mb-6 group-hover:scale-110 transition-transform">
-                        <i data-feather="zap"></i>
+                <!-- Product Card 2: Performance Security Bond -->
+                <a href="/products.html#performance-bond" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
+                    <div>
+                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <i data-feather="check-square" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Performance Security Bond</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">
+                            Structured contractor guarantees assuring project developers that large-scale infrastructure developments are executed strictly to terms.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Advance Payment Guarantee</h3>
-                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-3">Critical protection for advance payments on major projects, enabling project mobilization with confidence.</p>
-                    <div class="text-royal font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        View Guarantee <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
+                        <span>Analyze Guarantee</span>
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
 
-                <!-- Card 4: Bid Bond -->
-                <a href="/products.html#bid-bond" class="group bg-platinum border border-navy/5 rounded-2xl p-8 hover:bg-white hover:shadow-hover transition-all duration-300 relative overflow-hidden gsap-stagger-card">
-                    <div class="w-12 h-12 rounded-xl bg-white border border-navy/5 flex items-center justify-center text-emerald mb-6 group-hover:scale-110 transition-transform">
-                        <i data-feather="award"></i>
+                <!-- Product Card 3: Advance Payment Guarantee -->
+                <a href="/products.html#advance-payment" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
+                    <div>
+                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <i data-feather="dollar-sign" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Advance Payment Guarantee</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">
+                            Unlocks early mobilization capital safely. Secures advanced project deposits against contractor failure or contract deviation.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-heading font-semibold text-navy mb-3">Bid Bond</h3>
-                    <p class="text-sm text-charcoal/70 mb-6 line-clamp-3">Assures project owners of bidder capability and commitment during competitive tender processes.</p>
-                    <div class="text-emerald font-medium text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
-                        View Bond <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
+                        <span>Analyze Guarantee</span>
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </div>
+                </a>
+
+                <!-- Product Card 4: Bid Bond -->
+                <a href="/products.html#bid-bond" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
+                    <div>
+                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <i data-feather="award" class="w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Bid Bond</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">
+                            Validates competitive capability. Assures project owners that tender submissions are fully authorized, capable, and financially backed.
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
+                        <span>Analyze Guarantee</span>
+                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </div>
                 </a>
             </div>
+            
         </div>
     </section>
 
-    <!-- Why Choose Us -->
-    <section id="why-us" class="py-24 bg-forest text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0zNiAzNEwzNiAzNCAzNiAzNHpNMTQgMzRMMTQgMzQgMTQgMzR6IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS1vcGFjaXR5PSIwLjA1IiBzdHJva2Utd2lkdGg9IjEiLz48L2c+PC9zdmc+')] opacity-20"></div>
+    <!-- Why Choose Us / Advantage Section -->
+    <section id="why-us" class="py-28 bg-forest text-white relative overflow-hidden">
+        <!-- Subtle noise background -->
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.1),transparent_60%)]"></div>
         
         <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div class="gsap-fade-right">
-                    <h2 class="text-3xl md:text-5xl font-heading font-bold mb-6">The Lotan <br><span class="text-emerald">Advantage.</span></h2>
-                    <p class="text-mint/70 text-lg mb-8 leading-relaxed">
-                        We combine deep local market insight with operational practices that meet rigorous international standards, ensuring your ambitions are backed by financial security.
+            <div class="grid lg:grid-cols-12 gap-16 items-center">
+                <!-- Left Details -->
+                <div class="lg:col-span-7 gsap-fade-right">
+                    <div class="pill pill-dark mb-6">Why Partner With Lotan</div>
+                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-8 leading-[1.1]">
+                        Local Rigor. <br><span class="text-accent">Global Executions.</span>
+                    </h2>
+                    <p class="text-white/80 text-lg mb-12 max-w-xl leading-relaxed">
+                        We operate at the intersection of local risk domain intelligence and international corporate compliance, protecting regional growth drivers.
                     </p>
                     
-                    <ul class="space-y-6">
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-emerald/20 text-emerald flex items-center justify-center shrink-0 mt-1">
-                                <i data-feather="globe" class="w-4 h-4"></i>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent shrink-0">
+                                <i data-feather="globe" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h4 class="font-heading font-semibold text-lg">Local Insight, Global Standards</h4>
-                                <p class="text-platinum/60 text-sm mt-1">Intimate understanding of East African risk dynamics coupled with Fortune 500-ready operational rigor.</p>
+                                <h4 class="font-heading font-bold text-lg mb-2 text-white">East African Domain</h4>
+                                <p class="text-white/70 text-sm leading-relaxed">Tailored insights matching the regulatory and capital realities of African frontier economies.</p>
                             </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-emerald/20 text-emerald flex items-center justify-center shrink-0 mt-1">
-                                <i data-feather="shield" class="w-4 h-4"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-semibold text-lg">Financial Security & Trust</h4>
-                                <p class="text-platinum/60 text-sm mt-1">Partnered exclusively with top-tier underwriters to ensure policies are backed by significant financial strength.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="w-8 h-8 rounded-full bg-emerald/20 text-emerald flex items-center justify-center shrink-0 mt-1">
-                                <i data-feather="users" class="w-4 h-4"></i>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent shrink-0">
+                                <i data-feather="activity" class="w-6 h-6"></i>
                             </div>
                             <div>
-                                <h4 class="font-heading font-semibold text-lg">Client-Centric Agility</h4>
-                                <p class="text-platinum/60 text-sm mt-1">Personalized guidance, transparent services, and fast, empathetic claims support for every client.</p>
+                                <h4 class="font-heading font-bold text-lg mb-2 text-white">Top-Tier Underwriters</h4>
+                                <p class="text-white/70 text-sm leading-relaxed">Guarantees structured under global AA-rated balance sheet limits for ultimate security.</p>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="relative gsap-fade-left">
-                    <div class="aspect-square md:aspect-video lg:aspect-square rounded-[2rem] overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Corporate Excellence" class="w-full h-full object-cover opacity-80 mix-blend-luminosity">
-                        <div class="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent"></div>
-                    </div>
-                    
-                    <!-- Floating Stat -->
-                    <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-2xl border border-navy/5 max-w-[200px] gsap-counter-box">
-                        <div class="text-4xl font-heading font-bold text-royal mb-1"><span id="claim-counter" data-target="98">0</span>%</div>
-                        <p class="text-xs text-charcoal/70 font-medium uppercase tracking-wider">Claims Settlement Rate in 2025</p>
+                <!-- Right Graphic Counter -->
+                <div class="lg:col-span-5 relative gsap-fade-left">
+                    <div class="relative w-full aspect-square max-w-sm mx-auto rounded-[2.5rem] overflow-hidden shadow-premium">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corporate Teamwork" class="w-full h-full object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent"></div>
+                        
+                        <!-- Floating Glass counter card -->
+                        <div class="absolute -bottom-6 -left-6 bg-white text-forest p-8 rounded-2xl shadow-premium border border-slateBorder max-w-[240px] gsap-counter-box">
+                            <div class="flex items-baseline font-heading font-extrabold text-forest mb-2">
+                                <span class="stat-number text-5xl" id="claim-counter" data-target="98">0</span>
+                                <span class="text-3xl text-accent">%</span>
+                            </div>
+                            <p class="text-charcoal/40 text-[10px] font-bold uppercase tracking-wider leading-relaxed">Claims settlement execution score in 2025</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Engagement Process -->
-    <section id="claims" class="py-24 bg-platinum">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 text-center">
-            <h2 class="text-3xl md:text-5xl font-heading font-bold text-navy mb-16">How We Engage</h2>
+    <!-- Engagement Process Timeline -->
+    <section id="claims" class="py-28 bg-sage relative">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            
+            <div class="text-center max-w-3xl mx-auto mb-20 gsap-fade-up">
+                <div class="pill pill-light mb-4">Structured Process</div>
+                <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-forest mb-6">Our Engagement Framework</h2>
+                <p class="text-charcoal/60 text-lg">Four steps to underwriting corporate growth, securing assets, and finalizing guarantees.</p>
+            </div>
             
             <div class="grid md:grid-cols-4 gap-8 relative">
-                <!-- Connecting Line -->
-                <div class="hidden md:block absolute top-12 left-[10%] right-[10%] h-0.5 bg-navy/10 z-0"></div>
-                
-                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
-                    <div class="w-16 h-16 mx-auto bg-navy text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">1</div>
-                    <h4 class="font-heading font-semibold text-lg mb-2">Discovery</h4>
-                    <p class="text-sm text-charcoal/70">Discuss your business, strategic goals, and capital constraints.</p>
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
+                    <div>
+                        <div class="step-number bg-mint text-forest mb-6">01</div>
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Discovery</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Evaluation of project cashflows, security constraints, and credit needs.</p>
+                    </div>
                 </div>
                 
-                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
-                    <div class="w-16 h-16 mx-auto bg-royal text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">2</div>
-                    <h4 class="font-heading font-semibold text-lg mb-2">Assessment</h4>
-                    <p class="text-sm text-charcoal/70">Review bottlenecks and where capital is currently trapped.</p>
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
+                    <div>
+                        <div class="step-number bg-mint text-forest mb-6">02</div>
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Assessment</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Strict underwriting verification utilizing modern risk modelling parameters.</p>
+                    </div>
                 </div>
                 
-                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
-                    <div class="w-16 h-16 mx-auto bg-emerald text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">3</div>
-                    <h4 class="font-heading font-semibold text-lg mb-2">Design</h4>
-                    <p class="text-sm text-charcoal/70">Develop a tailored capital-unlocking strategy and structure.</p>
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
+                    <div>
+                        <div class="step-number bg-accent text-white mb-6">03</div>
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Structure Design</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Customizing indemnity contracts and credit protection structures.</p>
+                    </div>
                 </div>
-
-                <div class="relative z-10 bg-white p-8 rounded-2xl border border-navy/5 shadow-sm gsap-stagger-step">
-                    <div class="w-16 h-16 mx-auto bg-navy text-white rounded-full flex items-center justify-center text-xl font-bold font-heading mb-6 ring-8 ring-platinum">4</div>
-                    <h4 class="font-heading font-semibold text-lg mb-2">Support</h4>
-                    <p class="text-sm text-charcoal/70">Monitor, refine, and optimize as your enterprise needs evolve.</p>
+                
+                <!-- Step 4 -->
+                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
+                    <div>
+                        <div class="step-number bg-mint text-forest mb-6">04</div>
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Operational Execution</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Finalizing legally binding guarantees and ongoing risk monitoring.</p>
+                    </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
-    <!-- Quote / CTA Section -->
-    <section id="quote" class="py-24 bg-white border-t border-forest/5">
+    <!-- Request Form Section -->
+    <section id="quote" class="py-28 bg-white relative">
         <div class="max-w-4xl mx-auto px-6 md:px-12">
-            <div class="bg-forest rounded-[2rem] p-8 md:p-12 text-center relative overflow-hidden shadow-2xl">
-                <div class="absolute top-0 left-0 w-full h-1 bg-emerald"></div>
+            <div class="cta-banner p-10 md:p-16 text-center text-white relative shadow-premium">
                 
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4 relative z-10">Secure Your Future Today</h2>
-                <p class="text-platinum/80 mb-10 max-w-lg mx-auto relative z-10">Get a personalized insurance quote in minutes. Experience the new standard of protection.</p>
+                <h2 class="text-3xl md:text-5xl font-heading font-extrabold mb-6 relative z-10">Initiate Secure Advisory</h2>
+                <p class="text-white/80 mb-12 max-w-xl mx-auto relative z-10 leading-relaxed">Submit details of your project or credit needs. Our underwriting specialists will review and get in touch within 24 hours.</p>
                 
-                <form id="pipeline-form" class="relative z-10 bg-white rounded-xl p-6 text-left shadow-lg">
-                    <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <!-- Premium Glassmorphic Form Card -->
+                <form id="pipeline-form" class="relative z-10 bg-white text-left p-8 rounded-2xl shadow-2xl border border-slateBorder">
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="block text-xs font-semibold text-forest/50 uppercase tracking-wider mb-2">Name</label>
-                            <input type="text" id="firstName" required class="w-full bg-mint border border-forest/10 rounded-lg px-4 py-3 focus:outline-none focus:border-emerald focus:ring-1 focus:ring-emerald transition-all" placeholder="Jane Doe">
+                            <label for="firstName" class="form-label">Full Name</label>
+                            <input type="text" id="firstName" required class="form-input" placeholder="Jane Doe">
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-forest/50 uppercase tracking-wider mb-2">Email</label>
-                            <input type="email" id="email" required class="w-full bg-mint border border-forest/10 rounded-lg px-4 py-3 focus:outline-none focus:border-emerald focus:ring-1 focus:ring-emerald transition-all" placeholder="jane@example.com">
+                            <label for="email" class="form-label">Corporate Email</label>
+                            <input type="email" id="email" required class="form-input" placeholder="jane@corporation.com">
                         </div>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
                         <div>
-                            <label class="block text-xs font-semibold text-forest/50 uppercase tracking-wider mb-2">Product</label>
-                            <select id="product" class="w-full bg-mint border border-forest/10 rounded-lg px-4 py-3 focus:outline-none focus:border-emerald focus:ring-1 focus:ring-emerald transition-all text-forest">
+                            <label for="product" class="form-label">Desired Security Product</label>
+                            <select id="product" class="form-input bg-mint">
                                 <option>Credit Protection Policy</option>
                                 <option>Performance Security Bond</option>
                                 <option>Advance Payment Guarantee</option>
@@ -361,98 +503,106 @@
                             </select>
                         </div>
                         <div>
-                            <label class="block text-xs font-semibold text-forest/50 uppercase tracking-wider mb-2">Phone</label>
-                            <input type="tel" id="phone" class="w-full bg-mint border border-forest/10 rounded-lg px-4 py-3 focus:outline-none focus:border-emerald focus:ring-1 focus:ring-emerald transition-all" placeholder="+254 ...">
+                            <label for="phone" class="form-label">Phone Contact</label>
+                            <input type="tel" id="phone" required class="form-input" placeholder="+254 ...">
                         </div>
                     </div>
+                    
+                    <!-- Hidden Form elements mapped to CRM pipeline requirements -->
                     <input type="hidden" id="lastName" value="-">
                     <input type="hidden" id="company" value="-">
                     <input type="hidden" id="value" value="0">
                     <input type="hidden" id="needs" value="Website Quote Request">
                     
-                    <button type="submit" class="w-full bg-emerald hover:bg-forest text-white font-medium py-4 rounded-lg transition-colors flex justify-center items-center gap-2">
-                        Request Quote <i data-feather="arrow-right" class="w-4 h-4"></i>
+                    <button type="submit" class="w-full bg-forest hover:bg-accent text-white font-bold py-4 rounded-xl shadow-md transition-all duration-300 flex justify-center items-center gap-2 group">
+                        <span>Submit Secure Advisory Request</span>
+                        <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
                     </button>
                     
-                    <div id="form-alert" class="mt-4 hidden rounded-lg p-4 text-sm font-medium"></div>
+                    <div id="form-alert" class="mt-6 hidden rounded-xl p-4 text-sm font-semibold"></div>
                 </form>
+                
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-sage pt-16 pb-8 border-t border-emerald/5">
+    <!-- Footer Section -->
+    <footer class="bg-sage pt-20 pb-12 border-t border-slateBorder relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 md:px-12">
-            <div class="grid md:grid-cols-4 gap-12 mb-12">
-                <div class="md:col-span-2">
-                    <a href="/" class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 rounded border border-forest/20 text-forest flex items-center justify-center font-heading font-bold">
-                            LOTAN
-                        </div>
-                        <span class="font-heading font-semibold text-forest">Insurance Limited</span>
-                    </a>
-                    <p class="text-sm text-charcoal/60 max-w-sm mb-6">
-                        Lotan Insurance Limited: Your trusted partner in protection and peace of mind. Delivering global-standard solutions across East Africa.
-                    </p>
-                    <div class="flex gap-4 text-forest/60">
-                        <a href="#" class="hover:text-emerald transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
-                        <a href="#" class="hover:text-emerald transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" class="hover:text-emerald transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
+            
+            <div class="grid md:grid-cols-12 gap-12 mb-16">
+                <!-- Branding column -->
+                <div class="md:col-span-5 flex flex-col items-start justify-between">
+                    <div>
+                        <a href="/" class="flex items-center gap-3 mb-6">
+                            <div class="w-8 h-8 rounded-lg bg-forest text-white flex items-center justify-center font-heading font-extrabold shadow-sm">
+                                L
+                            </div>
+                            <span class="font-heading font-extrabold text-lg text-forest tracking-tight">Lotan Insurance Limited</span>
+                        </a>
+                        <p class="text-charcoal/60 text-sm max-w-sm leading-relaxed mb-6">
+                            Your trusted corporate risk partner. Delivering global-standard guarantees, credit protection policies, and specialized asset mitigation across East Africa.
+                        </p>
+                    </div>
+                    <div class="flex gap-4 text-forest/50">
+                        <a href="#" aria-label="LinkedIn Profile" class="hover:text-accent transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" aria-label="Twitter Profile" class="hover:text-accent transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
                     </div>
                 </div>
                 
-                <div>
-                    <h5 class="text-xs font-semibold text-forest uppercase tracking-wider mb-4">Solutions</h5>
-                    <ul class="space-y-3 text-sm text-charcoal/60">
-                        <li><a href="#" class="hover:text-royal transition-colors">Personal Coverage</a></li>
-                        <li><a href="#" class="hover:text-royal transition-colors">Corporate Insurance</a></li>
-                        <li><a href="#" class="hover:text-royal transition-colors">Wealth Preservation</a></li>
-                        <li><a href="#" class="hover:text-royal transition-colors">Surety & Bonds</a></li>
+                <!-- Quick links -->
+                <div class="md:col-span-3">
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Security Offerings</h5>
+                    <ul class="space-y-4 text-sm text-charcoal/60">
+                        <li><a href="/products.html#credit-protection" class="hover:text-accent transition-colors">Credit Protection Policy</a></li>
+                        <li><a href="/products.html#performance-bond" class="hover:text-accent transition-colors">Performance Security Bond</a></li>
+                        <li><a href="/products.html#advance-payment" class="hover:text-accent transition-colors">Advance Payment Guarantee</a></li>
+                        <li><a href="/products.html#bid-bond" class="hover:text-accent transition-colors">Bid Bond</a></li>
                     </ul>
                 </div>
                 
-                <div>
-                    <h5 class="text-xs font-semibold text-forest uppercase tracking-wider mb-4">Contact</h5>
-                    <ul class="space-y-3 text-sm text-charcoal/60">
-                        <li class="flex items-center gap-2"><i data-feather="map-pin" class="w-4 h-4"></i> Nairobi, Kenya</li>
-                        <li class="flex items-center gap-2"><i data-feather="mail" class="w-4 h-4"></i> info@lotan.insure</li>
-                        <li class="flex items-center gap-2"><i data-feather="phone" class="w-4 h-4"></i> +254 700 000 000</li>
+                <!-- Contact info -->
+                <div class="md:col-span-4">
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Corporate Office</h5>
+                    <ul class="space-y-4 text-sm text-charcoal/60">
+                        <li class="flex items-start gap-3"><i data-feather="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>Nairobi, Kenya</span></li>
+                        <li class="flex items-start gap-3"><i data-feather="mail" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>info@lotan.insure</span></li>
+                        <li class="flex items-start gap-3"><i data-feather="phone" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>+254 700 000 000</span></li>
                     </ul>
                 </div>
             </div>
             
-            <div class="pt-8 border-t border-navy/10 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-xs text-charcoal/50">
-                    &copy; 2026 Lotan Insurance Limited. All rights reserved.
-                </p>
-                <div class="flex gap-6 text-xs text-charcoal/50">
-                    <span>IRA Licence No: IRA/05/26054/2026</span>
-                    <a href="#" class="hover:text-navy">Privacy Policy</a>
-                    <a href="#" class="hover:text-navy">Terms of Service</a>
+            <div class="pt-8 border-t border-slateBorder flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-charcoal/50">
+                <p>&copy; 2026 Lotan Insurance Limited. All rights reserved.</p>
+                <div class="flex flex-wrap gap-6 items-center">
+                    <span class="font-semibold text-forest">IRA Licence No: IRA/05/26054/2026</span>
+                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
                 </div>
             </div>
+            
         </div>
     </footer>
 
-    <!-- Chat Widget Integration -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 w-80 bg-white border border-forest/10 rounded-2xl shadow-2xl z-50 transform translate-y-[calc(100%-48px)] transition-transform duration-300">
-        <div id="ai-chat-header" class="bg-forest text-white p-3 rounded-t-2xl flex justify-between items-center cursor-pointer">
+    <!-- Glassmorphic AI Chat Widget -->
+    <div id="ai-chat-widget" class="fixed bottom-6 right-6 w-80 bg-white/95 border border-slateBorder rounded-2xl shadow-2xl z-50 transform translate-y-[calc(100%-48px)] transition-transform duration-300">
+        <div id="ai-chat-header" class="bg-forest text-white p-3.5 rounded-t-2xl flex justify-between items-center cursor-pointer select-none">
             <div class="flex items-center gap-2">
-                <div class="w-2 h-2 rounded-full bg-emerald animate-pulse"></div>
-                <span class="text-sm font-medium">Lotan Assistant</span>
+                <div class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></div>
+                <span class="text-xs font-bold uppercase tracking-wider">Lotan Risk Advisor</span>
             </div>
             <i data-feather="chevron-up" class="w-4 h-4 transition-transform duration-300" id="chat-chevron"></i>
         </div>
-        <div class="h-80 flex flex-col bg-sage/50">
+        <div class="h-80 flex flex-col bg-platinum">
             <div id="ai-chat-messages" class="flex-grow p-4 overflow-y-auto flex flex-col gap-3">
-                <div class="bg-white border border-forest/5 text-sm p-3 rounded-xl rounded-tl-none self-start shadow-sm text-charcoal max-w-[85%]">
-                    Hello! I'm the Lotan Assistant. How can I help you protect what matters most today?
+                <div class="bg-white border border-slateBorder text-xs p-3 rounded-xl rounded-tl-none self-start shadow-sm text-charcoal max-w-[85%] leading-relaxed">
+                    Hello! I'm your Lotan Risk Advisor. How can I assist you with credit protection or contract guarantees today?
                 </div>
             </div>
-            <div class="p-3 border-t border-navy/5 bg-white rounded-b-2xl">
-                <div class="flex items-center gap-2 bg-platinum rounded-full px-3 py-2 border border-navy/5">
-                    <input type="text" id="ai-chat-input" placeholder="Type your message..." class="bg-transparent border-none outline-none text-sm w-full text-charcoal">
-                    <button id="ai-chat-send" class="text-royal hover:text-navy transition-colors">
+            <div class="p-3 border-t border-slateBorder bg-white rounded-b-2xl">
+                <div class="flex items-center gap-2 bg-platinum rounded-full px-3 py-2 border border-slateBorder">
+                    <input type="text" id="ai-chat-input" placeholder="Ask a question..." class="bg-transparent border-none outline-none text-xs w-full text-charcoal">
+                    <button id="ai-chat-send" class="text-forest hover:text-accent transition-colors">
                         <i data-feather="send" class="w-4 h-4"></i>
                     </button>
                 </div>
@@ -462,7 +612,5 @@
 
     <!-- Initialization Scripts -->
     <script src="/js/app.js"></script>
-</body>
-</html>
 </body>
 </html>
