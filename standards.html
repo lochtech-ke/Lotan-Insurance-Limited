@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Global standards framework — Basel-aligned structuring, international compliance, and lender-grade documentation from Lotan Insurance Agency.">
+    <meta name="theme-color" content="#042F1A">
+    <title>Global Standards Framework | Lotan Insurance Agency Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{forest:'#042F1A',accent:'#10B981',mint:'#F0FDF4',charcoal:'#0F172A',slateBorder:'#E2E8F0'},fontFamily:{sans:['Inter','sans-serif'],heading:['Sora','sans-serif']}}}}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0"></div>
+    <nav id="navbar" class="fixed w-full z-50 py-5 bg-white/60 backdrop-blur-lg">
+        <div class="container-wide flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold">L</div><span class="font-heading font-extrabold text-forest">LOTAN</span></a>
+            <div class="hidden xl:flex items-center gap-7">
+                <a href="/" class="nav-link">Home</a><a href="/standards.html" class="nav-link active">Standards</a><a href="/index.html#trust" class="nav-link">Credentials</a>
+            </div>
+            <a href="/index.html#quote" class="hidden lg:inline-flex btn-primary"><span>Get a Quote</span></a>
+            <button class="lg:hidden text-forest p-2" id="mobile-menu-btn"><i data-feather="menu"></i></button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="fixed inset-0 bg-forest/98 z-40 hidden flex-col justify-center items-center opacity-0 transition-all">
+        <button class="absolute top-6 right-6 text-white" id="mobile-menu-close"><i data-feather="x" class="w-8 h-8"></i></button>
+        <a href="/index.html#quote" class="bg-accent text-white px-10 py-4 rounded-full font-bold">Get a Quote</a>
+    </div>
+
+    <main id="main-content">
+        <section class="pt-36 pb-16 section-dark text-center">
+            <div class="container-wide gsap-fade-up">
+                <div class="pill pill-dark mb-5">Global Standards Framework</div>
+                <h1 class="text-4xl md:text-6xl font-heading font-extrabold text-white mb-5">International Compliance Architecture</h1>
+                <p class="text-white/65 max-w-2xl mx-auto text-lg">Lender-grade documentation, Basel-aligned capital parameters, and sovereign transaction readiness.</p>
+            </div>
+        </section>
+
+        <section class="section-padding section-light">
+            <div class="container-wide">
+                <div class="trust-grid">
+                    <div class="trust-item trust-item--light gsap-fade-up">
+                        <i data-feather="bar-chart" class="w-6 h-6 text-accent mb-3"></i>
+                        <h3 class="font-heading font-bold text-forest mb-2">Basel III / IV Alignment</h3>
+                        <p class="text-sm text-charcoal/60">Structures evaluated against risk-weighted asset and capital adequacy frameworks relevant to institutional lenders.</p>
+                    </div>
+                    <div class="trust-item trust-item--light gsap-fade-up">
+                        <i data-feather="file-text" class="w-6 h-6 text-accent mb-3"></i>
+                        <h3 class="font-heading font-bold text-forest mb-2">Lender Documentation Standards</h3>
+                        <p class="text-sm text-charcoal/60">Policy wordings, guarantee formats, and indemnity schedules prepared for international due diligence.</p>
+                    </div>
+                    <div class="trust-item trust-item--light gsap-fade-up">
+                        <i data-feather="shield" class="w-6 h-6 text-accent mb-3"></i>
+                        <h3 class="font-heading font-bold text-forest mb-2">IRA Regulatory Compliance</h3>
+                        <p class="text-sm text-charcoal/60">Fully licensed under the Insurance Regulatory Authority of Kenya — IRA/05/26054/2026.</p>
+                    </div>
+                    <div class="trust-item trust-item--light gsap-fade-up">
+                        <i data-feather="check-circle" class="w-6 h-6 text-accent mb-3"></i>
+                        <h3 class="font-heading font-bold text-forest mb-2">Audit &amp; Governance Readiness</h3>
+                        <p class="text-sm text-charcoal/60">Transparent underwriting declarations and claims protocols supporting enterprise audit cycles.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding section-sage">
+            <div class="container-wide max-w-3xl text-center gsap-fade-up">
+                <h2 class="section-title mb-4">Regulatory &amp; Compliance Framework</h2>
+                <p class="section-desc mb-6">Lotan Insurance Agency Limited is registered and regulated under the Insurance Regulatory Authority (IRA) of Kenya, operating to international transaction standards demanded by multinational counterparties.</p>
+                <div class="inline-flex items-center gap-3 px-8 py-4 bg-white rounded-full border border-slateBorder shadow-sm font-heading font-bold text-forest">
+                    <i data-feather="shield" class="text-accent"></i>
+                    <span>IRA LICENCE: IRA/05/26054/2026</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-sage pt-14 pb-8 border-t border-slateBorder">
+        <div class="container-wide flex flex-col md:flex-row justify-between gap-4 text-xs text-charcoal/50">
+            <p>&copy; 2026 Lotan Insurance Agency Limited.</p>
+            <span class="font-semibold text-forest">IRA Licence No: IRA/05/26054/2026</span>
+        </div>
+    </footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>

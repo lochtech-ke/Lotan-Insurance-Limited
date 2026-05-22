@@ -28,8 +28,12 @@
     }
   ],
   "rewrites": [
-    { "source": "/about",    "destination": "/about.html" },
-    { "source": "/products", "destination": "/products.html" },
-    { "source": "/(.*)",     "destination": "/$1.html" }
+    { "source": "/about",              "destination": "/about.html" },
+    { "source": "/products",           "destination": "/products.html" },
+    { "source": "/insights",           "destination": "/insights.html" },
+    { "source": "/case-studies",       "destination": "/case-studies.html" },
+    { "source": "/executive-advisory", "destination": "/executive-advisory.html" },
+    { "source": "/partnerships",       "destination": "/partnerships.html" },
+    { "source": "/standards",          "destination": "/standards.html" }
   ]
 }

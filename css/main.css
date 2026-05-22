@@ -655,6 +655,15 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(16, 185, 129, 0.3);
 }
+.trust-item--light {
+  background: #fff;
+  border-color: var(--border);
+  color: var(--charcoal);
+}
+.trust-item--light:hover {
+  background: var(--mint);
+  border-color: rgba(16, 185, 129, 0.25);
+}
 
 .insight-card {
   border-radius: var(--radius-lg);

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Institutional partnerships — Lotan Insurance Agency collaborates with global underwriters, DFIs, and financial institutions.">
+    <meta name="theme-color" content="#042F1A">
+    <title>Institutional Partnerships | Lotan Insurance Agency Limited</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{colors:{forest:'#042F1A',accent:'#10B981',mint:'#F0FDF4',charcoal:'#0F172A',slateBorder:'#E2E8F0'},fontFamily:{sans:['Inter','sans-serif'],heading:['Sora','sans-serif']}}}}</script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0"></div>
+    <nav id="navbar" class="fixed w-full z-50 py-5 bg-white/60 backdrop-blur-lg">
+        <div class="container-wide flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold">L</div><span class="font-heading font-extrabold text-forest">LOTAN</span></a>
+            <div class="hidden xl:flex items-center gap-7">
+                <a href="/" class="nav-link">Home</a><a href="/partnerships.html" class="nav-link active">Partnerships</a><a href="/about.html" class="nav-link">About Us</a>
+            </div>
+            <a href="/index.html#quote" class="hidden lg:inline-flex btn-primary"><span>Get a Quote</span></a>
+            <button class="lg:hidden text-forest p-2" id="mobile-menu-btn"><i data-feather="menu"></i></button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="fixed inset-0 bg-forest/98 z-40 hidden flex-col justify-center items-center opacity-0 transition-all">
+        <button class="absolute top-6 right-6 text-white" id="mobile-menu-close"><i data-feather="x" class="w-8 h-8"></i></button>
+        <a href="/index.html#quote" class="bg-accent text-white px-10 py-4 rounded-full font-bold">Get a Quote</a>
+    </div>
+
+    <main id="main-content">
+        <section class="pt-36 pb-16 section-forest text-center">
+            <div class="container-wide gsap-fade-up">
+                <div class="pill pill-dark mb-5">Global Network</div>
+                <h1 class="text-4xl md:text-6xl font-heading font-extrabold text-white mb-5">Institutional Partnerships</h1>
+                <p class="text-white/70 max-w-2xl mx-auto text-lg">Collaborative underwriting alliances extending balance sheet scale, geographic reach, and sovereign-grade execution capacity.</p>
+            </div>
+        </section>
+
+        <section class="section-padding section-light">
+            <div class="container-wide">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <article class="bento-card text-center gsap-stagger-card">
+                        <div class="icon-box icon-box-forest mx-auto mb-5"><i data-feather="globe" class="w-6 h-6"></i></div>
+                        <h3 class="font-heading font-bold text-forest mb-2">International Underwriters</h3>
+                        <p class="text-sm text-charcoal/60">Reinsurance and co-underwriting partnerships enabling large-limit guarantees and credit protection capacity.</p>
+                    </article>
+                    <article class="bento-card text-center gsap-stagger-card">
+                        <div class="icon-box icon-box-emerald mx-auto mb-5"><i data-feather="home" class="w-6 h-6"></i></div>
+                        <h3 class="font-heading font-bold text-forest mb-2">Development Finance Institutions</h3>
+                        <p class="text-sm text-charcoal/60">Alignment with DFI procurement and environmental &amp; social governance documentation requirements.</p>
+                    </article>
+                    <article class="bento-card text-center gsap-stagger-card">
+                        <div class="icon-box icon-box-forest mx-auto mb-5"><i data-feather="users" class="w-6 h-6"></i></div>
+                        <h3 class="font-heading font-bold text-forest mb-2">Commercial &amp; Investment Banks</h3>
+                        <p class="text-sm text-charcoal/60">Preferred structuring partner for lenders requiring insurance-led credit enhancement and bid security programmes.</p>
+                    </article>
+                </div>
+                <div class="mt-16 p-10 rounded-2xl section-forest text-center gsap-fade-up">
+                    <h2 class="text-2xl font-heading font-bold text-white mb-4">Partner With Lotan</h2>
+                    <p class="text-white/65 max-w-xl mx-auto mb-8 text-sm">Institutions seeking distribution, co-structuring, or regional guarantee capacity should contact our partnerships desk.</p>
+                    <a href="mailto:info@lia.insure" class="btn-white"><span>info@lia.insure</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-sage pt-14 pb-8 border-t border-slateBorder">
+        <div class="container-wide flex flex-col md:flex-row justify-between gap-4 text-xs text-charcoal/50">
+            <p>&copy; 2026 Lotan Insurance Agency Limited.</p>
+            <span class="font-semibold text-forest">IRA Licence No: IRA/05/26054/2026</span>
+        </div>
+    </footer>
+    <script src="/js/app.js"></script>
+</body>
+</html>

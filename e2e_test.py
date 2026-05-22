@@ -4,7 +4,11 @@ import sqlite3
 import re
 
 base = 'http://localhost:8080'
-pages = ['/', '/index.html', '/about.html', '/products.html']
+pages = [
+    '/', '/index.html', '/about.html', '/products.html',
+    '/insights.html', '/case-studies.html', '/executive-advisory.html',
+    '/partnerships.html', '/standards.html',
+]
 
 print('=== PAGE AVAILABILITY ===')
 for page in pages:
