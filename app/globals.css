@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../css/main.css";
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.prose h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--forest);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose p {
+  color: rgba(15, 23, 42, 0.75);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}

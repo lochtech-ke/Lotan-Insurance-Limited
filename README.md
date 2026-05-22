@@ -1,62 +1,122 @@
-# Lotan Insurance Limited — Financial Architecture & Capital Unlocking
+# Lotan Insurance Agency Limited — Financial Architecture Platform
 
-Lotan Insurance Limited is a premium, institutional-grade financial architecture firm that leverages insurance as a strategic high-performance instrument to unlock dormant capital and optimize financial structures across global markets.
+Next.js 15 institutional website with CMS-backed insights, Lighthouse-optimized delivery, and secure lead capture.
 
-![Lotan Logo](img/lotan_logo_transparent.png)
+**Live:** [www.lia.insure](https://www.lia.insure)
 
-## 🏢 Platform Overview
+## Stack
 
-This repository contains the official digital presence for Lotan Insurance Limited. The platform is designed to position the firm as a sophisticated partner for multinational corporations, international financial institutions, and regional enterprises.
+| Layer | Technology |
+|-------|------------|
+| Framework | Next.js 15 (App Router) |
+| Styling | Tailwind CSS + Tier-One design system (`css/main.css`) |
+| Motion | Framer Motion-ready architecture, optimized canvas hero |
+| CMS | Markdown (`content/insights/`) + optional **Sanity** |
+| APIs | `/api/leads`, `/api/chat` (Next.js Route Handlers) |
+| Fonts | `next/font` (Inter + Sora) — no render-blocking CDN |
+| Deploy | Vercel (auto-detects Next.js) |
 
-### 💎 Core Financial Instruments
-We engineer bespoke financial solutions across four primary pillars:
-1.  **Credit Protection & Capital Unlocking**: Transforming standard risk into powerful growth engines and reinvestment liquidity.
-2.  **Performance Security Bonds**: Minimizing cash-trapped collateral to free up working capital for large-scale projects.
-3.  **Advance Payment Guarantees**: Strategic instruments to ensure project continuity and capital security.
-4.  **Bid Bonds & Tendering Instruments**: Sophisticated entry mechanisms for international and regional contract participation.
+## Quick Start
+
+```bash
+# Requires Node.js 18+
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+```bash
+npm run build
+npm start
+npm run test:e2e   # requires dev server running
+```
+
+### Legacy Python server (optional)
+
+Static HTML archives live in `legacy/`. To run the old stack:
+
+```bash
+python backend.py   # http://localhost:8080
+PORT=8080 python e2e_test.py
+```
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — financial architecture, solutions, trust, insights preview |
+| `/contact` | **Contact & consultation** — full form + office details |
+| `/about` | Identity, values, IRA compliance |
+| `/products` | Capital instruments (CPP, bonds, guarantees) |
+| `/insights` | Thought leadership index (CMS) |
+| `/insights/[slug]` | Article detail (SSG) |
+| `/case-studies` | Institutional outcomes |
+| `/executive-advisory` | C-suite advisory |
+| `/partnerships` | Global partnerships |
+| `/standards` | Basel / IRA / governance framework |
+
+## CMS — Insights
+
+### Default: Git-based Markdown
+
+Add files to `content/insights/*.md` with frontmatter:
+
+```yaml
+---
+title: "Article Title"
+excerpt: "Short description"
+category: "Capital Optimization"
+readTime: "8 min read"
+date: "2026-03-15"
+gradient: "from-forest to-emerald/80"
+---
+```
+
+### Optional: Sanity CMS
+
+Set in Vercel / `.env.local`:
+
+```
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=your_token
+```
+
+Schema reference: `sanity/schema.ts`
+
+When Sanity env vars are present, insights are fetched from Sanity; otherwise Markdown is used.
+
+## Environment Variables
+
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `NEXT_PUBLIC_SANITY_PROJECT_ID` | No | Enables Sanity CMS |
+| `SANITY_API_TOKEN` | No | Sanity read token |
+
+## Regulatory
+
+**IRA Licence:** IRA/05/26054/2026
+
+## Lighthouse Optimizations
+
+- `next/font` with `display: swap`
+- No Tailwind CDN / no GSAP CDN on critical path
+- Static generation for insight articles
+- Compressed responses, security headers via `next.config.ts`
+- Semantic HTML, skip links, ARIA on navigation and forms
+
+## Project Structure
+
+```
+app/              # Next.js App Router pages & API routes
+components/       # React UI (Navbar, ContactForm, ChatWidget, …)
+content/insights/ # Markdown CMS articles
+lib/              # CMS, chat, database helpers
+legacy/           # Archived static HTML (pre-migration)
+css/main.css      # Institutional design system v4
+```
 
 ---
 
-## 🏛️ Branding & Design System
-
-The Lotan platform adheres to a strict **Green and White** institutional identity, reflecting our dedication to financial integrity, growth, and environmental leadership.
-
-*   **Primary Palette**: Emerald Green (`#065f46`) and Sea Foam (`#10b981`).
-*   **Aesthetic**: Luxe White, minimalist, and "private-bank" professional.
-*   **Typography**: Clean, sans-serif fonts optimized for technical policy legibility.
-
----
-
-## ⚖️ Regulatory Transparency
-Lotan Insurance Limited operates under the regulatory framework of the **Insurance Regulatory Authority (IRA)**.
-*   **License Number**: IRA/05/26054/2026
-
----
-
-## 🛠️ Technical Architecture
-
-The platform uses a robust, lightweight, and scalable stack:
-*   **Frontend**: High-performance HTML5, CSS3 (centralized architecture in `main.css`), and Vanilla JavaScript.
-*   **Backend**: Python-based SQLite server (`backend.py`) for secure lead capture and pipeline management.
-*   **Testing**: End-to-end performance and logic validation via `e2e_test.py`.
-
-### Installation & Local Setup
-To run the platform locally for demonstration or audit:
-1.  Ensure Python 3.x is installed.
-2.  Clone the repository:
-    ```bash
-    git clone https://github.com/lochtech-ke/Lotan-Insurance-Limited.git
-    cd Lotan-Insurance-Limited
-    ```
-3.  Launch the financial engine:
-    ```bash
-    python backend.py
-    ```
-4.  Access the suite at `http://localhost:8080`.
-
----
-
-## 🛡️ Confidentiality & Integrity
-All financial architecture designs, technical policy frameworks, and market-ready documentation within this repository are the exclusive property of **Lotan Insurance Limited**.
-
-**Lotan Insurance Limited. Architects of Financial Value.**
+**Lotan Insurance Agency Limited** — Architects of Financial Value.

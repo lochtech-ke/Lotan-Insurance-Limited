@@ -42,3 +42,7 @@ venv.bak
 node_modules/
 dist/
 build/
+.next/
+out/
+data/leads.json
+

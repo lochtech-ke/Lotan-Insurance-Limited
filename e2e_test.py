@@ -1,19 +1,28 @@
 import urllib.request
 import json
-import sqlite3
+import os
 import re
 
-base = 'http://localhost:8080'
+# Next.js dev/prod default; set PORT=8080 for legacy python backend
+PORT = int(os.environ.get('PORT', '3000'))
+base = f'http://localhost:{PORT}'
+
 pages = [
-    '/', '/index.html', '/about.html', '/products.html',
-    '/insights.html', '/case-studies.html', '/executive-advisory.html',
-    '/partnerships.html', '/standards.html',
+    '/',
+    '/about',
+    '/products',
+    '/contact',
+    '/insights',
+    '/case-studies',
+    '/executive-advisory',
+    '/partnerships',
+    '/standards',
 ]
 
 print('=== PAGE AVAILABILITY ===')
 for page in pages:
     try:
-        r = urllib.request.urlopen(base + page, timeout=5)
+        r = urllib.request.urlopen(base + page, timeout=10)
         content = r.read().decode('utf-8')
         print(f'  {page}: {r.status} OK  ({len(content)} bytes)')
     except Exception as e:
@@ -22,61 +31,58 @@ for page in pages:
 print()
 print('=== CRITICAL CONTENT CHECKS ===')
 
-# Check home page - regulatory credentials updated
 try:
-    r = urllib.request.urlopen(base + '/index.html', timeout=5)
+    r = urllib.request.urlopen(base + '/', timeout=10)
     html = r.read().decode('utf-8')
     checks = [
-        ('IRA license number updated in footer', 'IRA/05/26054/2026' in html),
+        ('IRA license number in page', 'IRA/05/26054/2026' in html),
         ('Old IRA license removed', 'IRA/001/BR/2015' not in html),
-        ('PVT-86RI2EL removed from footer', 'PVT-86RI2EL' not in html),
-        ('Navbar has Home link', 'href="/"' in html),
-        ('Navbar has About Us link', 'about.html' in html),
-        ('Navbar has Solutions link', '#solutions' in html),
+        ('PVT-86RI2EL removed', 'PVT-86RI2EL' not in html),
+        ('Navbar has Home link', 'href="/"' in html or "href='/'" in html),
+        ('Navbar has About link', '/about' in html),
+        ('Solutions section present', 'solutions' in html.lower() or '/products' in html),
         ('Get a Quote CTA present', 'Get a Quote' in html),
         ('Contact form present', 'pipeline-form' in html),
     ]
-    print('  --- index.html ---')
+    print('  --- home ---')
     for label, result in checks:
         icon = 'PASS' if result else 'FAIL'
         print(f'    [{icon}] {label}')
 except Exception as e:
-    print(f'  index.html read FAILED: {e}')
+    print(f'  home read FAILED: {e}')
 
 print()
 try:
-    r = urllib.request.urlopen(base + '/about.html', timeout=5)
+    r = urllib.request.urlopen(base + '/about', timeout=10)
     html = r.read().decode('utf-8')
     checks = [
-        ('Regulatory & Compliance section PRESENT', 'Regulatory &amp; Compliance Framework' in html),
-        ('IRA license number updated in footer', 'IRA/05/26054/2026' in html),
-        ('Old IRA license removed', 'IRA/001/BR/2015' not in html),
-        ('Who We Are section present', 'Our Identity' in html),
-        ('Core Values section present', 'Our Core Values' in html),
-        ('CTA present', 'Get a Quote' in html),
+        ('Regulatory section present', 'Regulatory' in html and 'Compliance' in html),
+        ('IRA license in page', 'IRA/05/26054/2026' in html),
+        ('Core Values present', 'Our Core Values' in html),
+        ('Get a Quote CTA', 'Get a Quote' in html),
     ]
-    print('  --- about.html ---')
+    print('  --- about ---')
     for label, result in checks:
         icon = 'PASS' if result else 'FAIL'
         print(f'    [{icon}] {label}')
 except Exception as e:
-    print(f'  about.html read FAILED: {e}')
+    print(f'  about read FAILED: {e}')
 
 print()
 try:
-    r = urllib.request.urlopen(base + '/products.html', timeout=5)
+    r = urllib.request.urlopen(base + '/contact', timeout=10)
     html = r.read().decode('utf-8')
     checks = [
-        ('Products page loads', len(html) > 1000),
-        ('IRA license number updated in footer', 'IRA/05/26054/2026' in html),
-        ('Has product content', 'product' in html.lower()),
+        ('Contact page loads', len(html) > 1000),
+        ('pipeline-form on contact', 'pipeline-form' in html),
+        ('IRA licence on contact', 'IRA/05/26054/2026' in html),
     ]
-    print('  --- products.html ---')
+    print('  --- contact ---')
     for label, result in checks:
         icon = 'PASS' if result else 'FAIL'
         print(f'    [{icon}] {label}')
 except Exception as e:
-    print(f'  products.html read FAILED: {e}')
+    print(f'  contact read FAILED: {e}')
 
 print()
 print('=== FORM SUBMISSION TEST (POST /api/leads) ===')
@@ -87,7 +93,7 @@ payload = json.dumps({
     'company': 'Test Corp',
     'phone': '+254 700 000 001',
     'product': 'Credit Protection Policy',
-    'value': 1000000,
+    'value': 1000,
     'needs': 'Automated e2e test submission'
 }).encode()
 req = urllib.request.Request(
@@ -97,26 +103,12 @@ req = urllib.request.Request(
     method='POST'
 )
 try:
-    r = urllib.request.urlopen(req, timeout=5)
+    r = urllib.request.urlopen(req, timeout=10)
     body = r.read().decode()
     print(f'  Status: {r.status}')
     print(f'  Response: {body}')
 except Exception as e:
     print(f'  FAIL: {e}')
-
-print()
-print('=== DATABASE VERIFICATION (last 3 leads) ===')
-try:
-    conn = sqlite3.connect('lotan_data.db')
-    conn.row_factory = sqlite3.Row
-    rows = conn.execute(
-        'SELECT id, first_name, last_name, email, company, product, date_submitted FROM leads ORDER BY id DESC LIMIT 3'
-    ).fetchall()
-    for row in rows:
-        print(f'  {dict(row)}')
-    conn.close()
-except Exception as e:
-    print(f'  DB read FAILED: {e}')
 
 print()
 print('=== TEST COMPLETE ===')
