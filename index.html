@@ -1,48 +1,30 @@
-<!-- 
-====================================================================================================
-                        LOTAN INSURANCE LIMITED — ARCHITECTURAL BLUEPRINT & THINKING PREAMBLE
-====================================================================================================
-This document represents a world-class, tier-one digital front-end architecture. Below is the 
-conceptual engineering framework benchmarking Lotan Insurance against the design systems of BloxFi, 
-Stripe, Linear, Vercel, and Apple.
-
-1. BENCHMARK ANALYSIS & STANDARDS:
-   - BloxFi Caliber: Asymmetric layouts, continuous loop partner marquees, neon/glow state-indicators,
-     and deep multi-layered radial gradients combined with thin borders (0.5px - 1px) to create high 
-     depth hierarchy.
-   - Stripe Caliber: Elegant typography pairings, crisp pill badges, ultra-fluid CSS transitions, and 
-     highly structured container grids. We leverage Stripe's principle of "complex engineering made 
-     visually simple."
-   - Linear Caliber: High contrast dark-mode accent sections, dark borders, and clean status indicators 
-     (e.g., custom pulse indicators for IRA verification).
-   - Vercel Caliber: Minimalist geometric structure, layout responsiveness, fast loading performance 
-     footprint, and high contrast styling markers.
-   - Apple Caliber: Silky-smooth custom scroll progress bars, rounded layout geometry (1.5rem to 2rem 
-     border radii), and strict alignment to human interface guidelines.
-
-2. PALETTE & DESIGN TOKENS:
-   - Primary (Forest): #042F1A (representing deep security, longevity, institutional trust).
-   - Accent/Glow (Emerald/Mint): #059669 / #F0FDF4 (representing growth, agility, modern fintech).
-   - Layout Borders: Thin 1px borders using translucent emerald or slate overlays to segment blocks.
-   - Backgrounds: Alternating dark-to-light transitions with custom SVG noise overlay textures to 
-     eliminate flat colors and add texture.
-
-3. DYNAMIC INTERACTION LAYER:
-   - Mouse-movement event listeners capture coordinates to apply subtle perspective transforms to 
-     the hero cards (Stripe/BloxFi dynamic depth parallax).
-   - Numerical stat counters capture viewport entries to count up dynamically.
-   - Page load timeline orchestrates the entrance of hero components in a cohesive stagger.
-====================================================================================================
--->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lotan Insurance Limited - Your trusted partner in protection and peace of mind. Delivering global-standard insurance solutions across East Africa. Regulated by the Insurance Regulatory Authority (IRA).">
-    <title>Lotan Insurance Limited | Institutional Risk Mitigation & Guarantees</title>
-    
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Lotan Insurance Agency Limited — Engineering financial architecture. Unlocking capital through structured risk for multinational corporations, infrastructure developers, and institutional capital allocators.">
+    <meta name="theme-color" content="#042F1A">
+    <title>Lotan Insurance Agency Limited | Financial Architecture & Capital Optimization</title>
+
+    <link rel="canonical" href="https://www.lia.insure/">
+    <meta property="og:title" content="Lotan Insurance Agency Limited | Financial Architecture">
+    <meta property="og:description" content="Insurance as a strategic financial instrument. Engineering capital efficiency for global enterprises.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lia.insure/">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "InsuranceAgency",
+      "name": "Lotan Insurance Agency Limited",
+      "url": "https://www.lia.insure",
+      "description": "Financial architecture and capital optimization through structured risk engineering.",
+      "areaServed": "Global",
+      "email": "info@lia.insure"
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -56,561 +38,618 @@ Stripe, Linear, Vercel, and Apple.
                         platinum: '#FAFAFA',
                         charcoal: '#0F172A',
                         slateBorder: '#E2E8F0',
-                        glassBg: 'rgba(255, 255, 255, 0.7)',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         heading: ['Sora', 'sans-serif']
                     },
                     boxShadow: {
-                        'premium': '0 25px 50px -12px rgba(6, 78, 59, 0.08)',
-                        'glow': '0 0 40px rgba(16, 185, 129, 0.15)',
-                        'cardGlow': '0 10px 30px rgba(4, 47, 26, 0.04)',
+                        premium: '0 25px 50px -12px rgba(4, 47, 26, 0.1)',
+                        glow: '0 0 40px rgba(16, 185, 129, 0.15)',
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Fonts & Icons -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://unpkg.com/feather-icons"></script>
-    
-    <!-- GSAP Animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white noise-overlay">
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
 
-    <!-- Global Progress Bar -->
-    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0 transition-all duration-100"></div>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0 transition-all duration-100" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent bg-white/50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-            <a href="/" class="flex items-center gap-3 group">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent bg-white/60 backdrop-blur-lg" aria-label="Main navigation">
+        <div class="container-wide flex justify-between items-center">
+            <a href="/" class="flex items-center gap-3 group" aria-label="Lotan Insurance Agency — Home">
                 <div class="relative w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
                     L
                     <div class="absolute inset-0 rounded-xl border border-white/20"></div>
                 </div>
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-base tracking-tight text-forest leading-none">LOTAN</span>
-                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold mt-1">Insurance Limited</span>
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold mt-1">Insurance Agency</span>
                 </div>
             </a>
-            
-            <div class="hidden lg:flex items-center space-x-10">
-                <a href="#solutions" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Solutions</a>
-                <a href="#why-us" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">The Lotan Advantage</a>
-                <a href="#claims" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Process</a>
-                <a href="/about.html" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">About Us</a>
+
+            <div class="hidden xl:flex items-center gap-8">
+                <a href="/" class="nav-link active">Home</a>
+                <a href="#architecture" class="nav-link">Architecture</a>
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#why-us" class="nav-link">Why Lotan</a>
+                <a href="#trust" class="nav-link">Credentials</a>
+                <a href="/about.html" class="nav-link">About Us</a>
             </div>
-            
-            <div class="hidden lg:flex items-center space-x-6">
+
+            <div class="hidden lg:flex items-center gap-5">
                 <a href="#quote" class="text-sm font-bold text-forest hover:text-accent transition-colors">Client Login</a>
                 <a href="#quote" class="btn-primary">
                     <span>Get a Quote</span>
-                    <i data-feather="arrow-up-right" class="w-4 h-4"></i>
+                    <i data-feather="arrow-up-right" class="w-4 h-4" aria-hidden="true"></i>
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle -->
-            <button class="lg:hidden text-forest focus:outline-none p-2 rounded-lg hover:bg-forest/5" id="mobile-menu-btn" aria-label="Toggle Menu">
+            <button class="lg:hidden text-forest focus:outline-none p-2 rounded-lg hover:bg-forest/5" id="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
                 <i data-feather="menu" class="w-6 h-6"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Mobile Menu Overlay -->
-    <div id="mobile-menu" class="fixed inset-0 bg-forest/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center opacity-0 transition-all duration-300">
-        <button class="absolute top-6 right-6 text-white p-2" id="mobile-menu-close" aria-label="Close Menu">
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-forest/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center opacity-0 transition-all duration-300" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <button class="absolute top-6 right-6 text-white p-2" id="mobile-menu-close" aria-label="Close menu">
             <i data-feather="x" class="w-8 h-8"></i>
         </button>
-        <div class="flex flex-col items-center space-y-8 text-center">
+        <div class="flex flex-col items-center space-y-7 text-center px-8">
+            <a href="/" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Home</a>
+            <a href="#architecture" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Architecture</a>
             <a href="#solutions" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Solutions</a>
-            <a href="#why-us" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">The Lotan Advantage</a>
-            <a href="#claims" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Process</a>
+            <a href="#why-us" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Why Lotan</a>
+            <a href="#trust" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Credentials</a>
             <a href="/about.html" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">About Us</a>
-            <div class="h-[1px] w-24 bg-white/20 my-4"></div>
+            <div class="h-px w-24 bg-white/20 my-2"></div>
             <a href="#quote" class="mobile-link text-lg font-bold text-white/80 hover:text-accent transition-colors">Client Login</a>
-            <a href="#quote" class="bg-accent hover:bg-white hover:text-forest text-white text-lg font-bold px-10 py-4 rounded-full transition-all shadow-glow">
+            <a href="#quote" class="bg-accent hover:bg-white hover:text-forest text-white text-lg font-bold px-10 py-4 rounded-full transition-all shadow-glow w-full max-w-xs text-center">
                 Get a Quote
             </a>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden hero-bg">
-        <!-- Modern Grid & Radial Glow overlays -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#064e3b08_1px,transparent_1px),linear-gradient(to_bottom,#064e3b08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full grid lg:grid-cols-12 gap-12 items-center relative z-10">
-            <!-- Left Hero Content -->
-            <div class="lg:col-span-7 gsap-hero-text flex flex-col items-start">
-                <div class="pill pill-light mb-6 flex items-center gap-2">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald"></span>
-                    </span>
-                    <span>FORTUNE 500-GRADE RISK ARCHITECTS</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-6xl lg:text-7.5xl font-heading font-extrabold text-forest leading-[1.05] tracking-tight mb-8">
-                    Unlocking Capital. <br>
-                    <span class="text-gradient">Securing Enterprise.</span>
-                </h1>
-                
-                <p class="text-lg md:text-xl text-charcoal/80 max-w-2xl mb-10 leading-relaxed font-normal">
-                    Lotan Insurance Limited pioneers structured risk guarantees, credit protection, and bespoke financial security solutions designed for large-scale infrastructure and project development.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-                    <a href="#quote" class="btn-primary w-full sm:w-auto justify-center text-center">
-                        <span>Get Started Now</span>
-                        <i data-feather="arrow-right" class="w-5 h-5"></i>
-                    </a>
-                    <a href="#solutions" class="btn-outline w-full sm:w-auto justify-center text-center">
-                        <span>Explore Solutions</span>
-                        <i data-feather="menu" class="w-5 h-5"></i>
-                    </a>
-                </div>
-                
-                <div class="mt-16 pt-8 border-t border-forest/10 w-full flex flex-wrap items-center gap-8 text-forest/70 font-medium">
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-mint border border-emerald/20 flex items-center justify-center">
-                            <i data-feather="shield" class="w-5 h-5 text-emerald"></i>
+    <main id="main-content">
+
+        <!-- Hero -->
+        <section class="hero-cinematic" aria-labelledby="hero-heading">
+            <canvas id="hero-canvas" class="hero-grid-canvas" aria-hidden="true"></canvas>
+            <div class="hero-mesh" aria-hidden="true"></div>
+            <div class="hero-glow-orb hero-glow-orb--1" aria-hidden="true"></div>
+            <div class="hero-glow-orb hero-glow-orb--2" aria-hidden="true"></div>
+
+            <div class="container-wide w-full relative z-10">
+                <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+                    <div class="lg:col-span-7 gsap-hero-text">
+                        <div class="pill pill-light mb-6">
+                            <span class="relative flex h-2 w-2 shrink-0" aria-hidden="true">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald"></span>
+                            </span>
+                            <span>Financial Architecture · Capital Optimization · Risk Engineering</span>
                         </div>
-                        <div class="flex flex-col">
-                            <span class="text-xs uppercase tracking-wider text-charcoal/40 font-bold leading-none">REGULATED BY</span>
-                            <span class="text-sm font-extrabold text-forest mt-0.5">IRA KENYA</span>
+
+                        <h1 id="hero-heading" class="hero-headline text-forest mb-6">
+                            Engineering<br>
+                            <span class="text-gradient">Financial Architecture.</span>
+                        </h1>
+
+                        <p class="hero-sub mb-4">
+                            Unlocking capital through structured risk. Lotan Insurance Agency Limited positions insurance as a strategic financial instrument — transforming balance sheet constraints into deployable corporate capital.
+                        </p>
+                        <p class="text-sm text-charcoal/55 mb-8 max-w-lg font-medium">
+                            Insurance as a strategic financial instrument · Transforming risk into deployable capital
+                        </p>
+
+                        <div class="flex flex-col sm:flex-row gap-4 mb-10">
+                            <a href="#quote" class="btn-primary w-full sm:w-auto justify-center">
+                                <span>Schedule Strategic Consultation</span>
+                                <i data-feather="arrow-right" class="w-5 h-5" aria-hidden="true"></i>
+                            </a>
+                            <a href="#solutions" class="btn-outline w-full sm:w-auto justify-center">
+                                <span>Explore Financial Architecture</span>
+                                <i data-feather="layers" class="w-5 h-5" aria-hidden="true"></i>
+                            </a>
                         </div>
-                    </div>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-lg bg-mint border border-emerald/20 flex items-center justify-center">
-                            <i data-feather="award" class="w-5 h-5 text-emerald"></i>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-xs uppercase tracking-wider text-charcoal/40 font-bold leading-none">CLIENT RATING</span>
-                            <span class="text-sm font-extrabold text-forest mt-0.5">4.9/5 RATED</span>
+
+                        <div class="flex flex-wrap gap-6 text-xs font-semibold text-charcoal/45 uppercase tracking-wider">
+                            <span class="flex items-center gap-2"><i data-feather="shield" class="w-3.5 h-3.5 text-accent" aria-hidden="true"></i> IRA Regulated</span>
+                            <span class="flex items-center gap-2"><i data-feather="globe" class="w-3.5 h-3.5 text-accent" aria-hidden="true"></i> Global Transaction Ready</span>
+                            <span class="flex items-center gap-2"><i data-feather="bar-chart-2" class="w-3.5 h-3.5 text-accent" aria-hidden="true"></i> Basel-Aligned Structuring</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Right Hero Interactive Graphics -->
-            <div class="lg:col-span-5 relative gsap-hero-img hidden lg:block select-none">
-                <div class="relative w-full aspect-[5/6] max-w-md mx-auto">
-                    <!-- Background Glow -->
-                    <div class="absolute -inset-10 bg-gradient-to-tr from-emerald/30 to-mint/10 rounded-full blur-3xl opacity-60"></div>
-                    
-                    <!-- Decorative Geometric Grid Frame -->
-                    <div class="absolute -inset-4 border border-forest/5 rounded-[2.5rem] pointer-events-none"></div>
-                    
-                    <!-- Main Image Card Container -->
-                    <div class="absolute inset-0 rounded-[2rem] overflow-hidden shadow-2xl bg-forest border border-white/10 group">
-                        <div class="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/40 to-transparent z-10"></div>
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Institutional Finance Protection" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        
-                        <!-- Floating Glassmorphic Stats Overlay -->
-                        <div class="absolute bottom-8 left-8 right-8 z-20 glass p-6 rounded-2xl border border-white/30 shadow-premium">
-                            <div class="flex items-start gap-4 mb-4">
-                                <div class="w-10 h-10 rounded-lg bg-emerald text-white flex items-center justify-center shadow-md animate-float">
-                                    <i data-feather="check-circle" class="w-5 h-5"></i>
+
+                    <div class="lg:col-span-5 gsap-hero-img">
+                        <div class="hero-metrics">
+                            <div class="metric-card metric-card--dark">
+                                <div class="metric-value text-gradient-light">Capital</div>
+                                <div class="metric-label text-white/60">Structured risk → deployable liquidity</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="metric-value text-forest">Tier-1</div>
+                                <div class="metric-label">Institutional underwriting standards</div>
+                            </div>
+                            <div class="metric-card lg:col-span-1">
+                                <div class="metric-value text-accent" id="stat-counter" data-target="15">0</div>
+                                <div class="metric-label">Global sectors served</div>
+                            </div>
+                            <div class="metric-card">
+                                <div class="flex items-center gap-2">
+                                    <i data-feather="check-circle" class="w-5 h-5 text-accent" aria-hidden="true"></i>
+                                    <span class="font-heading font-bold text-forest text-sm">Lender-Grade Documentation</span>
                                 </div>
-                                <div class="flex-grow">
-                                    <h4 class="text-forest font-heading font-bold text-base">Instant Verification</h4>
-                                    <p class="text-charcoal/60 text-xs mt-0.5">IRA License: IRA/05/26054/2026</p>
-                                </div>
-                            </div>
-                            <div class="h-1.5 w-full bg-forest/10 rounded-full overflow-hidden">
-                                <div class="h-full w-full bg-emerald rounded-full origin-left animate-pulse-soft"></div>
+                                <div class="metric-label mt-2">Fortune 500 &amp; DFI transaction readiness</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Continuous Brand Marquee (BloxFi Caliber) -->
-    <section class="py-10 border-y border-slateBorder bg-white overflow-hidden relative">
-        <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 md:px-12 mb-6">
-            <p class="text-center text-[10px] font-bold text-charcoal/40 uppercase tracking-[0.25em]">Underwritten & Structured by Global Leaders</p>
-        </div>
-        
-        <div class="marquee-track w-full">
-            <div class="marquee-inner flex items-center gap-16 text-forest/30 font-heading font-extrabold text-2xl md:text-3xl select-none">
-                <span>MADISON INSURANCE</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>J.P. MORGAN PARTNERS</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>STRIPE NETWORKS</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>AON ALLIANCE</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <!-- Repeated for seamless loop -->
-                <span>MADISON INSURANCE</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>J.P. MORGAN PARTNERS</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>STRIPE NETWORKS</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-                <span>AON ALLIANCE</span>
-                <span class="w-2.5 h-2.5 rounded-full bg-accent/25"></span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solutions / Products Grid (Premium Intersecting Design) -->
-    <section id="solutions" class="py-28 bg-white relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="grid lg:grid-cols-12 gap-8 items-end mb-20">
-                <div class="lg:col-span-8 gsap-fade-up">
-                    <div class="pill pill-light mb-4">Core Offerings</div>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-forest tracking-tight">
-                        Four Institutional <br><span class="text-gradient">Guarantees & Policies</span>
-                    </h2>
-                </div>
-                <div class="lg:col-span-4 gsap-fade-up">
-                    <p class="text-charcoal/60 text-lg leading-relaxed">
-                        Precision-engineered protection frameworks designed to mitigate risk, unlock trapped capital, and secure contract execution.
-                    </p>
+        <!-- Trust Marquee -->
+        <div class="marquee-section" aria-hidden="true">
+            <div class="marquee-track">
+                <div class="marquee-inner">
+                    <span class="marquee-item"><span class="marquee-dot"></span>Basel III / IV Capital Framework</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>International Transaction Readiness</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Project Finance &amp; EPC Structuring</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Trade Finance Ecosystems</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>DFI &amp; Institutional Partnerships</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Credit Protection &amp; Performance Guarantees</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Basel III / IV Capital Framework</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>International Transaction Readiness</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Project Finance &amp; EPC Structuring</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Trade Finance Ecosystems</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>DFI &amp; Institutional Partnerships</span>
+                    <span class="marquee-item"><span class="marquee-dot"></span>Credit Protection &amp; Performance Guarantees</span>
                 </div>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Product Card 1: Credit Protection Policy -->
-                <a href="/products.html#credit-protection" class="product-card product-card-dark flex flex-col justify-between h-[420px] gsap-stagger-card group">
-                    <div>
-                        <div class="icon-box icon-box-white mb-8 group-hover:scale-110 transition-transform duration-300">
-                            <i data-feather="shield" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-heading font-bold mb-4">Credit Protection Policy</h3>
-                        <p class="text-white/80 text-sm leading-relaxed">
-                            Comprehensive balance sheet protection safeguards lenders and borrowers against unforeseen systemic defaults, death, and disability.
+        </div>
+
+        <!-- Stats Bar -->
+        <section class="section-padding section-light gsap-fade-up" aria-label="Key metrics">
+            <div class="container-wide">
+                <div class="stats-bar gsap-counter-box">
+                    <div class="stat-cell">
+                        <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
+                        <div class="stat-caption">Regulatory Compliance</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-number"><span class="counter" data-target="4">0</span>+</div>
+                        <div class="stat-caption">Capital Instruments</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-number"><span class="counter" data-target="5">0</span></div>
+                        <div class="stat-caption">Engagement Phases</div>
+                    </div>
+                    <div class="stat-cell">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-caption">Advisory Access</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Bento -->
+        <section class="section-padding section-light border-y border-slateBorder">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-light mb-4">Strategic Positioning</div>
+                    <h2 class="section-title">Not Selling Policies.<br>Engineering Capital Efficiency.</h2>
+                    <p class="section-desc">Lotan operates at the intersection of risk management, treasury strategy, and institutional capital markets — reframing insurance as sophisticated financial architecture.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bento-card bento-card--mint gsap-stagger-card">
+                        <div class="icon-box icon-box-forest mb-5"><i data-feather="trending-up" class="w-6 h-6" aria-hidden="true"></i></div>
+                        <h3 class="font-heading font-bold text-xl text-forest mb-3">Optimizing Financial Architecture</h3>
+                        <p class="text-charcoal/65 text-sm leading-relaxed">Converting dormant reserves and collateral parameters into active, deployable corporate capital aligned with governance standards.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <div class="icon-box icon-box-emerald mb-5"><i data-feather="unlock" class="w-6 h-6" aria-hidden="true"></i></div>
+                        <h3 class="font-heading font-bold text-xl text-forest mb-3">Unlocking Access to Credit</h3>
+                        <p class="text-charcoal/65 text-sm leading-relaxed">Enabling commercial lenders and international financial institutions to allocate debt with institutional confidence.</p>
+                    </article>
+                    <article class="bento-card bento-card--dark gsap-stagger-card">
+                        <div class="icon-box icon-box-white mb-5"><i data-feather="globe" class="w-6 h-6" aria-hidden="true"></i></div>
+                        <h3 class="font-heading font-bold text-xl mb-3">Capital Market Catalyst</h3>
+                        <p class="text-white/65 text-sm leading-relaxed">Fortune 500-ready balance sheet efficiency through sophisticated regulatory structuring and lender-grade documentation.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Financial Architecture -->
+        <section id="architecture" class="section-padding section-forest relative overflow-hidden">
+            <div class="absolute inset-0 opacity-30" style="background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 4rem 4rem;" aria-hidden="true"></div>
+            <div class="container-wide relative z-10">
+                <div class="grid lg:grid-cols-2 gap-14 items-center">
+                    <div class="gsap-fade-right">
+                        <div class="pill pill-dark mb-5">Financial Architecture</div>
+                        <h2 class="text-3xl md:text-5xl font-heading font-extrabold text-white mb-6 leading-tight">Structured Risk as a Capital Instrument</h2>
+                        <p class="text-white/70 text-lg leading-relaxed mb-8">
+                            We design insurance-led financial structures connecting risk transfer, treasury optimization, and capital efficiency — serving multinational corporations, infrastructure developers, EPC contractors, DFIs, and global financial institutions.
                         </p>
-                    </div>
-                    <div class="flex items-center gap-2 text-accent font-bold text-sm tracking-wide mt-6">
-                        <span>Analyze Coverage</span>
-                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Product Card 2: Performance Security Bond -->
-                <a href="/products.html#performance-bond" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
-                    <div>
-                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
-                            <i data-feather="check-square" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Performance Security Bond</h3>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">
-                            Structured contractor guarantees assuring project developers that large-scale infrastructure developments are executed strictly to terms.
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
-                        <span>Analyze Guarantee</span>
-                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Product Card 3: Advance Payment Guarantee -->
-                <a href="/products.html#advance-payment" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
-                    <div>
-                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
-                            <i data-feather="dollar-sign" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Advance Payment Guarantee</h3>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">
-                            Unlocks early mobilization capital safely. Secures advanced project deposits against contractor failure or contract deviation.
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
-                        <span>Analyze Guarantee</span>
-                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-
-                <!-- Product Card 4: Bid Bond -->
-                <a href="/products.html#bid-bond" class="product-card product-card-light flex flex-col justify-between h-[420px] gsap-stagger-card group">
-                    <div>
-                        <div class="icon-box icon-box-forest mb-8 group-hover:scale-110 transition-transform duration-300">
-                            <i data-feather="award" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Bid Bond</h3>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">
-                            Validates competitive capability. Assures project owners that tender submissions are fully authorized, capable, and financially backed.
-                        </p>
-                    </div>
-                    <div class="flex items-center gap-2 text-forest font-bold text-sm tracking-wide mt-6 group-hover:text-accent transition-colors">
-                        <span>Analyze Guarantee</span>
-                        <i data-feather="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                    </div>
-                </a>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Why Choose Us / Advantage Section -->
-    <section id="why-us" class="py-28 bg-forest text-white relative overflow-hidden">
-        <!-- Subtle noise background -->
-        <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(16,185,129,0.1),transparent_60%)]"></div>
-        
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
-            <div class="grid lg:grid-cols-12 gap-16 items-center">
-                <!-- Left Details -->
-                <div class="lg:col-span-7 gsap-fade-right">
-                    <div class="pill pill-dark mb-6">Why Partner With Lotan</div>
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-8 leading-[1.1]">
-                        Local Rigor. <br><span class="text-accent">Global Executions.</span>
-                    </h2>
-                    <p class="text-white/80 text-lg mb-12 max-w-xl leading-relaxed">
-                        We operate at the intersection of local risk domain intelligence and international corporate compliance, protecting regional growth drivers.
-                    </p>
-                    
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent shrink-0">
-                                <i data-feather="globe" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-lg mb-2 text-white">East African Domain</h4>
-                                <p class="text-white/70 text-sm leading-relaxed">Tailored insights matching the regulatory and capital realities of African frontier economies.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-accent shrink-0">
-                                <i data-feather="activity" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-heading font-bold text-lg mb-2 text-white">Top-Tier Underwriters</h4>
-                                <p class="text-white/70 text-sm leading-relaxed">Guarantees structured under global AA-rated balance sheet limits for ultimate security.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right Graphic Counter -->
-                <div class="lg:col-span-5 relative gsap-fade-left">
-                    <div class="relative w-full aspect-square max-w-sm mx-auto rounded-[2.5rem] overflow-hidden shadow-premium">
-                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Corporate Teamwork" class="w-full h-full object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-forest via-forest/35 to-transparent"></div>
-                        
-                        <!-- Floating Glass counter card -->
-                        <div class="absolute -bottom-6 -left-6 bg-white text-forest p-8 rounded-2xl shadow-premium border border-slateBorder max-w-[240px] gsap-counter-box">
-                            <div class="flex items-baseline font-heading font-extrabold text-forest mb-2">
-                                <span class="stat-number text-5xl" id="claim-counter" data-target="98">0</span>
-                                <span class="text-3xl text-accent">%</span>
-                            </div>
-                            <p class="text-charcoal/40 text-[10px] font-bold uppercase tracking-wider leading-relaxed">Claims settlement execution score in 2025</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Engagement Process Timeline -->
-    <section id="claims" class="py-28 bg-sage relative">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="text-center max-w-3xl mx-auto mb-20 gsap-fade-up">
-                <div class="pill pill-light mb-4">Structured Process</div>
-                <h2 class="text-4xl md:text-5xl font-heading font-extrabold text-forest mb-6">Our Engagement Framework</h2>
-                <p class="text-charcoal/60 text-lg">Four steps to underwriting corporate growth, securing assets, and finalizing guarantees.</p>
-            </div>
-            
-            <div class="grid md:grid-cols-4 gap-8 relative">
-                <!-- Step 1 -->
-                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
-                    <div>
-                        <div class="step-number bg-mint text-forest mb-6">01</div>
-                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Discovery</h4>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">Evaluation of project cashflows, security constraints, and credit needs.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
-                    <div>
-                        <div class="step-number bg-mint text-forest mb-6">02</div>
-                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Assessment</h4>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">Strict underwriting verification utilizing modern risk modelling parameters.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
-                    <div>
-                        <div class="step-number bg-accent text-white mb-6">03</div>
-                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Structure Design</h4>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">Customizing indemnity contracts and credit protection structures.</p>
-                    </div>
-                </div>
-                
-                <!-- Step 4 -->
-                <div class="bg-white p-8 rounded-2xl border border-slateBorder shadow-premium gsap-stagger-step flex flex-col justify-between h-64">
-                    <div>
-                        <div class="step-number bg-mint text-forest mb-6">04</div>
-                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Operational Execution</h4>
-                        <p class="text-charcoal/60 text-sm leading-relaxed">Finalizing legally binding guarantees and ongoing risk monitoring.</p>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </section>
-
-    <!-- Request Form Section -->
-    <section id="quote" class="py-28 bg-white relative">
-        <div class="max-w-4xl mx-auto px-6 md:px-12">
-            <div class="cta-banner p-10 md:p-16 text-center text-white relative shadow-premium">
-                
-                <h2 class="text-3xl md:text-5xl font-heading font-extrabold mb-6 relative z-10">Initiate Secure Advisory</h2>
-                <p class="text-white/80 mb-12 max-w-xl mx-auto relative z-10 leading-relaxed">Submit details of your project or credit needs. Our underwriting specialists will review and get in touch within 24 hours.</p>
-                
-                <!-- Premium Glassmorphic Form Card -->
-                <form id="pipeline-form" class="relative z-10 bg-white text-left p-8 rounded-2xl shadow-2xl border border-slateBorder">
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label for="firstName" class="form-label">Full Name</label>
-                            <input type="text" id="firstName" required class="form-input" placeholder="Jane Doe">
-                        </div>
-                        <div>
-                            <label for="email" class="form-label">Corporate Email</label>
-                            <input type="email" id="email" required class="form-input" placeholder="jane@corporation.com">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <label for="product" class="form-label">Desired Security Product</label>
-                            <select id="product" class="form-input bg-mint">
-                                <option>Credit Protection Policy</option>
-                                <option>Performance Security Bond</option>
-                                <option>Advance Payment Guarantee</option>
-                                <option>Bid Bond</option>
-                                <option>Marine & Transit Insurance</option>
-                                <option>Other Specialized Solutions</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="phone" class="form-label">Phone Contact</label>
-                            <input type="tel" id="phone" required class="form-input" placeholder="+254 ...">
-                        </div>
-                    </div>
-                    
-                    <!-- Hidden Form elements mapped to CRM pipeline requirements -->
-                    <input type="hidden" id="lastName" value="-">
-                    <input type="hidden" id="company" value="-">
-                    <input type="hidden" id="value" value="0">
-                    <input type="hidden" id="needs" value="Website Quote Request">
-                    
-                    <button type="submit" class="w-full bg-forest hover:bg-accent text-white font-bold py-4 rounded-xl shadow-md transition-all duration-300 flex justify-center items-center gap-2 group">
-                        <span>Submit Secure Advisory Request</span>
-                        <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    
-                    <div id="form-alert" class="mt-6 hidden rounded-xl p-4 text-sm font-semibold"></div>
-                </form>
-                
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer Section -->
-    <footer class="bg-sage pt-20 pb-12 border-t border-slateBorder relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="grid md:grid-cols-12 gap-12 mb-16">
-                <!-- Branding column -->
-                <div class="md:col-span-5 flex flex-col items-start justify-between">
-                    <div>
-                        <a href="/" class="flex items-center gap-3 mb-6">
-                            <div class="w-8 h-8 rounded-lg bg-forest text-white flex items-center justify-center font-heading font-extrabold shadow-sm">
-                                L
-                            </div>
-                            <span class="font-heading font-extrabold text-lg text-forest tracking-tight">Lotan Insurance Limited</span>
+                        <ul class="space-y-4 text-white/80 text-sm">
+                            <li class="flex items-start gap-3"><i data-feather="check" class="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true"></i><span>Objective advisory without product bias — balance sheet outcomes first</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="check" class="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true"></i><span>Documentation meeting international lender and capital market standards</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="check" class="w-5 h-5 text-accent shrink-0 mt-0.5" aria-hidden="true"></i><span>Continuous compliance monitoring and portfolio governance</span></li>
+                        </ul>
+                        <a href="#quote" class="btn-white mt-10 inline-flex">
+                            <span>Discuss Capital Optimization</span>
+                            <i data-feather="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
                         </a>
-                        <p class="text-charcoal/60 text-sm max-w-sm leading-relaxed mb-6">
-                            Your trusted corporate risk partner. Delivering global-standard guarantees, credit protection policies, and specialized asset mitigation across East Africa.
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 gsap-fade-left">
+                        <div class="glass-card rounded-2xl p-6">
+                            <div class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Risk Transfer</div>
+                            <p class="text-white/75 text-sm">Credit events, performance obligations, and contingent liabilities structured for capital relief.</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 mt-8">
+                            <div class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Treasury Strategy</div>
+                            <p class="text-white/75 text-sm">Liquidity preservation through guarantee instruments replacing cash collateral.</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6">
+                            <div class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Capital Markets</div>
+                            <p class="text-white/75 text-sm">Bankable security structures for project finance and trade finance ecosystems.</p>
+                        </div>
+                        <div class="glass-card rounded-2xl p-6 mt-8">
+                            <div class="text-accent text-xs font-bold uppercase tracking-widest mb-2">Governance</div>
+                            <p class="text-white/75 text-sm">Audit-ready frameworks aligned with institutional due diligence requirements.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Lotan -->
+        <section id="why-us" class="section-padding section-sage relative overflow-hidden">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-light mb-4">The Lotan Advantage</div>
+                    <h2 class="section-title">Why Sophisticated Capital Optimizers Choose Lotan</h2>
+                    <p class="section-desc">Our clients recognize insurance as a financial tool, not a commodity. They require objective advisory driven by balance sheet outcomes and capital efficiency.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Objective Financial Engineering</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Risk structures that unlock capital without product bias, serving broader financial objectives.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Financial Architecture Expertise</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Deep experience connecting risk transfer, treasury strategy, and capital efficiency.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Capital Market Ready</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Solutions meeting rigorous standards of international lenders and global capital markets.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Balance Sheet Optimization</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Restructuring risk to free capital — insurance as business continuity, not commodity.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Enabling Growth</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Partnership with multinational banks and enterprises to unlock capital for complex sectors.</p>
+                    </article>
+                    <article class="bento-card gsap-stagger-card">
+                        <h4 class="font-heading font-bold text-lg text-forest mb-2">Proven Capital Unlocking</h4>
+                        <p class="text-charcoal/60 text-sm leading-relaxed">Track record of turning complex risk into usable capital and preserved liquidity.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solutions -->
+        <section id="solutions" class="section-padding section-light border-b border-slateBorder">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-light mb-4">Capital Unlocking Instruments</div>
+                    <h2 class="section-title">Core Capital Instruments</h2>
+                    <p class="section-desc">Sophisticated risk-transfer solutions engineered to bypass liquidity constraints and accelerate institutional deployment.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <article class="product-card product-card-featured gsap-stagger-card">
+                        <div class="product-tag">Credit Optimization</div>
+                        <h3 class="text-2xl font-heading font-bold mb-4">Loan Enablement Instrument</h3>
+                        <p class="text-white/70 text-sm leading-relaxed mb-8 flex-grow">
+                            Structured credit protection transforming borrower exposure into an insurable credit event — lowering risk-weighted asset pressure for lenders.
                         </p>
+                        <a href="/products.html#credit-protection" class="text-accent font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                            Explore Credit Protection <i data-feather="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                    <article class="product-card product-card-light gsap-stagger-card">
+                        <div class="product-tag">Project Support</div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Project Financing Enabler</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed mb-8 flex-grow">
+                            Satisfies EPC lender risk allocation criteria — converting contingent execution risk into bankable performance security.
+                        </p>
+                        <a href="/products.html#performance-bond" class="text-emerald font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                            Performance Bonds <i data-feather="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                    <article class="product-card product-card-light gsap-stagger-card">
+                        <div class="product-tag">Liquidity Acceleration</div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Mobilization Capital</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed mb-8 flex-grow">
+                            Secures upfront mobilization and advance payment commitments — avoiding project-launch cash drag on retained earnings.
+                        </p>
+                        <a href="/products.html#advance-payment" class="text-emerald font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                            Advance Payment Guarantees <i data-feather="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                    <article class="product-card product-card-light gsap-stagger-card">
+                        <div class="product-tag">Tender Credibility</div>
+                        <h3 class="text-2xl font-heading font-bold text-forest mb-4">Competitive Financing Tool</h3>
+                        <p class="text-charcoal/60 text-sm leading-relaxed mb-8 flex-grow">
+                            High-capacity bid participation via bid security and underwriting proof — without tying up physical cash collateral.
+                        </p>
+                        <a href="/products.html#bid-bond" class="text-emerald font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                            Bid Bonds <i data-feather="arrow-right" class="w-4 h-4" aria-hidden="true"></i>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section id="industries" class="section-padding section-sage">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-light mb-4">Industries We Serve</div>
+                    <h2 class="section-title">Global Institutional Footprint</h2>
+                    <p class="section-desc">Uncompromising protection structures deployed across sectors demanding lender-grade certainty.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="briefcase" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">Financial Institutions</h4><p class="text-charcoal/55 text-xs">Sovereign &amp; regional lenders securing debt portfolios</p></div></div>
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="hard-drive" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">Infrastructure &amp; EPC</h4><p class="text-charcoal/55 text-xs">Major civic development &amp; project finance</p></div></div>
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="truck" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">Trade Finance</h4><p class="text-charcoal/55 text-xs">Global shipping &amp; logistics ecosystems</p></div></div>
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="globe" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">Multinational Corporations</h4><p class="text-charcoal/55 text-xs">Regional entities under strict compliance</p></div></div>
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="layers" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">DFIs &amp; Development Finance</h4><p class="text-charcoal/55 text-xs">Structured guarantees for emerging markets</p></div></div>
+                    <div class="industry-chip gsap-stagger-card"><div class="icon-box icon-box-emerald"><i data-feather="trending-up" class="w-5 h-5" aria-hidden="true"></i></div><div><h4 class="font-heading font-bold text-forest text-sm mb-1">Private Capital</h4><p class="text-charcoal/55 text-xs">Fast-scaling enterprises &amp; private placement</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="claims" class="section-padding section-light border-y border-slateBorder">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-light mb-4">Engagement Sequence</div>
+                    <h2 class="section-title">How We Engage</h2>
+                    <p class="section-desc">A disciplined path from initial scoping to operational deployment and ongoing advisory.</p>
+                </div>
+                <div class="process-grid no-scrollbar">
+                    <div class="step-card gsap-stagger-step"><div class="step-number bg-mint text-forest">1</div><h4 class="font-heading font-bold text-forest text-base mb-2">Initial Consultation</h4><p class="text-charcoal/50 text-xs leading-relaxed">Clarifying goals, operating environments, and covenant barriers.</p></div>
+                    <div class="step-card gsap-stagger-step"><div class="step-number bg-mint text-forest">2</div><h4 class="font-heading font-bold text-forest text-base mb-2">Needs Assessment</h4><p class="text-charcoal/50 text-xs leading-relaxed">Balance sheet pressures and regulatory parameter review.</p></div>
+                    <div class="step-card gsap-stagger-step"><div class="step-number bg-mint text-forest">3</div><h4 class="font-heading font-bold text-forest text-base mb-2">Solution Design</h4><p class="text-charcoal/50 text-xs leading-relaxed">Structures aligned to governance and lender standards.</p></div>
+                    <div class="step-card step-card--active gsap-stagger-step"><div class="step-number bg-accent text-white">4</div><h4 class="font-heading font-bold text-forest text-base mb-2">Implementation</h4><p class="text-charcoal/50 text-xs leading-relaxed">Guarantees and policies under strict audit readiness.</p></div>
+                    <div class="step-card gsap-stagger-step"><div class="step-number bg-mint text-forest">5</div><h4 class="font-heading font-bold text-forest text-base mb-2">Ongoing Advisory</h4><p class="text-charcoal/50 text-xs leading-relaxed">Compliance monitoring, adjustments, and portfolio reviews.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust & Regulatory -->
+        <section id="trust" class="section-padding section-dark">
+            <div class="container-wide">
+                <div class="section-header gsap-fade-up">
+                    <div class="pill pill-dark mb-4">Regulatory Credentials</div>
+                    <h2 class="section-title">Institutional Trust &amp; Compliance</h2>
+                    <p class="section-desc">Enterprise legitimacy, global capability, and regulatory sophistication — verified from first contact.</p>
+                </div>
+                <div class="trust-grid gsap-fade-up">
+                    <div class="trust-item">
+                        <i data-feather="shield" class="w-6 h-6 text-accent mb-4" aria-hidden="true"></i>
+                        <h4 class="font-heading font-bold text-white mb-2">IRA Licensed</h4>
+                        <p class="text-white/60 text-sm">Fully regulated under the Insurance Regulatory Authority of Kenya.</p>
+                        <p class="text-accent font-mono text-xs mt-3 font-semibold">IRA/05/26054/2026</p>
                     </div>
-                    <div class="flex gap-4 text-forest/50">
-                        <a href="#" aria-label="LinkedIn Profile" class="hover:text-accent transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
-                        <a href="#" aria-label="Twitter Profile" class="hover:text-accent transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
+                    <div class="trust-item">
+                        <i data-feather="file-text" class="w-6 h-6 text-accent mb-4" aria-hidden="true"></i>
+                        <h4 class="font-heading font-bold text-white mb-2">Governance Framework</h4>
+                        <p class="text-white/60 text-sm">Audit-ready documentation and institutional due diligence alignment.</p>
+                    </div>
+                    <div class="trust-item">
+                        <i data-feather="bar-chart" class="w-6 h-6 text-accent mb-4" aria-hidden="true"></i>
+                        <h4 class="font-heading font-bold text-white mb-2">Basel-Aligned Structuring</h4>
+                        <p class="text-white/60 text-sm">Capital framework parameters for lender-grade risk-weight optimization.</p>
+                    </div>
+                    <div class="trust-item">
+                        <i data-feather="users" class="w-6 h-6 text-accent mb-4" aria-hidden="true"></i>
+                        <h4 class="font-heading font-bold text-white mb-2">Global Partnerships</h4>
+                        <p class="text-white/60 text-sm">Collaborative ties with top international underwriters for maximum scale.</p>
                     </div>
                 </div>
-                
-                <!-- Quick links -->
+            </div>
+        </section>
+
+        <!-- Insights -->
+        <section id="insights" class="section-padding section-sage">
+            <div class="container-wide">
+                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 gsap-fade-up">
+                    <div class="max-w-xl">
+                        <div class="pill pill-light mb-4">Thought Leadership</div>
+                        <h2 class="section-title text-left">Financial Architecture Insights</h2>
+                        <p class="section-desc text-left">Strategic intelligence on risk engineering, capital optimization, and institutional market trends.</p>
+                    </div>
+                    <a href="#quote" class="btn-outline shrink-0 self-start md:self-auto">Request Advisory Brief</a>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="insight-card gsap-stagger-card">
+                        <div class="h-40 bg-gradient-to-br from-forest to-emerald/80" aria-hidden="true"></div>
+                        <div class="insight-card-body">
+                            <div class="insight-meta mb-2">Capital Optimization</div>
+                            <h3 class="font-heading font-bold text-forest text-base mb-2">Transforming Risk Into Deployable Capital</h3>
+                            <p class="text-charcoal/55 text-xs leading-relaxed">How structured credit protection unlocks balance sheet efficiency for enterprise borrowers.</p>
+                        </div>
+                    </article>
+                    <article class="insight-card gsap-stagger-card">
+                        <div class="h-40 bg-gradient-to-br from-charcoal to-forest" aria-hidden="true"></div>
+                        <div class="insight-card-body">
+                            <div class="insight-meta mb-2">Infrastructure Finance</div>
+                            <h3 class="font-heading font-bold text-forest text-base mb-2">EPC Risk Allocation in Project Finance</h3>
+                            <p class="text-charcoal/55 text-xs leading-relaxed">Performance security bonds as bankable instruments in international project pipelines.</p>
+                        </div>
+                    </article>
+                    <article class="insight-card gsap-stagger-card">
+                        <div class="h-40 bg-gradient-to-br from-emerald to-mint" aria-hidden="true"></div>
+                        <div class="insight-card-body">
+                            <div class="insight-meta mb-2">Regulatory Capital</div>
+                            <h3 class="font-heading font-bold text-forest text-base mb-2">Basel Framework &amp; Insurance-Led Relief</h3>
+                            <p class="text-charcoal/55 text-xs leading-relaxed">Institutional commentary on risk-weighted assets and guarantee structuring.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation Form -->
+        <section id="quote" class="section-padding section-light">
+            <div class="container-wide max-w-4xl">
+                <div class="cta-banner p-8 md:p-14 text-center text-white shadow-premium">
+                    <h2 class="text-3xl md:text-4xl font-heading font-extrabold mb-4 relative z-10">Request Structured Risk Advisory</h2>
+                    <p class="text-white/75 mb-10 max-w-lg mx-auto relative z-10 text-sm md:text-base leading-relaxed">
+                        Explore how we transform risk management into strategic capital deployment. Submit your institutional inquiry below.
+                    </p>
+
+                    <form id="pipeline-form" class="relative z-10 bg-white text-left p-6 md:p-8 rounded-2xl shadow-2xl border border-slateBorder" novalidate>
+                        <div class="grid md:grid-cols-2 gap-5 mb-5">
+                            <div>
+                                <label for="firstName" class="form-label">Full Name</label>
+                                <input type="text" id="firstName" name="firstName" required class="form-input" placeholder="Jane Doe" autocomplete="name">
+                            </div>
+                            <div>
+                                <label for="email" class="form-label">Corporate Email</label>
+                                <input type="email" id="email" name="email" required class="form-input" placeholder="underwriting@company.com" autocomplete="email">
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-5 mb-6">
+                            <div>
+                                <label for="product" class="form-label">Desired Capital Instrument</label>
+                                <select id="product" name="product" class="form-input bg-mint text-forest font-semibold">
+                                    <option>Credit Protection Policy</option>
+                                    <option>Performance Security Bond</option>
+                                    <option>Advance Payment Guarantee</option>
+                                    <option>Bid Bond</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="phone" class="form-label">Phone Contact</label>
+                                <input type="tel" id="phone" name="phone" required class="form-input" placeholder="+254 ..." autocomplete="tel">
+                            </div>
+                        </div>
+                        <input type="hidden" id="lastName" value="-">
+                        <input type="hidden" id="company" value="-">
+                        <input type="hidden" id="value" value="0">
+                        <input type="hidden" id="needs" value="Website Quote Request">
+
+                        <button type="submit" class="w-full bg-forest hover:bg-accent text-white font-bold py-4 rounded-xl shadow-md transition-all duration-300 flex justify-center items-center gap-2 group">
+                            <span>Submit Secure Advisory Request</span>
+                            <i data-feather="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                        </button>
+                        <div id="form-alert" class="mt-5 hidden rounded-xl p-4 text-sm font-semibold" role="alert"></div>
+                    </form>
+                    <p class="relative z-10 mt-6 text-white/50 text-xs">
+                        Prefer direct contact? <a href="mailto:info@lia.insure" class="text-accent hover:underline">info@lia.insure</a>
+                        · Also available: <a href="#quote" class="text-white/70 hover:text-accent underline">Get a Quote</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-sage pt-16 pb-10 border-t border-slateBorder">
+        <div class="container-wide">
+            <div class="grid md:grid-cols-12 gap-12 mb-14">
+                <div class="md:col-span-5">
+                    <a href="/" class="flex items-center gap-3 mb-5">
+                        <div class="w-9 h-9 rounded-lg bg-forest text-white flex items-center justify-center font-heading font-extrabold shadow-sm">L</div>
+                        <span class="font-heading font-extrabold text-lg text-forest tracking-tight">Lotan Insurance Agency</span>
+                    </a>
+                    <p class="text-charcoal/55 text-sm max-w-sm leading-relaxed">
+                        Engineering financial architecture for global enterprises. Institutional guarantees, credit protection, and capital optimization across East Africa and international markets.
+                    </p>
+                </div>
                 <div class="md:col-span-3">
-                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Security Offerings</h5>
-                    <ul class="space-y-4 text-sm text-charcoal/60">
-                        <li><a href="/products.html#credit-protection" class="hover:text-accent transition-colors">Credit Protection Policy</a></li>
-                        <li><a href="/products.html#performance-bond" class="hover:text-accent transition-colors">Performance Security Bond</a></li>
-                        <li><a href="/products.html#advance-payment" class="hover:text-accent transition-colors">Advance Payment Guarantee</a></li>
-                        <li><a href="/products.html#bid-bond" class="hover:text-accent transition-colors">Bid Bond</a></li>
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-5">Solutions</h5>
+                    <ul class="space-y-3">
+                        <li><a href="/products.html#credit-protection" class="footer-link">Credit Protection Policy</a></li>
+                        <li><a href="/products.html#performance-bond" class="footer-link">Performance Security Bond</a></li>
+                        <li><a href="/products.html#advance-payment" class="footer-link">Advance Payment Guarantee</a></li>
+                        <li><a href="/products.html#bid-bond" class="footer-link">Bid Bond</a></li>
                     </ul>
                 </div>
-                
-                <!-- Contact info -->
-                <div class="md:col-span-4">
-                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Corporate Office</h5>
-                    <ul class="space-y-4 text-sm text-charcoal/60">
-                        <li class="flex items-start gap-3"><i data-feather="map-pin" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>Nairobi, Kenya</span></li>
-                        <li class="flex items-start gap-3"><i data-feather="mail" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>info@lotan.insure</span></li>
-                        <li class="flex items-start gap-3"><i data-feather="phone" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>+254 700 000 000</span></li>
+                <div class="md:col-span-2">
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-5">Company</h5>
+                    <ul class="space-y-3">
+                        <li><a href="/about.html" class="footer-link">About Lotan</a></li>
+                        <li><a href="#architecture" class="footer-link">Financial Architecture</a></li>
+                        <li><a href="#trust" class="footer-link">Regulatory Credentials</a></li>
+                        <li><a href="#quote" class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="md:col-span-2">
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-5">Office</h5>
+                    <ul class="space-y-3 text-sm text-charcoal/55">
+                        <li class="flex items-start gap-2"><i data-feather="map-pin" class="text-accent w-4 h-4 shrink-0 mt-0.5" aria-hidden="true"></i> Nairobi, Kenya</li>
+                        <li class="flex items-start gap-2"><i data-feather="mail" class="text-accent w-4 h-4 shrink-0 mt-0.5" aria-hidden="true"></i> info@lia.insure</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="pt-8 border-t border-slateBorder flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-charcoal/50">
-                <p>&copy; 2026 Lotan Insurance Limited. All rights reserved.</p>
-                <div class="flex flex-wrap gap-6 items-center">
+                <p>&copy; 2026 Lotan Insurance Agency Limited. All rights reserved.</p>
+                <div class="flex flex-wrap gap-5 items-center justify-center">
                     <span class="font-semibold text-forest">IRA Licence No: IRA/05/26054/2026</span>
-                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
                 </div>
             </div>
-            
         </div>
     </footer>
 
-    <!-- Glassmorphic AI Chat Widget -->
-    <div id="ai-chat-widget" class="fixed bottom-6 right-6 w-80 bg-white/95 border border-slateBorder rounded-2xl shadow-2xl z-50 transform translate-y-[calc(100%-48px)] transition-transform duration-300">
+    <!-- AI Chat -->
+    <div id="ai-chat-widget" class="fixed bottom-5 right-5 w-80 bg-white/95 border border-slateBorder rounded-2xl shadow-2xl z-50 transform translate-y-[calc(100%-48px)] transition-transform duration-300" role="complementary" aria-label="Risk advisor chat">
         <div id="ai-chat-header" class="bg-forest text-white p-3.5 rounded-t-2xl flex justify-between items-center cursor-pointer select-none">
             <div class="flex items-center gap-2">
-                <div class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-accent animate-pulse" aria-hidden="true"></div>
                 <span class="text-xs font-bold uppercase tracking-wider">Lotan Risk Advisor</span>
             </div>
-            <i data-feather="chevron-up" class="w-4 h-4 transition-transform duration-300" id="chat-chevron"></i>
+            <i data-feather="chevron-up" class="w-4 h-4 transition-transform duration-300" id="chat-chevron" aria-hidden="true"></i>
         </div>
-        <div class="h-80 flex flex-col bg-platinum">
-            <div id="ai-chat-messages" class="flex-grow p-4 overflow-y-auto flex flex-col gap-3">
+        <div class="h-72 flex flex-col bg-platinum">
+            <div id="ai-chat-messages" class="flex-grow p-4 overflow-y-auto flex flex-col gap-3" aria-live="polite">
                 <div class="bg-white border border-slateBorder text-xs p-3 rounded-xl rounded-tl-none self-start shadow-sm text-charcoal max-w-[85%] leading-relaxed">
-                    Hello! I'm your Lotan Risk Advisor. How can I assist you with credit protection or contract guarantees today?
+                    Hello! I'm your Lotan Risk Advisor. How can I assist with credit protection or contract guarantees today?
                 </div>
             </div>
             <div class="p-3 border-t border-slateBorder bg-white rounded-b-2xl">
                 <div class="flex items-center gap-2 bg-platinum rounded-full px-3 py-2 border border-slateBorder">
-                    <input type="text" id="ai-chat-input" placeholder="Ask a question..." class="bg-transparent border-none outline-none text-xs w-full text-charcoal">
-                    <button id="ai-chat-send" class="text-forest hover:text-accent transition-colors">
-                        <i data-feather="send" class="w-4 h-4"></i>
+                    <input type="text" id="ai-chat-input" placeholder="Ask a question..." class="bg-transparent border-none outline-none text-xs w-full text-charcoal" aria-label="Chat message">
+                    <button id="ai-chat-send" class="text-forest hover:text-accent transition-colors" aria-label="Send message">
+                        <i data-feather="send" class="w-4 h-4" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Initialization Scripts -->
     <script src="/js/app.js"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <script src="https://unpkg.com/feather-icons"></script>
     
@@ -46,75 +46,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white noise-overlay">
+<body class="bg-platinum text-charcoal font-sans antialiased overflow-x-hidden selection:bg-accent selection:text-white">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Global Progress Bar -->
     <div id="scroll-progress" class="fixed top-0 left-0 h-[3px] bg-accent z-[60] w-0 transition-all duration-100"></div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent bg-white/50 backdrop-blur-md">
-        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-5 border-b border-transparent bg-white/60 backdrop-blur-lg">
+        <div class="container-wide flex justify-between items-center">
             <a href="/" class="flex items-center gap-3 group">
-                <div class="relative w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">
-                    L
-                    <div class="absolute inset-0 rounded-xl border border-white/20"></div>
-                </div>
+                <div class="relative w-10 h-10 rounded-xl bg-forest text-white flex items-center justify-center font-heading font-extrabold text-lg shadow-md group-hover:scale-105 transition-transform duration-300">L</div>
                 <div class="flex flex-col">
                     <span class="font-heading font-extrabold text-base tracking-tight text-forest leading-none">LOTAN</span>
-                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold mt-1">Insurance Limited</span>
+                    <span class="text-[10px] uppercase tracking-widest text-accent font-semibold mt-1">Insurance Agency</span>
                 </div>
             </a>
-            
-            <div class="hidden lg:flex items-center space-x-10">
-                <a href="/index.html#solutions" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Solutions</a>
-                <a href="/index.html#why-us" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">The Lotan Advantage</a>
-                <a href="/index.html#claims" class="text-sm font-semibold text-forest/70 hover:text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-accent hover:after:w-full after:transition-all after:duration-300">Process</a>
-                <a href="/about.html" class="text-sm font-semibold text-accent transition-colors relative py-2 after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-accent after:transition-all after:duration-300">About Us</a>
+            <div class="hidden xl:flex items-center gap-8">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/index.html#solutions" class="nav-link">Solutions</a>
+                <a href="/about.html" class="nav-link active">About Us</a>
+                <a href="/index.html#trust" class="nav-link">Credentials</a>
             </div>
-            
-            <div class="hidden lg:flex items-center space-x-4">
-                <a href="/index.html#quote" class="bg-forest hover:bg-emerald text-white text-sm font-medium px-6 py-2.5 rounded-full transition-all shadow-lg">
-                    Get a Quote
-                </a>
+            <div class="hidden lg:flex items-center gap-5">
+                <a href="/index.html#quote" class="btn-primary"><span>Get a Quote</span><i data-feather="arrow-up-right" class="w-4 h-4"></i></a>
             </div>
-
-            <!-- Mobile Menu Toggle -->
-            <button class="lg:hidden text-forest focus:outline-none p-2 rounded-lg hover:bg-forest/5" id="mobile-menu-btn" aria-label="Toggle Menu">
-                <i data-feather="menu" class="w-6 h-6"></i>
-            </button>
+            <button class="lg:hidden text-forest p-2 rounded-lg hover:bg-forest/5" id="mobile-menu-btn" aria-label="Open menu"><i data-feather="menu" class="w-6 h-6"></i></button>
         </div>
     </nav>
-
-    <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="fixed inset-0 bg-forest/98 backdrop-blur-xl z-40 hidden flex-col justify-center items-center opacity-0 transition-all duration-300">
-        <button class="absolute top-6 right-6 text-white p-2" id="mobile-menu-close" aria-label="Close Menu">
-            <i data-feather="x" class="w-8 h-8"></i>
-        </button>
-        <div class="flex flex-col items-center space-y-8 text-center">
-            <a href="/index.html#solutions" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Solutions</a>
-            <a href="/index.html#why-us" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">The Lotan Advantage</a>
-            <a href="/index.html#claims" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">Process</a>
-            <a href="/about.html" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent transition-colors">About Us</a>
-            <div class="h-[1px] w-24 bg-white/20 my-4"></div>
-            <a href="/index.html#quote" class="mobile-link text-lg font-bold text-white/80 hover:text-accent transition-colors">Client Login</a>
-            <a href="/index.html#quote" class="bg-accent hover:bg-white hover:text-forest text-white text-lg font-bold px-10 py-4 rounded-full transition-all shadow-glow">
-                Request Quote
-            </a>
+        <button class="absolute top-6 right-6 text-white p-2" id="mobile-menu-close" aria-label="Close menu"><i data-feather="x" class="w-8 h-8"></i></button>
+        <div class="flex flex-col items-center space-y-7 text-center">
+            <a href="/" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent">Home</a>
+            <a href="/index.html#solutions" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent">Solutions</a>
+            <a href="/about.html" class="mobile-link text-2xl font-heading font-semibold text-white hover:text-accent">About Us</a>
+            <a href="/index.html#quote" class="bg-accent text-white text-lg font-bold px-10 py-4 rounded-full mt-4">Get a Quote</a>
         </div>
     </div>
 
+    <main id="main-content">
     <!-- Header Section -->
-    <section class="pt-40 pb-20 bg-mint text-forest relative overflow-hidden">
+    <section class="pt-36 pb-20 section-forest relative overflow-hidden">
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#064e3b08_1px,transparent_1px),linear-gradient(to_bottom,#064e3b08_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
         <div class="absolute -top-[10%] -right-[10%] w-[50%] h-[70%] rounded-full bg-accent/10 blur-[120px]"></div>
         
-        <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center gsap-fade-up-hero">
-            <div class="pill pill-light mb-6">
-                <span>Who We Are</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-heading font-extrabold mb-6 tracking-tight text-gradient">Our Identity.</h1>
-            <p class="text-lg md:text-xl text-forest/80 max-w-2xl mx-auto leading-relaxed">
-                Lotan Insurance Limited structures elite risk protection, bridging the gap between complexity and complete transactional peace of mind.
+        <div class="container-wide relative z-10 text-center gsap-fade-up">
+            <div class="pill pill-dark mb-6"><span>Who We Are</span></div>
+            <h1 class="text-4xl md:text-6xl font-heading font-extrabold mb-6 tracking-tight text-white">Our Identity.</h1>
+            <p class="text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
+                Lotan Insurance Agency Limited structures elite risk protection — bridging complexity and complete transactional certainty for institutional capital allocators.
             </p>
         </div>
     </section>
@@ -290,53 +270,43 @@
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer class="bg-sage pt-20 pb-12 border-t border-slateBorder relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-6 md:px-12">
-            
-            <div class="grid md:grid-cols-12 gap-12 mb-16">
-                <div class="md:col-span-6 flex flex-col items-start justify-between">
-                    <div>
-                        <a href="/" class="flex items-center gap-3 mb-6">
-                            <div class="w-8 h-8 rounded-lg bg-forest text-white flex items-center justify-center font-heading font-extrabold shadow-sm">
-                                L
-                            </div>
-                            <span class="font-heading font-extrabold text-lg text-forest tracking-tight">Lotan Insurance Limited</span>
-                        </a>
-                        <p class="text-charcoal/60 text-sm max-w-sm leading-relaxed mb-6">
-                            Your trusted corporate risk partner. Delivering global-standard guarantees, credit protection policies, and specialized asset mitigation across East Africa.
-                        </p>
-                    </div>
+    </main>
+
+    <footer class="bg-sage pt-16 pb-10 border-t border-slateBorder">
+        <div class="container-wide">
+            <div class="grid md:grid-cols-12 gap-12 mb-14">
+                <div class="md:col-span-5">
+                    <a href="/" class="flex items-center gap-3 mb-5">
+                        <div class="w-9 h-9 rounded-lg bg-forest text-white flex items-center justify-center font-heading font-extrabold">L</div>
+                        <span class="font-heading font-extrabold text-lg text-forest">Lotan Insurance Agency</span>
+                    </a>
+                    <p class="text-charcoal/55 text-sm max-w-sm leading-relaxed">Engineering financial architecture for global enterprises across East Africa and international markets.</p>
                 </div>
-                
                 <div class="md:col-span-3">
-                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Security Offerings</h5>
-                    <ul class="space-y-4 text-sm text-charcoal/60">
-                        <li><a href="/products.html#credit-protection" class="hover:text-accent transition-colors">Credit Protection Policy</a></li>
-                        <li><a href="/products.html#performance-bond" class="hover:text-accent transition-colors">Performance Security Bond</a></li>
-                        <li><a href="/products.html#advance-payment" class="hover:text-accent transition-colors">Advance Payment Guarantee</a></li>
-                        <li><a href="/products.html#bid-bond" class="hover:text-accent transition-colors">Bid Bond</a></li>
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-5">Solutions</h5>
+                    <ul class="space-y-3">
+                        <li><a href="/products.html#credit-protection" class="footer-link">Credit Protection Policy</a></li>
+                        <li><a href="/products.html#performance-bond" class="footer-link">Performance Security Bond</a></li>
+                        <li><a href="/products.html#advance-payment" class="footer-link">Advance Payment Guarantee</a></li>
+                        <li><a href="/products.html#bid-bond" class="footer-link">Bid Bond</a></li>
                     </ul>
                 </div>
-                
-                <div class="md:col-span-3">
-                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-6">Corporate Office</h5>
-                    <ul class="space-y-4 text-sm text-charcoal/60">
-                        <li class="flex items-start gap-3"><i data-feather="map-pin" class="text-accent shrink-0 mt-0.5"></i> <span>Nairobi, Kenya</span></li>
-                        <li class="flex items-start gap-3"><i data-feather="mail" class="w-5 h-5 text-accent shrink-0 mt-0.5"></i> <span>info@lotan.insure</span></li>
+                <div class="md:col-span-4">
+                    <h5 class="text-xs font-bold text-forest uppercase tracking-widest mb-5">Corporate Office</h5>
+                    <ul class="space-y-3 text-sm text-charcoal/55">
+                        <li class="flex items-start gap-2"><i data-feather="map-pin" class="text-accent w-4 h-4 shrink-0"></i> Nairobi, Kenya</li>
+                        <li class="flex items-start gap-2"><i data-feather="mail" class="text-accent w-4 h-4 shrink-0"></i> info@lia.insure</li>
                     </ul>
                 </div>
             </div>
-            
             <div class="pt-8 border-t border-slateBorder flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-charcoal/50">
-                <p>&copy; 2026 Lotan Insurance Limited. All rights reserved.</p>
-                <div class="flex flex-wrap gap-6 items-center">
+                <p>&copy; 2026 Lotan Insurance Agency Limited. All rights reserved.</p>
+                <div class="flex flex-wrap gap-5 items-center">
                     <span class="font-semibold text-forest">IRA Licence No: IRA/05/26054/2026</span>
-                    <a href="#" class="hover:text-accent transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-accent transition-colors">Terms of Service</a>
+                    <a href="#" class="footer-link">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
                 </div>
             </div>
-            
         </div>
     </footer>
 
